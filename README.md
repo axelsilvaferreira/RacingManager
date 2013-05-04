@@ -8,4 +8,6 @@ Foi criado um esquema hierarquia de classes, que ainda não é definitivo. Na pr
 Ps: abusem nos commits.
 
 
-Axel@ Comecei a implementar a classe equipa e sub classes.
+Axel@ 	Comecei a implementar a classe equipa e sub classes.
+		Adicionei um ficheiro com o esquema do programa.
+		Pode ser descarregado : (http://www.yworks.com/en/products_yfiles_about.html)
