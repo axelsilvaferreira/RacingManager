@@ -18,3 +18,4 @@
 *.out
 *.app
 /RacingManager/nbproject/private/
+/RacingManager/build/
