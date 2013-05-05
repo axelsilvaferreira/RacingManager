@@ -34,7 +34,7 @@ public abstract class Veiculo implements Serializable
         this.modelo      = "";
         this.pilotos     = new String[2]; // ****** Sera necessario inicializar?
         this.hibrido     = false;
-        this.categoria   = "";
+      //  this.categoria   = "";
     }
     
     /**

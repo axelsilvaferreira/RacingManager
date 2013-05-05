@@ -13,8 +13,10 @@ import java.io.Serializable;
  * 
  * @version 1.0
  */
-public class GT extends Veiculo implements Serializable 
-{
+public class GT extends Veiculo implements Serializable
+{   // Versão de serialização
+    private static final long serialVersionUID = 1L;
+    
     private static float fiabilidade;
 
     @Override
