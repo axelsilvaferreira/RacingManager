@@ -19,3 +19,4 @@
 *.app
 /RacingManager/nbproject/private/
 /RacingManager/build/
+/RacingManager/dist/
