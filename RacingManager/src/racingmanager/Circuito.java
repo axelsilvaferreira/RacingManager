@@ -24,13 +24,13 @@ public class Circuito implements Serializable
         private Record record;      // Record 
 
     public Circuito(String Nome, Integer nVoltas, Integer tMedio, Integer tWett, Integer pRain, Integer tBox, Record record) {
-        this.Nome = Nome;
-        this.nVoltas = nVoltas;
-        this.tMedio = tMedio;
-        this.tWett = tWett;
-        this.pRain = pRain;
-        this.tBox = tBox;
-        this.record = record;
+        this.Nome       = Nome;
+        this.nVoltas    = nVoltas;
+        this.tMedio     = tMedio;
+        this.tWett      = tWett;
+        this.pRain      = pRain;
+        this.tBox       = tBox;
+        this.record     = record;
     }
     
     public Circuito(){
