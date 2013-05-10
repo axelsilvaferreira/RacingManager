@@ -18,7 +18,11 @@ public class RacingManager {
        // TODO code application logic here               
         
         
-        
+      Record rec = new Record();
+      Veiculo carro = new GT();
+      Circuito monaco = new Circuito("Monaco",50,118,15,10,20);
+      
+      
         
         
         

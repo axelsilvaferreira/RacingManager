@@ -20,9 +20,13 @@ public abstract class Veiculo implements Serializable
         // Estrutura de dados
         private String marca;        // Marca
         private String modelo;       // Modelo
-        private String[] pilotos;    // Estrutura de Pilotos
+        private Piloto piloto1;      // Primeiro Piloto
+        private Piloto piloto2;      // Seguno Piloto 
+        private boolean pAtual;      // Piloto atual
         private boolean hibrido;     // V - Hibrido / F - Não Hibrido
-        //private String categoria;       // Classe do Veiculo
+        private int cc;              // Cilindrada
+        private int cv;              // Potencia
+        
    
 
     /**
@@ -32,23 +36,29 @@ public abstract class Veiculo implements Serializable
     {   // initialização das variáveis de instância
         this.marca       = "";
         this.modelo      = "";
-        this.pilotos     = new String[2]; // ****** Sera necessario inicializar?
+        this.piloto1     = null;
+        this.piloto2     = null;
+        this.pAtual      = true;
         this.hibrido     = false;
-      //  this.categoria   = "";
+        this.cc          = 0;
+        this.cv          = 0;
+        
     }
     
     /**
      * Construtor da categoria Veiculo com argumentos
      */
-    public Veiculo(String marca, String modelo, String p1, String p2, boolean h, String categoria) 
+    public Veiculo(String marca, String modelo, Piloto p1, Piloto p2, boolean pAtual,boolean h, int cc, int cv) 
     {   // initialização das variáveis de instância
         this.marca       = marca;
         this.modelo      = modelo;
-        this.pilotos     = new String[2];
-        this.pilotos[0]  = p1;
-        this.pilotos[1]  = p2;
+        this.piloto1     = p1;
+        this.piloto2     = p2;
+        this.pAtual      = pAtual;
         this.hibrido     = h;
-       // this.categoria   = categoria;
+        this.cc          = cc;
+        this.cv          = cv;
+       
     }
     
     /**
@@ -58,11 +68,13 @@ public abstract class Veiculo implements Serializable
     {   // initialização das variáveis de instância
         this.marca       = v.getMarca();
         this.modelo      = v.getModelo();
-        this.pilotos     = new String[2];
-        this.pilotos[0]  = v.getPiloto(1);
-        this.pilotos[1]  = v.getPiloto(2);
+        this.piloto1     = v.getPiloto2();
+        this.piloto2     = v.getPiloto1();
+        this.pAtual      = v.getpAtual();
         this.hibrido     = v.getHibrido();
-       // this.categoria   = v.getCategoria();
+        this.cc          = v.getCC();
+        this.cv          = v.getCV();
+                
     }
 
     public String getMarca() 
@@ -81,42 +93,45 @@ public abstract class Veiculo implements Serializable
      * @param i numero do piloto 1 / 2.
      * @return O Nome do Piloto correspondente ao indice.
      */
-    public String getPiloto(int i) 
-    { return this.pilotos[i-1]; }
+    public Piloto getPiloto1() 
+    { return this.piloto1; }
+    
+    public void setPiloto1(Piloto p)
+    {   this.piloto1 = p;   }
     
     /* Metodo que devolve o array de pilotos
      * @return p O array de pilotos.
      */
-    public String[] getPiloto() 
-    { /* String[] p = new String[2];
-      int i;
-      
-      for (i=0;i<2;i++)
-      { p[i] = this.pilotos[i];}            // ***** VER SE È NECESSARIO
-       
-      return p;
-     */
-        return this.pilotos;
-    }
+    public Piloto getPiloto2() 
+    { return this.piloto2; }
+    
+    public void setPiloto2(Piloto p)
+    {   this.piloto2 = p;   }
+    
+    public boolean getpAtual() 
+    { return this.pAtual; }
+    
+    public void setPiloto2(boolean pa)
+    {   this.pAtual = pa;   }
     
     public boolean getHibrido()
     {   return this.hibrido; }
-    
-    public void setPilotos(String[] pilotos) 
-    {   this.pilotos = pilotos;   }
-
-    public boolean isHibrido() 
-    {   return hibrido;  }
 
     public void setHibrido(boolean hibrido) 
     {   this.hibrido = hibrido;   }
-/*
-    public String getCategoria() 
-    {   return categoria;  }
 
-    public void setCategoria(String categoria) 
-    {   this.categoria = categoria;  }
- */   
+    public int getCC() 
+    { return this.cc; }
+    
+    public void setCC(int cc)
+    {   this.cc = p;   }
+    
+    public int getCV() 
+    { return this.cv; }
+    
+    public void setCV(int cv)
+    {   this.cv = p;   }
+    
     /**
      * Metodo abstrato que calcula o tempo da proxima volta para um veiculo.
      * Este método tem que ser implementado nas subclasses de cada categoria de veiculo.
