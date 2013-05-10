@@ -26,7 +26,7 @@ public abstract class Veiculo implements Serializable
         private boolean hibrido;     // V - Hibrido / F - Não Hibrido
         private int cc;              // Cilindrada
         private int cv;              // Potencia
-        
+        private int tTotal;          // Tempo acomulado da corriga
    
 
     /**
@@ -42,6 +42,7 @@ public abstract class Veiculo implements Serializable
         this.hibrido     = false;
         this.cc          = 0;
         this.cv          = 0;
+        this.tTotal      = 0;
         
     }
     
@@ -58,7 +59,7 @@ public abstract class Veiculo implements Serializable
         this.hibrido     = h;
         this.cc          = cc;
         this.cv          = cv;
-       
+        this.tTotal      = 0;
     }
     
     /**
@@ -74,6 +75,7 @@ public abstract class Veiculo implements Serializable
         this.hibrido     = v.getHibrido();
         this.cc          = v.getCC();
         this.cv          = v.getCV();
+        this.tTotal      = v.gettTotal();
                 
     }
 
@@ -124,13 +126,19 @@ public abstract class Veiculo implements Serializable
     { return this.cc; }
     
     public void setCC(int cc)
-    {   this.cc = p;   }
+    {   this.cc = cc;   }
     
     public int getCV() 
     { return this.cv; }
     
     public void setCV(int cv)
-    {   this.cv = p;   }
+    {   this.cv = cv;   }
+    
+    public int gettTotal() 
+    { return this.tTotal; }
+    
+    public void settTotal(int t)
+    {   this.tTotal = t;   }
     
     /**
      * Metodo abstrato que calcula o tempo da proxima volta para um veiculo.

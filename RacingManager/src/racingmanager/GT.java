@@ -17,31 +17,23 @@ public class GT extends Veiculo implements Serializable
 {   // Versão de serialização
     private static final long serialVersionUID = 1L;
     
-    private static float fiabilidade;
-
+    private static float fiabilidade;           // Fibilidade da classe.
+    private static final int  tClassVolta = 20; // Tempo em seg do desvio da classe ao tempo medio.
     
     
-    
-    
-    public GT() 
-    {
-        
+    public GT() {
     }
 
-    public GT(String marca, String modelo, String p1, String p2, boolean h, String categoria) 
-    {
-        super(marca, modelo, p1, p2, h, categoria);
+    public GT(String marca, String modelo, Piloto p1, Piloto p2, boolean pAtual, boolean h, int cc, int cv) {
+        super(marca, modelo, p1, p2, pAtual, h, cc, cv);
     }
 
-    public GT(Veiculo v) 
-    {
+    public GT(Veiculo v) {
         super(v);
     }
-    
-    
-    
-    
 
+    
+    
     @Override
     public int tempoProximaVolta() 
     {   
