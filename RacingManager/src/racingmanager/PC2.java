@@ -17,6 +17,8 @@ public class PC2 extends Veiculo implements Serializable
 {   // Versão de serialização
     private static final long serialVersionUID = 1L;
     
+    private static final int  tClassVolta = 20; // Tempo em seg do desvio da classe ao tempo medio.
+
     private static float fiabilidade;
 
     @Override
