@@ -15,7 +15,7 @@ public class Circuito implements Serializable
     private static final long serialVersionUID = 1L;
     
     // Estrutura de dados
-        private String Nome ;       // Nome do circuito
+        private String nome ;       // Nome do circuito
         private Integer nVoltas ;   // Numero de voltas
         private Integer tMedio ;    // Tempo Médio por volta
         private Integer tWett;      // Tempo extra (ou %) do piso molhado
@@ -24,7 +24,7 @@ public class Circuito implements Serializable
         private Record record;      // Record 
 
     public Circuito(String Nome, Integer nVoltas, Integer tMedio, Integer tWett, Integer pRain, Integer tBox, Record record) {
-        this.Nome       = Nome;
+        this.nome       = Nome;
         this.nVoltas    = nVoltas;
         this.tMedio     = tMedio;
         this.tWett      = tWett;
@@ -34,7 +34,7 @@ public class Circuito implements Serializable
     }
     
     public Circuito(){
-        this.Nome = "";
+        this.nome = "";
         this.nVoltas = 0;
         this.tMedio = 0;
         this.tWett = 0;
@@ -44,7 +44,7 @@ public class Circuito implements Serializable
     }
         
      public Circuito(Circuito c) {
-        this.Nome = c.getNome();
+        this.nome = c.getNome();
         this.nVoltas = c.getnVoltas();
         this.tMedio = c.gettMedio();
         this.tWett = c.gettWett();
@@ -59,11 +59,11 @@ public class Circuito implements Serializable
         
         
     public String getNome() {
-        return Nome;
+        return nome;
     }
 
     public void setNome(String Nome) {
-        this.Nome = Nome;
+        this.nome = Nome;
     }
 
     public Integer getnVoltas() {
