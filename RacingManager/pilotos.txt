@@ -1,2 +1,4 @@
+nome,nacionalidade,skill,skillWet,palmare,equipa
 Manuel Castro,Portuguesa,3,87,51,3
 Carlos Eduardo,Brasileira,0,71,60,2
+Lewis Hamilton,Britanico,6,99,83,6
