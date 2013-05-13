@@ -4,6 +4,8 @@
  */
 package racingmanager;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author axelferreira
@@ -15,13 +17,20 @@ public class RacingManager {
      */
     public static void main(String[] args) 
     {
-       // TODO code application logic here                 
+       // TODO code application logic here 
+      
+      FileInput.carToString();
+      FileInput.cirToString();
+      FileInput.pilToString();
+      
+      
       Record rec = new Record();
       Veiculo carro = new GT();
-      Circuito monaco = new Circuito("Monaco",50,118,15,10,20);
+      
+      //Circuito monaco = new Circuito("Monaco",50,118,15,10,20);
       
       
-      
+      /*
       int i = monaco.getnVoltas();
       
       
@@ -30,7 +39,7 @@ public class RacingManager {
           
       }
         
-        
+     */   
         
         
     }
