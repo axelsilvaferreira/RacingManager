@@ -30,16 +30,4 @@ public class Participantes implements Serializable
    public void removeVeiculo(Integer t){
        participantes.remove(t);
     }
-<<<<<<< HEAD
- 
-    
-   
-   
-   
-   
-   
-           
-   }
-=======
 }
->>>>>>> Parsing OK, Main OK
