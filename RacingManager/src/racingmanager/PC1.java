@@ -28,7 +28,18 @@ public class PC1 extends Veiculo implements Serializable
 
     @Override
     public String toString() 
-    {   throw new UnsupportedOperationException("Not supported yet.");
+    {   StringBuilder str = new StringBuilder();
+    
+        str.append(this.getClass().toString());
+        str.append(this.getMarca());
+        str.append(this.getModelo());
+        str.append(this.getPiloto1().toString());
+        str.append(this.getPiloto2().toString());
+        if (this.getpAtual())
+        {str.append(this.getPiloto1().toString());}
+        else {str.append(this.getPiloto2().toString());}
+        
+        return str.toString();
     }
 
     @Override
