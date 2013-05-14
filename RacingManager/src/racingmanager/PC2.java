@@ -43,8 +43,24 @@ public class PC2 extends Veiculo implements Serializable
     }
 
     @Override
-    public boolean equals() 
-    {   throw new UnsupportedOperationException("Not supported yet.");
+    public boolean equals(Object o) 
+    {      boolean bool=false;
+
+        if (o instanceof PC2)
+            { PC2 c = (PC2) o;
+                
+                if ( //FORMA SIMPLES
+                        this.toString().equals(c.toString()) 
+                     /* FORMA COMPLEXA
+                     super.getMarca().equals(c.getMarca())      &&
+                     super.getModelo().equals(c.getModelo()))   &&
+                     super.getPiloto1().equals(c.getPiloto1())  &&
+                     super.getPiloto2().equals(c.getPiloto2())      
+                     */ 
+                   )
+                 {bool = true;}
+            }
+        return bool;  
     }
     
     

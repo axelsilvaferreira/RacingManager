@@ -5,6 +5,7 @@
 package racingmanager;
 
 import java.io.Serializable;
+import java.util.Random;
 
 /**
  * Classe que repsresenta um veiculo do tipo GT
@@ -17,29 +18,75 @@ public class GT extends Veiculo implements Serializable
 {   // Versão de serialização
     private static final long serialVersionUID = 1L;
     
-    private static float fiabilidade;           // Fibilidade da classe.
+    private static float fiabilidade = 99;           // Fibilidade da classe.
     private static final int  tClassVolta = 20; // Tempo em seg do desvio da classe ao tempo medio.
     
     
-    public GT() {
+    public GT() 
+    {   super("", "", null, null, true, false, 3000, 240); }
+
+    public GT(String marca, String modelo, Piloto p1, Piloto p2, boolean pAtual, boolean h, int cc, int cv) 
+    {   super(marca, modelo, p1, p2, pAtual, h, cc, cv);
+        if (cc >=3000 && cc<=4500)
+        {   super.setCC(3500); }
     }
 
-    public GT(String marca, String modelo, Piloto p1, Piloto p2, boolean pAtual, boolean h, int cc, int cv) {
-        super(marca, modelo, p1, p2, pAtual, h, cc, cv);
-    }
+    public GT(Veiculo v) 
+    {   super(v);  }
 
-    public GT(Veiculo v) {
-        super(v);
+    
+    public void setCC_GT(int cc)
+    {
+        if ((cc >=3000 ) && (cc<=4500))
+        { super.setCC(cc); } 
     }
-
+    
     
     
     @Override
-    public int tempoProximaVolta() 
-    {   
-        throw new UnsupportedOperationException("Not supported yet.");
+    public int tempoProximaVolta(Corrida c) 
+    { boolean weather = c.getisRain();
+      int time, skill;  
+      Piloto pilot;
+      
+      // Escolhe o Piloto
+      if (this.getpAtual())
+      {pilot = this.getPiloto1();}
+      else {pilot = this.getPiloto2();}      
+      
+      // Verifica as condições climatéricas e dá a skill correspondente
+      if (weather)    
+      {skill = pilot.getwSkill();}           // Se chover
+      else {skill = pilot.getSkill();}       // Se não chover
+      
+      // Tempo médio de uma volta á pista para esta classe
+      time = ((c.getCircuito().gettMedio()) + tClassVolta);   
+      if (weather) {time += c.getCircuito().gettWett();}    // Acrescenta o tempo extra da chuva
+      
+      
+      
+      
+      
+      
+      
+      // Calcular o tempo medio
+      Random rand = new Random();
+      boolean val = rand.nextInt(25)==0;
+      
+      if( new Random().nextDouble() <= 0.04 ) 
+      { //we hit the 1/25 ( 4% ) case.
+      }
+      
+      
+      
+      
+      
+        
+        return time;
     }
 
+    
+    
     @Override
     public String toString() 
     {   StringBuilder str = new StringBuilder();
@@ -54,13 +101,31 @@ public class GT extends Veiculo implements Serializable
         else {str.append(this.getPiloto2().toString());}
         
         return str.toString();
-        
     }
 
+    
+    
     @Override
-    public boolean equals() 
-    {   throw new UnsupportedOperationException("Not supported yet.");
+    public boolean equals(Object o) 
+    { boolean ret;
+        
+        if (o instanceof GT)
+            { GT c = (GT) o;
+                
+                if ( super.getMarca().equals(c.getMarca()) &&
+                     super.getModelo().equals(c.getModelo()) &&
+                     super.getPiloto1().toString().equals(c.getPiloto1().toString()) &&
+                     super.getPiloto2().toString().equals(c.getPiloto2().toString())
+                   )
+                 {ret = true;}
+                
+                else {ret = false;}
+            }
+        else {ret = false;}
+        
+        return ret;   
     }
+    
     
     
     
