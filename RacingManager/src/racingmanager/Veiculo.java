@@ -26,7 +26,7 @@ public abstract class Veiculo implements Serializable
         private boolean hibrido;     // V - Hibrido / F - Não Hibrido
         private int cc;              // Cilindrada
         private int cv;              // Potencia
-        private int tTotal;          // Tempo acomulado da corriga
+        private int tTotal;          // Tempo acomulado da corrida
    
 
     /**
@@ -145,7 +145,7 @@ public abstract class Veiculo implements Serializable
      * Este método tem que ser implementado nas subclasses de cada categoria de veiculo.
      * @return tempo em segundos da proxima volta
      */
-    public abstract int tempoProximaVolta();
+    public abstract int tempoProximaVolta(Corrida c);
     
     
     
@@ -162,7 +162,7 @@ public abstract class Veiculo implements Serializable
      * Metodo que compara o veiculo com outro.
      * @return Verdeiro ou Falso.
      */
-    public abstract boolean equals();
+    public abstract boolean equals(Object o);
     
     
     
