@@ -75,7 +75,7 @@ public abstract class Veiculo implements Serializable
         this.modelo      = v.getModelo();
         this.piloto1     = v.getPiloto2();
         this.piloto2     = v.getPiloto1();
-        this.pAtual      = v.getpAtual();
+        this.pAtual      = v.getPAtual();
         this.hibrido     = v.getHibrido();
         this.cc          = v.getCC();
         this.cv          = v.getCV();

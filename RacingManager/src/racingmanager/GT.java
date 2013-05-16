@@ -59,7 +59,7 @@ public class GT extends Veiculo implements Serializable
     
     // PROVAVELMENTE ABSTRACT DE VEICULO
     public void geraFiabilidade()
-    { int i;
+    { int i=2;
         
       
         
@@ -75,7 +75,7 @@ public class GT extends Veiculo implements Serializable
       Piloto pilot;
       
       // Escolhe o Piloto
-      if (this.getpAtual())
+      if (this.getPAtual())
       {pilot = this.getPiloto1();}
       else {pilot = this.getPiloto2();}      
       
@@ -121,7 +121,7 @@ public class GT extends Veiculo implements Serializable
         str.append(this.getModelo());
         str.append(this.getPiloto1().toString());
         str.append(this.getPiloto2().toString());
-        if (this.getpAtual())
+        if (this.getPAtual())
         {str.append(this.getPiloto1().toString());}
         else {str.append(this.getPiloto2().toString());}
         
