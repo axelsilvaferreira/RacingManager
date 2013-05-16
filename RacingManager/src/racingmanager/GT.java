@@ -24,15 +24,15 @@ public class GT extends Veiculo implements Serializable
     
     
     public GT() 
-    {   super("", "", null, null, true, 0, 3000, 240); 
+    {   super("", "", "", null, null, true, 0, 3000, 240); 
         Random rand = new Random();
         int ran = rand.nextInt(5);  // Taxa de decrescimo a cada volta (equivale a %)
         // criação da fiabilidade do carro
         fiabilidade = 0;
     }
 
-    public GT(String marca, String modelo, Piloto p1, Piloto p2, boolean pAtual, Integer h, int cc, int cv) 
-    {   super(marca, modelo, p1, p2, pAtual, h, cc, cv);
+    public GT(String equipa, String marca, String modelo, Piloto p1, Piloto p2, boolean pAtual, Integer h, int cc, int cv) 
+    {   super(equipa, marca, modelo, p1, p2, pAtual, h, cc, cv);
         if (cc >=3000 && cc<=4500)
         {   super.setCC(3500); }
         fiabilidade = 0;

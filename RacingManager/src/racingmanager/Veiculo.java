@@ -18,6 +18,7 @@ public abstract class Veiculo implements Serializable
     private static final long serialVersionUID = 1L;
     
         // Estrutura de dados
+        private String equipa;       // Equipa
         private String marca;        // Marca
         private String modelo;       // Modelo
         private Piloto piloto1;      // Primeiro Piloto
@@ -34,6 +35,7 @@ public abstract class Veiculo implements Serializable
      */
     public Veiculo() 
     {   // initialização das variáveis de instância
+        this.equipa      = "";
         this.marca       = "";
         this.modelo      = "";
         this.piloto1     = null;
@@ -49,8 +51,9 @@ public abstract class Veiculo implements Serializable
     /**
      * Construtor da categoria Veiculo com argumentos
      */
-    public Veiculo(String marca, String modelo, Piloto p1, Piloto p2, boolean pAtual, Integer h, int cc, int cv) 
+    public Veiculo(String equipa, String marca, String modelo, Piloto p1, Piloto p2, boolean pAtual, Integer h, int cc, int cv) 
     {   // initialização das variáveis de instância
+        this.equipa      = equipa;
         this.marca       = marca;
         this.modelo      = modelo;
         this.piloto1     = p1;
@@ -67,6 +70,7 @@ public abstract class Veiculo implements Serializable
      */
     public Veiculo(Veiculo v) 
     {   // initialização das variáveis de instância
+        this.equipa      = v.getEquipa();
         this.marca       = v.getMarca();
         this.modelo      = v.getModelo();
         this.piloto1     = v.getPiloto2();
@@ -79,6 +83,12 @@ public abstract class Veiculo implements Serializable
                 
     }
 
+    public String getEquipa() 
+    {   return equipa;  }
+
+    public void setEquipa(String equipa) 
+    {   this.equipa = equipa;  }
+    
     public String getMarca() 
     {   return marca;  }
 
