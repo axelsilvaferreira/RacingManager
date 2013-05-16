@@ -35,7 +35,7 @@ public class PC2 extends Veiculo implements Serializable
         str.append(this.getModelo());
         str.append(this.getPiloto1().toString());
         str.append(this.getPiloto2().toString());
-        if (this.getpAtual())
+        if (this.getPAtual())
         {str.append(this.getPiloto1().toString());}
         else {str.append(this.getPiloto2().toString());}
         
