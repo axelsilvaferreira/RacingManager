@@ -13,7 +13,7 @@ import java.io.Serializable;
  * 
  * @version 1.0
  */
-public abstract class Piloto implements Serializable
+public class Piloto implements Serializable
 {   // Versão de serialização
     private static final long serialVersionUID = 1L;
     

@@ -52,10 +52,10 @@ public class FileInput {
 
     public static void carToString () {
         ArrayList<String> carros = carInput();
-        Frota f = new Frota();
-        Integer pAtual,hibrido,cc,cv,tTotal;
+        Participantes f = new Participantes();
+        Integer categoria,pAtual,hibrido,cc,cv,tTotal;
         
-        Veiculo v = new Veiculo();
+        Veiculo v;
         int index = 0;
         
         while (index < carros.size()) {
@@ -69,14 +69,30 @@ public class FileInput {
         for (int i=0; i < campos.length; i++) {
             output.append("Campo " + i + ": " + campos[i] + "\n");
         }
-        // Adicionar a Frota
-        v.setEquipa(campos[0]);
-        v.setMarca(campos[1]);
-        v.setModelo(campos[2]);
-        pAtual = Integer.parseInt(campos[6]);
-        v.setPAtual(pAtual);
         
-        f.adVeiculo(v);
+        // Adicionar a Frota
+        // 1 - GT ; 2 - PC1 ; 3 - PC2 ; 4 - SC
+        
+        categoria = Integer.parseInt(campos[1]);
+        pAtual = Integer.parseInt(campos[6]);
+        
+        
+        switch (categoria) {
+            case 1:
+                //v = new GT(campos[0], campos[2], campos[3], null, true, pAtual, 0, 0, 0);
+                break;
+            case 2:
+                v = new PC1();
+                break;
+            case 3:
+                v = new PC2();
+                break;
+            case 4:
+                v = new SC();
+                break;
+        }
+       
+        //f.adVeiculo(v);
         
         System.out.println(output);
         output = null;
@@ -107,6 +123,9 @@ public class FileInput {
     
     public static void pilToString () {
         ArrayList<String> pilotos = pilInput();
+        Piloto p;
+        Integer skill,skillWet,palmares;
+        
         int index = 0;
         
         while (index < pilotos.size()) {
@@ -120,6 +139,13 @@ public class FileInput {
         for (int i=0; i < campos.length; i++) {
             output.append("Campo " + i + ": " + campos[i] + "\n");
         }
+        
+        skill = Integer.parseInt(campos[2]);
+        skillWet = Integer.parseInt(campos[3]);
+        palmares = Integer.parseInt(campos[4]);
+        
+        p = new Piloto(campos[0], campos[1], skill, skillWet, palmares, campos[5]);
+        //System.out.println("///// " + skill + "\\\\\\");
         System.out.println(output);
         output = null;
         index++;
