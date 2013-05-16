@@ -52,6 +52,10 @@ public class FileInput {
 
     public static void carToString () {
         ArrayList<String> carros = carInput();
+        Frota f = new Frota();
+        Integer pAtual,hibrido,cc,cv,tTotal;
+        
+        Veiculo v = new Veiculo();
         int index = 0;
         
         while (index < carros.size()) {
@@ -65,6 +69,14 @@ public class FileInput {
         for (int i=0; i < campos.length; i++) {
             output.append("Campo " + i + ": " + campos[i] + "\n");
         }
+        // Adicionar a Frota
+        v.setEquipa(campos[0]);
+        v.setMarca(campos[1]);
+        v.setModelo(campos[2]);
+        pAtual = Integer.parseInt(campos[6]);
+        v.setPAtual(pAtual);
+        
+        f.adVeiculo(v);
         
         System.out.println(output);
         output = null;
