@@ -23,7 +23,7 @@ public abstract class Veiculo implements Serializable
         private Piloto piloto1;      // Primeiro Piloto
         private Piloto piloto2;      // Seguno Piloto 
         private boolean pAtual;      // Piloto atual
-        private boolean hibrido;     // V - Hibrido / F - Não Hibrido
+        private int hibrido;         // Potencia do motor hibrido ou 0 se não tiver
         private int cc;              // Cilindrada
         private int cv;              // Potencia
         private int tTotal;          // Tempo acomulado da corrida
@@ -39,7 +39,7 @@ public abstract class Veiculo implements Serializable
         this.piloto1     = null;
         this.piloto2     = null;
         this.pAtual      = true;
-        this.hibrido     = false;
+        this.hibrido     = 0;
         this.cc          = 0;
         this.cv          = 0;
         this.tTotal      = 0;
@@ -49,7 +49,7 @@ public abstract class Veiculo implements Serializable
     /**
      * Construtor da categoria Veiculo com argumentos
      */
-    public Veiculo(String marca, String modelo, Piloto p1, Piloto p2, boolean pAtual,boolean h, int cc, int cv) 
+    public Veiculo(String marca, String modelo, Piloto p1, Piloto p2, boolean pAtual, Integer h, int cc, int cv) 
     {   // initialização das variáveis de instância
         this.marca       = marca;
         this.modelo      = modelo;
@@ -116,10 +116,10 @@ public abstract class Veiculo implements Serializable
     public void setPiloto2(boolean pa)
     {   this.pAtual = pa;   }
     
-    public boolean getHibrido()
+    public Integer getHibrido()
     {   return this.hibrido; }
 
-    public void setHibrido(boolean hibrido) 
+    public void setHibrido(Integer hibrido) 
     {   this.hibrido = hibrido;   }
 
     public int getCC() 

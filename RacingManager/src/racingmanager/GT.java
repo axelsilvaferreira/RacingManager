@@ -18,21 +18,30 @@ public class GT extends Veiculo implements Serializable
 {   // Versão de serialização
     private static final long serialVersionUID = 1L;
     
-    private static float fiabilidade = 99;           // Fibilidade da classe.
+    // Fiabilidade do Carro de classe GT depende da cilindrada (- é melhor) e decresce a cada volta.
+    private Integer fiabilidade ;           // Fibilidade do carro.
     private static final int  tClassVolta = 20; // Tempo em seg do desvio da classe ao tempo medio.
     
     
     public GT() 
-    {   super("", "", null, null, true, false, 3000, 240); }
+    {   super("", "", null, null, true, 0, 3000, 240); 
+        Random rand = new Random();
+        int ran = rand.nextInt(5);  // Taxa de decrescimo a cada volta (equivale a %)
+        // criação da fiabilidade do carro
+        fiabilidade = 0;
+    }
 
-    public GT(String marca, String modelo, Piloto p1, Piloto p2, boolean pAtual, boolean h, int cc, int cv) 
+    public GT(String marca, String modelo, Piloto p1, Piloto p2, boolean pAtual, Integer h, int cc, int cv) 
     {   super(marca, modelo, p1, p2, pAtual, h, cc, cv);
         if (cc >=3000 && cc<=4500)
         {   super.setCC(3500); }
+        fiabilidade = 0;
     }
 
-    public GT(Veiculo v) 
-    {   super(v);  }
+    public GT(GT v) 
+    {   super(v);  
+        fiabilidade = v.getFiabilidade();
+    }
 
     
     public void setCC_GT(int cc)
@@ -40,6 +49,17 @@ public class GT extends Veiculo implements Serializable
         if ((cc >=3000 ) && (cc<=4500))
         { super.setCC(cc); } 
     }
+    
+    public int getFiabilidade()
+    { return this.fiabilidade; }
+    
+    public void setFiabilidade(int f)
+    {   this.fiabilidade = f; }
+    
+    
+    // PROVAVELMENTE ABSTRACT DE VEICULO
+    public void geraFiabilidade()
+    {}
     
     
     

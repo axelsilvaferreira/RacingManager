@@ -22,8 +22,8 @@ public class SC extends Veiculo implements Serializable
     private static float fiabilidade;
 
     @Override
-    public int tempoProximaVolta() 
-    {   throw new UnsupportedOperationException("Not supported yet.");
+    public int tempoProximaVolta(Corrida c) 
+    {   return 0;
     }
 
     @Override
