@@ -120,10 +120,10 @@ public abstract class Veiculo implements Serializable
     public void setPiloto2(Piloto p)
     {   this.piloto2 = p;   }
     
-    public boolean getpAtual() 
+    public boolean getPAtual() 
     { return this.pAtual; }
     
-    public void setPiloto2(boolean pa)
+    public void setPAtual(boolean pa)
     {   this.pAtual = pa;   }
     
     public Integer getHibrido()

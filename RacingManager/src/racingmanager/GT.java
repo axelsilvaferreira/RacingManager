@@ -59,7 +59,12 @@ public class GT extends Veiculo implements Serializable
     
     // PROVAVELMENTE ABSTRACT DE VEICULO
     public void geraFiabilidade()
-    {}
+    { int i;
+        
+      
+        
+      this.setFiabilidade(i);
+    }
     
     
     
