@@ -65,6 +65,7 @@ public class FileInput {
         for (int i=0; i < campos.length; i++) {
             output.append("Campo " + i + ": " + campos[i] + "\n");
         }
+        
         System.out.println(output);
         output = null;
         index++;
