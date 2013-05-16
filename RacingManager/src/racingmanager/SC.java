@@ -21,6 +21,32 @@ public class SC extends Veiculo implements Serializable
     
     private static float fiabilidade;
 
+    
+    
+    public SC() 
+    { super();
+      this.fiabilidade = 0;
+    }
+
+    public SC(String equipa, String marca, String modelo, Piloto p1, Piloto p2, boolean pAtual, Integer h, int cc, int cv) {
+        super(equipa, marca, modelo, p1, p2, pAtual, h, cc, cv);
+    }
+
+    public SC(Veiculo v) {
+        super(v);
+    }
+
+    
+    
+    
+    
+    public Veiculo clone()
+    { Veiculo v = new SC(this);
+        
+        return v;
+    }
+    
+    
     @Override
     public int tempoProximaVolta(Corrida c) 
     {   return 0;

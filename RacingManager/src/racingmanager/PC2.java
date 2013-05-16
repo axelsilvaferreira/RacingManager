@@ -21,6 +21,17 @@ public class PC2 extends Veiculo implements Serializable
 
     private static float fiabilidade;
 
+    
+    
+    
+    public Veiculo clone()
+    { Veiculo v = new PC2(this);
+        
+        return v;
+    }
+    
+    
+    
     @Override
     public int tempoProximaVolta(Corrida c) 
     {   return 0;

@@ -6,6 +6,8 @@ package racingmanager;
 
 import java.io.Serializable;
 import java.util.Random;
+import java.lang.Math.*;
+
 
 /**
  * Classe que repsresenta um veiculo do tipo GT
@@ -53,17 +55,50 @@ public class GT extends Veiculo implements Serializable
     public int getFiabilidade()
     { return this.fiabilidade; }
     
-    public void setFiabilidade(int f)
+    public void setFiabilidade(Integer f)
     {   this.fiabilidade = f; }
+    
+    
+    private static int showRandomInteger(int aStart, int aEnd, Random aRandom)
+    { if ( aStart > aEnd ) 
+      {  throw new IllegalArgumentException("Start cannot exceed End."); }
+      //get the range, casting to long to avoid overflow problems
+      long range = (long)aEnd - (long)aStart + 1;
+      // compute a fraction of the range, 0 <= frac < range
+      long fraction = (long)(range * aRandom.nextDouble());
+      int randomNumber =  (int)(fraction + aStart);    
+      return randomNumber;
+    }
     
     
     // PROVAVELMENTE ABSTRACT DE VEICULO
     public void geraFiabilidade()
-    { int i=2;
-        
+    { Integer i2 = getCC();
+      double   i = Double.parseDouble(i2.toString());
+      double hib = Double.parseDouble(getHibrido().toString());
+      double    h = 0;
+      double    f = 2;
+      double r;
+      int START = 1;
+      int END = 99;
+      Random ran = new Random();
       
+      
+      showRandomInteger(START, END, ran);
+      r = Double.parseDouble(ran.toString());
+      
+      if (hib > 0) { h = Math.log(hib);}
+      
+      f = 1/((6000)-(i)+(r)-(h));
+      i2 = Double.parseDouble(f);
+      this.setFiabilidade(i2);
+    }
+    
+    
+    public Veiculo clone()
+    { Veiculo v = new GT(this);
         
-      this.setFiabilidade(i);
+        return v;
     }
     
     

@@ -7,7 +7,7 @@ package racingmanager;
 import java.io.Serializable;
 
 /**
- * Superclass abstrata que representa um Veiculo
+ * Superclass que representa um Piloto
  * 
  * @author axelferreira
  * 
