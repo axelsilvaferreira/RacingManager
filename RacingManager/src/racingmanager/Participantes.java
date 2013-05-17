@@ -45,7 +45,7 @@ public class Participantes implements Serializable
    * @return veiculo se encontrado
    */
   public boolean contemVeiculo(Veiculo v)
-    {   return frota.containsKey(v.getEquipa());   }
+    {   return frota.containsKey(v.gettTotal());   }
   
     /**
      * Método que remove um veiculo da frota
@@ -67,25 +67,19 @@ public class Participantes implements Serializable
   }
   
   /**
-   * Método que selecciona um veiculo para um dado servico
-   * @param s servico a realizar
-   * @return v veiculo que realizara o servico
-   * /
-  public Veiculo escolheVeiculo(Servico s){
-    Collection c = frota.values();
-    Iterator<Veiculo> itr = c.iterator();
-    Veiculo v=null;
-    
-        while (itr.hasNext() && !(v.podeTransportar(s))) 
-            { v = itr.next();            
-            }
-    
-        if ( !(v.podeTransportar(s))) 
-             { v = null; }            
-            
-    return v;
-    }  
-  */
+   * Método que prepara os veiculos para a proxima corrida
+   */
+  public void preparaCorrida()
+  {  Collection c = frota.values();
+     Iterator<Veiculo> itr = c.iterator();
+     Veiculo v=null;
+     
+     while (itr.hasNext())
+     { v = itr.next();
+       v.geraFiabilidade();
+     }
+   }  
+  
   /**
    * Método que cria um array de objectos com os campos de um veiculo
    * @return array de objectos
@@ -126,7 +120,7 @@ public class Participantes implements Serializable
      * @return Iterador do veiculo
      * @throws Exception excepção de critério inexistente
      * /
-    public Iterator<Veiculo> ordVei(String alg) throws Exception
+    public Iterator<Veiculo> ordVei(Integer alg) throws Exception
     {
         Comparator<Veiculo> cmp = comps.get(alg);
         
