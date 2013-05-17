@@ -21,7 +21,7 @@ public class GT extends Veiculo implements Serializable
     private static final long serialVersionUID = 1L;
     
     // Fiabilidade do Carro de classe GT depende da cilindrada (- é melhor) e decresce a cada volta.
-    private Integer fiabilidade ;           // Fibilidade do carro.
+    private double fiabilidade ;           // Fibilidade do carro.
     private static final int  tClassVolta = 20; // Tempo em seg do desvio da classe ao tempo medio.
     
     
@@ -52,10 +52,10 @@ public class GT extends Veiculo implements Serializable
         { super.setCC(cc); } 
     }
     
-    public int getFiabilidade()
+    public double getFiabilidade()
     { return this.fiabilidade; }
     
-    public void setFiabilidade(Integer f)
+    public void setFiabilidade(double f)
     {   this.fiabilidade = f; }
     
     
@@ -73,25 +73,22 @@ public class GT extends Veiculo implements Serializable
     
     // PROVAVELMENTE ABSTRACT DE VEICULO
     public void geraFiabilidade()
-    { Integer i2 = getCC();
-      double   i = Double.parseDouble(i2.toString());
-      double hib = Double.parseDouble(getHibrido().toString());
-      double    h = 0;
-      double    f = 2;
-      double r;
-      int START = 1;
-      int END = 99;
-      Random ran = new Random();
-      
-      
-      showRandomInteger(START, END, ran);
-      r = Double.parseDouble(ran.toString());
+    { Integer    i2 = getCC();
+      double      i = Double.parseDouble(i2.toString());
+      double    hib = Double.parseDouble(getHibrido().toString());
+      double      h = 0;
+      double f;
+      double  start = 1;
+      double    end = 999;
+      double random = new Random().nextDouble();
+      double result = start + (random * (end - start));
       
       if (hib > 0) { h = Math.log(hib);}
       
-      f = 1/((6000)-(i)+(r)-(h));
-      i2 = Double.parseDouble(f);
-      this.setFiabilidade(i2);
+      // 6K - CC + Ran(0-999) - (ln(hibrido))
+      f = 1/((6000)-(i)+(result)-(h));
+      f*=100;
+      this.fiabilidade = f;
     }
     
     
