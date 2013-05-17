@@ -19,21 +19,18 @@ public class PC1 extends Veiculo implements Serializable
     
     private static final int  tClassVolta = 0; // Tempo em seg do desvio da classe ao tempo medio.
 
-    private double fiabilidade;
 
     public PC1() 
-    {   super();
-        this.fiabilidade = 0;
-    }
+    {   super(); }
 
-    public PC1(String equipa, String marca, String modelo, Piloto p1, Piloto p2, boolean pAtual, Integer h, int cc, int cv) 
-    {   super(equipa, marca, modelo, p1, p2, pAtual, h, cc, cv);
-        this.fiabilidade = 0;
+    public PC1(String equipa, String marca, String modelo, Piloto p1, Piloto p2, boolean pAtual, Integer h, int cv, double f) 
+    {   super(equipa, marca, modelo, p1, p2, pAtual, h, 6000, cv, f);
+        
     }
 
     public PC1(Veiculo v) 
     {   super(v);
-        this.fiabilidade = v.getFiabilidade();
+        
     }
 
     public double getFiabilidade() 

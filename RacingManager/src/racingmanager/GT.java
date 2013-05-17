@@ -135,6 +135,8 @@ public class GT extends Veiculo implements Serializable
       
       timeD = time + tRan - hibr - skill;
       
+      // Reduz a fiabilidade em 2%
+      setFiabilidade(getFiabilidade() * 0.98);
       
       time = (int) timeD;
         
