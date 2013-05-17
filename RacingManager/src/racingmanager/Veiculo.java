@@ -150,11 +150,7 @@ public abstract class Veiculo implements Serializable
     public void settTotal(int t)
     {   this.tTotal = t;   }
     
-    public Veiculo clone()
-    { Veiculo v = new Veiculo(this);
-        
-        return v;
-    }
+    public abstract Veiculo clone();
     
     /**
      * Metodo abstrato que calcula o tempo da proxima volta para um veiculo.

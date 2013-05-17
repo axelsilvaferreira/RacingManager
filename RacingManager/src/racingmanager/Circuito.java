@@ -18,7 +18,7 @@ public class Circuito implements Serializable
         private String nome ;       // Nome do circuito
         private Integer nVoltas ;   // Numero de voltas
         private Integer tMedio ;    // Tempo Médio por volta
-        private Integer tWett;      // Tempo extra (ou %) do piso molhado
+        private Integer tWett;      // Tempo extra em % do piso molhado
         private Integer pRain;      // Percentagem de chuver
         private Integer tBox;       // Tempo dispendido para ir a box
         private Record record;      // Record 

@@ -21,8 +21,8 @@ public class Piloto implements Serializable
     
     private String nome;
     private String nacionalidade;
-    private Integer skill;
-    private Integer wSkill;
+    private Integer skill;          // Skill (1-100)
+    private Integer wSkill;         // skill tempo molhado (1-100)
     private Integer vitorias;
     private String equipa;
 

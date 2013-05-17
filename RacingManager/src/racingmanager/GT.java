@@ -92,6 +92,7 @@ public class GT extends Veiculo implements Serializable
     }
     
     
+    @Override
     public Veiculo clone()
     { Veiculo v = new GT(this);
         
@@ -103,8 +104,17 @@ public class GT extends Veiculo implements Serializable
     @Override
     public int tempoProximaVolta(Corrida c) 
     { boolean weather = c.getisRain();
+      double timeD, hibr;
       int time, skill;  
       Piloto pilot;
+      Random ran = new Random();
+      double r = showRandomInteger(0, 100, ran);
+      double f = this.getFiabilidade();
+      
+      // Verifica se completa a volta
+      if (f >= r)
+      {return -1;}
+      
       
       // Escolhe o Piloto
       if (this.getPAtual())
@@ -115,29 +125,27 @@ public class GT extends Veiculo implements Serializable
       if (weather)    
       {skill = pilot.getwSkill();}           // Se chover
       else {skill = pilot.getSkill();}       // Se não chover
+      // Calcula a skill para a formula
+      timeD = skill;
+      skill = (int) Math.log(timeD);
       
-      // Tempo médio de uma volta á pista para esta classe
+      // Tempo médio de uma volta á pista para esta classe para as condições climatéricas atuais
       time = ((c.getCircuito().gettMedio()) + tClassVolta);   
-      if (weather) {time += c.getCircuito().gettWett();}    // Acrescenta o tempo extra da chuva
+      if (weather) {time *= c.getCircuito().gettWett();}    // Acrescenta o tempo extra da chuva se chover
+      
+      // Calcula a redução do motor hibrido no tempo
+      timeD = this.getHibrido();
+      hibr = Math.log(timeD);
       
       
+      // Calcular uma variação aleatoria no tempo medio
+      int tRan = showRandomInteger(-10, 10, ran);
+ 
+      
+      timeD = time + tRan - hibr - skill;
       
       
-      
-      
-      
-      // Calcular o tempo medio
-      Random rand = new Random();
-      boolean val = rand.nextInt(25)==0;
-      
-      if( new Random().nextDouble() <= 0.04 ) 
-      { //we hit the 1/25 ( 4% ) case.
-      }
-      
-      
-      
-      
-      
+      time = (int) timeD;
         
         return time;
     }
