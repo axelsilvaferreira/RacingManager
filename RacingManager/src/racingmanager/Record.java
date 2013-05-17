@@ -43,32 +43,23 @@ public class Record implements Serializable
     
     
     
-    
-    
-    
-    public Integer getTime() {
-        return time;
-    }
+    public Integer getTime() 
+    {   return time;  }
 
-    public void setTime(Integer time) {
-        this.time = time;
-    }
+    public void setTime(Integer time) 
+    {   this.time = time;  }
 
-    public String getPilot() {
-        return pilot;
-    }
+    public String getPilot() 
+    {   return pilot;  }
 
-    public void setPilot(String pilot) {
-        this.pilot = pilot;
-    }
+    public void setPilot(String pilot) 
+    {   this.pilot = pilot;  }
 
-    public String getCarro() {
-        return carro;
-    }
+    public String getCarro() 
+    {   return carro;  }
 
-    public void setCarro(String carro) {
-        this.carro = carro;
-    }
+    public void setCarro(String carro) 
+    {   this.carro = carro;  }
     
     
     

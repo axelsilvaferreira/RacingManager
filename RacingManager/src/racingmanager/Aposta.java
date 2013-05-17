@@ -63,6 +63,32 @@ public class Aposta
     public void setCorrida(Corrida corrida)
     {   this.corrida = corrida;}
 
+    @Override
+    public int hashCode()
+    {
+        int hash = 5;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (obj == null)
+        {   return false; }
+        if (getClass() != obj.getClass())
+        {   return false; }
+        final Aposta other = (Aposta) obj;
+        if ((this.apostador == null) ? (other.apostador != null) : !this.apostador.equals(other.apostador))
+        {   return false; }
+        if ((this.equipa == null) ? (other.equipa != null) : !this.equipa.equals(other.equipa))
+        {   return false; }
+        if (this.montante != other.montante && (this.montante == null || !this.montante.equals(other.montante)))
+        {   return false; }
+        if (this.corrida != other.corrida && (this.corrida == null || !this.corrida.equals(other.corrida)))
+        {   return false; }
+        return true;
+    }
+
    
     
     
