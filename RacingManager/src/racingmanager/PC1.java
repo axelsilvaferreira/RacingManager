@@ -21,7 +21,7 @@ public class PC1 extends Veiculo implements Serializable
     private static final long serialVersionUID = 1L;
     
     private static final int  tClassVolta = 0; // Tempo em seg do desvio da classe ao tempo medio.
-    private static final double fiabilidade = 85; // Fiabilidade do carro
+    private static final double fiabilidade = 0.85; // Fiabilidade do carro
 
     public PC1() 
     {   super(); }
@@ -49,9 +49,9 @@ public class PC1 extends Veiculo implements Serializable
     public void geraFiabilidade()
     { double f = fiabilidade;
       Random ran = new Random();
-      double r = showRandomInteger(-20, 20, ran);
-    
-        f = (f/(60+r));
+      double r = showRandomInteger(-7, 7, ran);
+        
+        f = (1/(f+r));
     
         setFiabilidade(f);
     }

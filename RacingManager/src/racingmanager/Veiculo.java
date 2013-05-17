@@ -28,7 +28,7 @@ public abstract class Veiculo implements Serializable
         private int cc;              // Cilindrada
         private int cv;              // Potencia
         private int tTotal;          // Tempo acomulado da corrida
-        private double fiabilidade;   // Fiabilidade do carro
+        private double fiabilidade;  // Fiabilidade do carro 0-100
    
 
     /**
