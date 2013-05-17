@@ -20,43 +20,34 @@ public class GT extends Veiculo implements Serializable
 {   // Versão de serialização
     private static final long serialVersionUID = 1L;
     
-    // Fiabilidade do Carro de classe GT depende da cilindrada (- é melhor) e decresce a cada volta.
-    private double fiabilidade ;           // Fibilidade do carro.
+    
     private static final int  tClassVolta = 20; // Tempo em seg do desvio da classe ao tempo medio.
     
     
     public GT() 
-    {   super("", "", "", null, null, true, 0, 3000, 240); 
-        Random rand = new Random();
-        int ran = rand.nextInt(5);  // Taxa de decrescimo a cada volta (equivale a %)
-        // criação da fiabilidade do carro
-        fiabilidade = 0;
+    {   super();
+        setCC(0);
     }
 
-    public GT(String equipa, String marca, String modelo, Piloto p1, Piloto p2, boolean pAtual, Integer h, int cc, int cv) 
-    {   super(equipa, marca, modelo, p1, p2, pAtual, h, cc, cv);
-        if (cc >=3000 && cc<=4500)
-        {   super.setCC(3500); }
-        fiabilidade = 0;
+    public GT(String equipa, String marca, String modelo, Piloto p1, Piloto p2, boolean pAtual, Integer h, int cc, int cv, double f) 
+    {   super(equipa, marca, modelo, p1, p2, pAtual, h, cc, cv, f);
+        setCC(cc);
     }
 
     public GT(GT v) 
-    {   super(v);  
-        fiabilidade = v.getFiabilidade();
+    {   super(v); 
+        setCC(v.getCC());
     }
 
-    
-    public void setCC_GT(int cc)
+    @Override
+    public void setCC(int cc)
     {
         if ((cc >=3000 ) && (cc<=4500))
-        { super.setCC(cc); } 
+        {   Random ran = new Random();
+            int cli = showRandomInteger(3000, 4500, ran);
+            this.setCC(cli); 
+        } 
     }
-    
-    public double getFiabilidade()
-    { return this.fiabilidade; }
-    
-    public void setFiabilidade(double f)
-    {   this.fiabilidade = f; }
     
     
     private static int showRandomInteger(int aStart, int aEnd, Random aRandom)
@@ -88,7 +79,7 @@ public class GT extends Veiculo implements Serializable
       // 6K - CC + Ran(0-999) - (ln(hibrido))
       f = 1/((6000)-(i)+(result)-(h));
       f*=100;
-      this.fiabilidade = f;
+      setFiabilidade(f);
     }
     
     

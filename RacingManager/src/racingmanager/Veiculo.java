@@ -28,6 +28,7 @@ public abstract class Veiculo implements Serializable
         private int cc;              // Cilindrada
         private int cv;              // Potencia
         private int tTotal;          // Tempo acomulado da corrida
+        private double fiabilidade;   // Fiabilidade do carro
    
 
     /**
@@ -45,13 +46,13 @@ public abstract class Veiculo implements Serializable
         this.cc          = 0;
         this.cv          = 0;
         this.tTotal      = 0;
-        
+        this.fiabilidade = 0;
     }
     
     /**
      * Construtor da categoria Veiculo com argumentos
      */
-    public Veiculo(String equipa, String marca, String modelo, Piloto p1, Piloto p2, boolean pAtual, Integer h, int cc, int cv) 
+    public Veiculo(String equipa, String marca, String modelo, Piloto p1, Piloto p2, boolean pAtual, Integer h, int cc, int cv, double f) 
     {   // initialização das variáveis de instância
         this.equipa      = equipa;
         this.marca       = marca;
@@ -63,6 +64,7 @@ public abstract class Veiculo implements Serializable
         this.cc          = cc;
         this.cv          = cv;
         this.tTotal      = 0;
+        this.fiabilidade = f;
     }
     
     /**
@@ -80,7 +82,7 @@ public abstract class Veiculo implements Serializable
         this.cc          = v.getCC();
         this.cv          = v.getCV();
         this.tTotal      = v.gettTotal();
-                
+        this.fiabilidade = v.getFiabilidade();
     }
 
     public String getEquipa() 
@@ -132,13 +134,13 @@ public abstract class Veiculo implements Serializable
     public void setHibrido(Integer hibrido) 
     {   this.hibrido = hibrido;   }
 
-    public int getCC() 
+    public int getCC()
     { return this.cc; }
     
-    public void setCC(int cc)
-    {   this.cc = cc;   }
+    public abstract void setCC(int cc);
+    //{   this.cc = cc;   }
     
-    public int getCV() 
+    public int getCV()
     { return this.cv; }
     
     public void setCV(int cv)
@@ -149,6 +151,15 @@ public abstract class Veiculo implements Serializable
     
     public void settTotal(int t)
     {   this.tTotal = t;   }
+
+    public double getFiabilidade() 
+    {   return fiabilidade; }
+
+    public void setFiabilidade(double fiabilidade) 
+    {   this.fiabilidade = fiabilidade; }
+    
+    
+    
     
     public abstract Veiculo clone();
     
@@ -158,7 +169,6 @@ public abstract class Veiculo implements Serializable
      * @return tempo em segundos da proxima volta
      */
     public abstract int tempoProximaVolta(Corrida c);
-    
     
     
     @Override
