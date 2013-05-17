@@ -50,7 +50,11 @@ public class PC1 extends Veiculo implements Serializable
     { double f = fiabilidade;
       Random ran = new Random();
       double r = showRandomInteger(-7, 7, ran);
-        
+      double hib = Double.parseDouble(getHibrido().toString());
+      double h = 0;
+      
+      
+      
         f = (1/(f+r));
     
         setFiabilidade(f);
@@ -91,6 +95,10 @@ public class PC1 extends Veiculo implements Serializable
         timeD = this.getHibrido();
         hibr = Math.log(timeD);
         
+        //Calcula o tempo da volta
+        timeD = time;
+        
+        time = (int) timeD;
         
         return time;
     }
