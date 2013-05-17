@@ -137,8 +137,8 @@ public abstract class Veiculo implements Serializable
     public int getCC()
     { return this.cc; }
     
-    public abstract void setCC(int cc);
-    //{   this.cc = cc;   }
+    public void setCC(int cc)
+    {   this.cc = cc;   }
     
     public int getCV()
     { return this.cv; }
@@ -170,6 +170,9 @@ public abstract class Veiculo implements Serializable
      */
     public abstract int tempoProximaVolta(Corrida c);
     
+    
+    public abstract void geraFiabilidade();
+
     
     @Override
     public abstract String toString();

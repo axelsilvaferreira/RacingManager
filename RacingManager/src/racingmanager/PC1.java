@@ -5,6 +5,9 @@
 package racingmanager;
 
 import java.io.Serializable;
+import java.util.Random;
+import java.lang.Math.*;
+import javax.jws.Oneway;
 
 /**
  * Classe que repsresenta um veiculo do tipo PC1
@@ -18,41 +21,78 @@ public class PC1 extends Veiculo implements Serializable
     private static final long serialVersionUID = 1L;
     
     private static final int  tClassVolta = 0; // Tempo em seg do desvio da classe ao tempo medio.
-
+    private static final double fiabilidade = 85; // Fiabilidade do carro
 
     public PC1() 
     {   super(); }
 
     public PC1(String equipa, String marca, String modelo, Piloto p1, Piloto p2, boolean pAtual, Integer h, int cv, double f) 
-    {   super(equipa, marca, modelo, p1, p2, pAtual, h, 6000, cv, f);
-        
-    }
+    {   super(equipa, marca, modelo, p1, p2, pAtual, h, 6000, cv, f); }
 
     public PC1(Veiculo v) 
-    {   super(v);
-        
+    {   super(v); 
+        this.setCC();
     }
 
-    public double getFiabilidade() 
-    {   return fiabilidade; }
-
-    public void setFiabilidade(double fiabilidade) 
-    {   this.fiabilidade = fiabilidade; }
-
     
     
+    public void setCC()
+    { super.setCC(6000); }
     
     
     public Veiculo clone()
     { Veiculo v = new PC1(this);
-        
-        return v;
+      return v;
     }
     
+    @Override
+    public void geraFiabilidade()
+    { double f = fiabilidade;
+      Random ran = new Random();
+      double r = showRandomInteger(-20, 20, ran);
+    
+        f = (f/(60+r));
+    
+        setFiabilidade(f);
+    }
     
     @Override
     public int tempoProximaVolta(Corrida c) 
-    {   return 0;
+    {   boolean weather = c.getisRain();
+        double timeD, hibr;
+        int time, skill;  
+        Piloto pilot;
+        Random ran = new Random();
+        double r = showRandomInteger(0, 100, ran);
+        double f = this.getFiabilidade();
+        
+        // Verifica se completa a volta
+        if (f >= r)
+        {return -1;}
+        
+        // Escolhe o Piloto
+        if (this.getPAtual())
+        {pilot = this.getPiloto1();}
+        else {pilot = this.getPiloto2();}
+        
+        // Verifica as condições climatéricas e dá a skill correspondente
+        if (weather)    
+        {skill = pilot.getwSkill();}           // Se chover
+        else {skill = pilot.getSkill();}       // Se não chover
+        // Calcula a skill para a formula
+        timeD = skill;
+        skill = (int) Math.log(timeD);
+        
+        // Tempo médio de uma volta á pista para esta classe para as condições climatéricas atuais
+        time = ((c.getCircuito().gettMedio()) + tClassVolta);   
+        if (weather) {time *= c.getCircuito().gettWett();}    // Acrescenta o tempo extra da chuva se chover
+        
+        // Calcula a redução do motor hibrido no tempo
+        timeD = this.getHibrido();
+        hibr = Math.log(timeD);
+        
+        
+        return time;
     }
 
     @Override
@@ -92,6 +132,15 @@ public class PC1 extends Veiculo implements Serializable
         return bool;  
     }
     
-    
+    private static int showRandomInteger(int aStart, int aEnd, Random aRandom)
+    { if ( aStart > aEnd ) 
+      {  throw new IllegalArgumentException("Start cannot exceed End."); }
+      //get the range, casting to long to avoid overflow problems
+      long range = (long)aEnd - (long)aStart + 1;
+      // compute a fraction of the range, 0 <= frac < range
+      long fraction = (long)(range * aRandom.nextDouble());
+      int randomNumber =  (int)(fraction + aStart);    
+      return randomNumber;
+    }
     
 }

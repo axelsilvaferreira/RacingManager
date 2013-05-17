@@ -45,7 +45,7 @@ public class GT extends Veiculo implements Serializable
         if ((cc >=3000 ) && (cc<=4500))
         {   Random ran = new Random();
             int cli = showRandomInteger(3000, 4500, ran);
-            this.setCC(cli); 
+            super.setCC(cli); 
         } 
     }
     
@@ -85,9 +85,8 @@ public class GT extends Veiculo implements Serializable
     
     @Override
     public Veiculo clone()
-    { Veiculo v = new GT(this);
-        
-        return v;
+    { Veiculo v = new GT(this); 
+      return v;
     }
     
     
@@ -100,7 +99,7 @@ public class GT extends Veiculo implements Serializable
       Piloto pilot;
       Random ran = new Random();
       double r = showRandomInteger(0, 100, ran);
-      double f = this.getFiabilidade();
+      double f = getFiabilidade();
       
       // Verifica se completa a volta
       if (f >= r)
