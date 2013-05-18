@@ -7,7 +7,7 @@ package racingmanager;
 import java.io.Serializable;
 import java.util.Random;
 import java.lang.Math.*;
-import javax.jws.Oneway;
+//import javax.jws.Oneway;
 
 /**
  * Classe que repsresenta um veiculo do tipo PC1
@@ -21,7 +21,7 @@ public class PC1 extends Veiculo implements Serializable
     private static final long serialVersionUID = 1L;
     
     private static final int  tClassVolta = 0; // Tempo em seg do desvio da classe ao tempo medio.
-    private static final double fiabilidade = 0.85; // Fiabilidade do carro
+    private static final double fiabilidade = 85; // Fiabilidade do carro
 
     public PC1() 
     {   super(); }
