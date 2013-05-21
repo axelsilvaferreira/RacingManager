@@ -31,6 +31,9 @@ public class Participantes implements Serializable
   public void adVeiculo(Veiculo v) 
     {   frota.put(v.gettTotal(), v);  }
   
+  public TreeMap<Integer, Veiculo> getFrota() 
+    {  return frota;  }
+  
   /**
    * Método que verifica se o veiculo com uma dada matricula esta na frota
    * @param mat matricula usada para verificar
