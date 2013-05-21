@@ -5,8 +5,10 @@
 package racingmanager;
 
 
-import java.io.Serializable;
 import java.util.Random;
+import java.util.*;
+import java.io.*;
+import java.io.Serializable;
 
 /**
  *
@@ -25,12 +27,12 @@ public class Corrida implements Serializable
     private Participantes participante;
     private boolean isChuva;
 
-    public Corrida(Record primeiro, Record segundo, Record terceiro, Circuito circuito, Participantes participant) {
+    public Corrida(Record primeiro, Record segundo, Record terceiro, Circuito circuito, Participantes participante){
         this.primeiro = primeiro;
         this.segundo = segundo;
         this.terceiro = terceiro;
         this.circuito = circuito;
-        this.participante = participant;
+        this.participante = participante;
     }
     
     public Corrida() {
@@ -49,6 +51,14 @@ public class Corrida implements Serializable
 
     public Record getPrimeiro() {
         return primeiro;
+    }
+    
+    public Circuito getCircuito(){
+        return circuito;
+    }
+    
+    public void setCircuito(Circuito c){
+        this.circuito = c;
     }
 
     public void setPrimeiro(Record primeiro) {
@@ -71,14 +81,6 @@ public class Corrida implements Serializable
         this.terceiro = terceiro;
     }
 
-    public Circuito getCircuito() {
-        return circuito;
-    }
-
-    public void setCircuito(Circuito circuito) {
-        this.circuito = circuito;
-    }
-
     public Participantes getParticipante() {
         return participante;
     }
@@ -94,5 +96,32 @@ public class Corrida implements Serializable
     public void setRandomChuva() {
         this.isChuva = new Random().nextInt(this.circuito.getpRain())==0;
     }
-       
-}
+    
+    public void execCorrida(){
+        Collection c = this.participante.getFrota().values();
+        Iterator<Veiculo> itr = c.iterator();
+        Veiculo v = itr.next();
+        int i = v.tempoProximaVolta(this);
+            TreeMap<Integer ,Veiculo> p;
+            p = new TreeMap<Integer,Veiculo>();
+        while(this.circuito.getnVoltas()>=0){
+        while(itr.hasNext()){
+            if(i == -1){
+                v.settTotal(-1);
+            System.out.print("DNF");}
+            else{
+            v.settTotal(v.gettTotal() + i);
+            p.put(i,v);
+            System.out.print(p.firstEntry());
+            p.remove(p.firstKey());
+            System.out.print(p.firstEntry());
+            p.remove(p.firstKey());
+            System.out.print(p.firstEntry());
+                }
+             }
+         this.circuito.setnVoltas(this.circuito.getnVoltas()-1);
+          }
+        participante.adVeiculo(v);
+       }
+    }     
+  
