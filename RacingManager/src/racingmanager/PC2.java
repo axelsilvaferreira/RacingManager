@@ -5,6 +5,7 @@
 package racingmanager;
 
 import java.io.Serializable;
+import java.util.Random;
 
 /**
  * Classe que repsresenta um veiculo do tipo PC2
@@ -21,7 +22,39 @@ public class PC2 extends Veiculo implements Serializable
 
     private static float fiabilidade;
 
+    public PC2()
+    { super();}
+
+    public PC2(String equipa, String marca, String modelo, Piloto p1, Piloto p2, boolean pAtual, Integer h, int cc, int cv, double f)
+    {   super(equipa, marca, modelo, p1, p2, pAtual, h, cc, cv, f); 
+        this.setCC(cc);
+    }
+
+    public PC2(Veiculo v)
+    {   super(v);  
+        this.setCC(v.getCC());
+    }
+
+      @Override
+    public void setCC(int cc)
+    {
+        if ((cc >=4000 ) && (cc<=6000))
+        {   Random ran = new Random();
+            int cli = showRandomInteger(4000, 6000, ran);
+            super.setCC(cli); 
+        } 
+    }
     
+    private static int showRandomInteger(int aStart, int aEnd, Random aRandom)
+    { if ( aStart > aEnd ) 
+      {  throw new IllegalArgumentException("Start cannot exceed End."); }
+      //get the range, casting to long to avoid overflow problems
+      long range = (long)aEnd - (long)aStart + 1;
+      // compute a fraction of the range, 0 <= frac < range
+      long fraction = (long)(range * aRandom.nextDouble());
+      int randomNumber =  (int)(fraction + aStart);    
+      return randomNumber;
+    }
     
     
     public Veiculo clone()
