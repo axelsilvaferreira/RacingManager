@@ -46,16 +46,16 @@ public class PC1 extends Veiculo implements Serializable
     }
     
     @Override
-    public void geraFiabilidade()
+    public void geraFiabilidade(int nVoltas)
     { double f = fiabilidade;
       Random ran = new Random();
       double r = showRandomInteger(-7, 7, ran);
       double hib = Double.parseDouble(getHibrido().toString());
       double h = 0;
       
+      h = (int) Math.log(hib);
       
-      
-        f = (1/(f+r));
+        f = (1/(f + r + h));
     
         setFiabilidade(f);
     }

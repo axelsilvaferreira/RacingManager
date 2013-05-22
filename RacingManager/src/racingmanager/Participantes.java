@@ -72,14 +72,14 @@ public class Participantes implements Serializable
   /**
    * Método que prepara os veiculos para a proxima corrida
    */
-  public void preparaCorrida()
+  public void preparaCorrida(int nVoltas)
   {  Collection c = frota.values();
      Iterator<Veiculo> itr = c.iterator();
      Veiculo v=null;
      
      while (itr.hasNext())
      { v = itr.next();
-       v.geraFiabilidade();
+       v.geraFiabilidade(nVoltas);
      }
    }  
   

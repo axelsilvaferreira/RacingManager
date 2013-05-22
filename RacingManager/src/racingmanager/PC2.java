@@ -34,6 +34,8 @@ public class PC2 extends Veiculo implements Serializable
     {   super(v);  
         this.setCC(v.getCC());
     }
+    
+    
 
       @Override
     public void setCC(int cc)
@@ -62,12 +64,40 @@ public class PC2 extends Veiculo implements Serializable
         
         return v;
     }
+
+    @Override
+    public void geraFiabilidade(int nVoltas)
+    { Random ran = new Random();
+      double f = (0.7/nVoltas);
+      double r = showRandomInteger(-10, 10, ran);
+      double hib = Double.parseDouble(getHibrido().toString());
+      double h = 0;
+      if (hib > 0)
+      { h = (int) Math.log(hib);}
+      
+      
+        f = (f + (r/100) + h);
+    
+        setFiabilidade(f);
+    }
     
     
     
     @Override
     public int tempoProximaVolta(Corrida c) 
-    {   return 0;
+    {   int t=0;
+        Random ran = new Random();
+        double r = showRandomInteger(0, 100, ran);
+        double f = this.getFiabilidade();
+        
+        // Verifica se completa a volta
+        if (f >= r)
+        {return -1;}
+        
+        
+        
+        
+        return t;
     }
 
     @Override

@@ -63,7 +63,7 @@ public class GT extends Veiculo implements Serializable
     
     
     // PROVAVELMENTE ABSTRACT DE VEICULO
-    public void geraFiabilidade()
+    public void geraFiabilidade(int nVoltas)
     { Integer    i2 = getCC();
       double      i = Double.parseDouble(i2.toString());
       double    hib = Double.parseDouble(getHibrido().toString());

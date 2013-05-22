@@ -171,7 +171,7 @@ public abstract class Veiculo implements Serializable
     public abstract int tempoProximaVolta(Corrida c);
     
     
-    public abstract void geraFiabilidade();
+    public abstract void geraFiabilidade(int nVoltas);
 
     
     @Override
