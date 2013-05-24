@@ -85,16 +85,50 @@ public class PC2 extends Veiculo implements Serializable
     
     @Override
     public int tempoProximaVolta(Corrida c) 
-    {   int t=0;
+    {   int t=0, skill, time;
+        double timeD, hibr;
         Random ran = new Random();
         double r = showRandomInteger(0, 100, ran);
         double f = this.getFiabilidade();
+        Piloto pilot;
+        boolean weather = c.getisRain();
         
         // Verifica se completa a volta
         if (f >= r)
         {return -1;}
         
+        // Escolhe o Piloto
+        if (this.getPAtual())
+        {pilot = this.getPiloto1();}
+        else {pilot = this.getPiloto2();}
         
+        // Verifica as condições climatéricas e dá a skill correspondente
+        if (weather)    
+        {skill = pilot.getwSkill();}           // Se chover
+        else {skill = pilot.getSkill();}       // Se não chover
+        // Calcula a skill para a formula
+        timeD = skill;
+        skill = (int) Math.log(timeD);
+        
+        // Tempo médio de uma volta á pista para esta classe para as condições climatéricas atuais
+        time = ((c.getCircuito().gettMedio()) + tClassVolta);   
+        if (weather) {time *= c.getCircuito().gettWett();}    // Acrescenta o tempo extra da chuva se chover
+        
+        // Calcula a redução do motor hibrido no tempo
+        timeD = this.getHibrido();
+        if (timeD > 0)
+        { hibr = Math.log(timeD); }
+        else { hibr = timeD; }
+        
+        // Calcular uma variação aleatoria no tempo medio
+        int tRan = showRandomInteger(-10, 10, ran);
+        
+        timeD = time + tRan - hibr - skill;
+      
+        // Reduz a fiabilidade em 2%
+        //setFiabilidade(getFiabilidade() * 0.98);
+      
+        t = (int) timeD;
         
         
         return t;

@@ -125,8 +125,9 @@ public class GT extends Veiculo implements Serializable
       
       // Calcula a redução do motor hibrido no tempo
       timeD = this.getHibrido();
-      hibr = Math.log(timeD);
-      
+      if (timeD > 0)
+      { hibr = Math.log(timeD); }
+      else { hibr = timeD; }
       
       // Calcular uma variação aleatoria no tempo medio
       int tRan = showRandomInteger(-10, 10, ran);

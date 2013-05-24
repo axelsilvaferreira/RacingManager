@@ -93,7 +93,9 @@ public class PC1 extends Veiculo implements Serializable
         
         // Calcula a redução do motor hibrido no tempo
         timeD = this.getHibrido();
-        hibr = Math.log(timeD);
+        if (timeD > 0)
+        { hibr = Math.log(timeD); }
+        else { hibr = timeD; }
         
         //Calcula o tempo da volta
         timeD = time;
