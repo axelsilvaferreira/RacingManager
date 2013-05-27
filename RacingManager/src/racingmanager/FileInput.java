@@ -14,52 +14,61 @@ import java.io.*;
  * @author joaorua
  */
 public class FileInput {
-    public static ArrayList<String> carInput (){
-        ArrayList<String> linhas = new ArrayList<String> ();
+    
+    private ArrayList<String> carros;
+    private ArrayList<String> pilotos;
+    private ArrayList<String> circuitos;
+    
+    private Circuitos cirs;
+    
+    public void carInput (){
+        //ArrayList<String> linhas = new ArrayList<String> ();
         Scanner fichScan = null;
         try {
             fichScan = new Scanner(new FileReader("carros.txt"));
             fichScan.useDelimiter(System.getProperty("line.separator"));
-            while (fichScan.hasNext()) linhas.add(fichScan.next());
-        }
+            while (fichScan.hasNext()) carros.add(fichScan.next());
+        }        
+        
         catch (IOException e) { System.out.println(e.getMessage()); }
-        return linhas;
+        //return carros;
     }
     
-    public static ArrayList<String> cirInput (){
-        ArrayList<String> linhas = new ArrayList<String> ();
+    public void cirInput (){
+        //ArrayList<String> linhas = new ArrayList<String> ();
         Scanner fichScan = null;
         try {
             fichScan = new Scanner(new FileReader("circuitos.txt"));
             fichScan.useDelimiter(System.getProperty("line.separator"));
-            while (fichScan.hasNext()) linhas.add(fichScan.next());
+            while (fichScan.hasNext()) circuitos.add(fichScan.next());
         }
         catch (IOException e) { System.out.println(e.getMessage()); }
-        return linhas;
+        //return linhas;
     }
     
-    public static ArrayList<String> pilInput (){
-        ArrayList<String> linhas = new ArrayList<String> ();
+    public void pilInput (){
+        //ArrayList<String> linhas = new ArrayList<String> ();
         Scanner fichScan = null;
         try {
             fichScan = new Scanner(new FileReader("pilotos.txt"));
             fichScan.useDelimiter(System.getProperty("line.separator"));
-            while (fichScan.hasNext()) linhas.add(fichScan.next());
+            while (fichScan.hasNext()) pilotos.add(fichScan.next());
         }
         catch (IOException e) { System.out.println(e.getMessage()); }
-        return linhas;
+        //return linhas;
     }
 
-    public static void carToString () {
-        ArrayList<String> carros = carInput();
+    public void carToString () {
+        //ArrayList<String> carros = carInput();
+        ArrayList<String> c = carros;
         Participantes f = new Participantes();
         Integer categoria,pAtual,hibrido,cc,cv,tTotal;
         
         Veiculo v;
         int index = 0;
         
-        while (index < carros.size()) {
-        String linha = carros.get(index);
+        while (index < c.size()) {
+        String linha = c.get(index);
         
         String[] campos = linha.split(",");
         
@@ -100,45 +109,63 @@ public class FileInput {
         }
     }
     
-    public static void cirToString () {
-        ArrayList<String> circuitos = cirInput();
+    public void cirLoad () {
+        ArrayList<String> c = circuitos;
+        Integer l1,l2,l3,l4,l5,l6;
+        Record r;
+          
         int index = 0;
+        Circuito cir;
         
-        while (index < circuitos.size()) {
-        String linha = circuitos.get(index);
+        while (index < c.size()) {
+        String linha = c.get(index);
         
         String[] campos = linha.split(",");
         
-        StringBuilder output = new StringBuilder();
+        //StringBuilder output = new StringBuilder();
         
-        output.append("|Circuito| Index nº" + index + "\n\n");
-        for (int i=0; i < campos.length; i++) {
-            output.append("Campo " + i + ": " + campos[i] + "\n");
-        }
-        System.out.println(output);
-        output = null;
+        //output.append("|Circuito| Index nº" + index + "\n\n");
+        //for (int i=0; i < campos.length; i++) {
+            //output.append("Campo " + i + ": " + campos[i] + "\n");
+        //}
+        //System.out.println(output);
+        //output = null;
+        l1 = Integer.parseInt(campos[1]);
+        l2 = Integer.parseInt(campos[2]);
+        l3 = Integer.parseInt(campos[3]);
+        l4 = Integer.parseInt(campos[4]);
+        l5 = Integer.parseInt(campos[5]);
+        l6 = Integer.parseInt(campos[6]);
+        
+        r = new Record(l6, campos[7], campos[8]);
+        
+        cir = new Circuito(campos[0], l1, l2, l3, l4, l5, r);
+        
+        cirs.addCircuito(cir.clone());
         index++;
         }
     }
     
-    public static void pilToString () {
-        ArrayList<String> pilotos = pilInput();
+    public void pilLoad () {
+        ArrayList<String> pi = pilotos;
         Piloto p;
         Integer skill,skillWet,palmares;
         
         int index = 0;
         
-        while (index < pilotos.size()) {
-        String linha = pilotos.get(index);
+        while (index < pi.size()) {
+        String linha = pi.get(index);
         
         String[] campos = linha.split(",");
         
-        StringBuilder output = new StringBuilder();
+        //StringBuilder output = new StringBuilder();
         
+        /*
         output.append("|Piloto| Index nº" + index + "\n\n");
         for (int i=0; i < campos.length; i++) {
             output.append("Campo " + i + ": " + campos[i] + "\n");
         }
+        */
         
         skill = Integer.parseInt(campos[2]);
         skillWet = Integer.parseInt(campos[3]);
@@ -146,9 +173,11 @@ public class FileInput {
         
         p = new Piloto(campos[0], campos[1], skill, skillWet, palmares, campos[5]);
         //System.out.println("///// " + skill + "\\\\\\");
-        System.out.println(output);
-        output = null;
+        //System.out.println(output);
+        //output = null;
+        
         index++;
         }
     }
+ 
 }

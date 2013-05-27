@@ -114,8 +114,8 @@ public class Circuito implements Serializable
         this.record = record;
     }
         
-       
-
-        
+    public Circuito clone () {
+        return new Circuito(this);
+    } 
         
 }

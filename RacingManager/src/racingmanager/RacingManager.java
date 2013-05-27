@@ -19,9 +19,9 @@ public class RacingManager {
     {
        // TODO code application logic here 
       
-      FileInput.carToString();
-      FileInput.cirToString();
-      FileInput.pilToString();
+      //FileInput.carToString();
+      //FileInput.cirToString();
+      //FileInput.pilToString();
       
       
       Record rec = new Record();
