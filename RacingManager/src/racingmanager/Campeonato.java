@@ -4,11 +4,13 @@
  */
 package racingmanager;
 
+import java.io.Serializable;
+
 /**
  *
  * @author axelferreira
  */
-public class Campeonato 
+public class Campeonato implements Serializable
 {
     
     private Circuitos pistas;       // Estrutura de Circuitos

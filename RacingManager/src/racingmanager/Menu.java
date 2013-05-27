@@ -4,10 +4,14 @@
  */
 package racingmanager;
 
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
     /**
@@ -18,7 +22,6 @@ public class Menu extends javax.swing.JFrame implements Serializable
 {   
     private static final long serialVersionUID = 1L;
 
-    
     Campeonato c;   // Campeonato
     
     
@@ -150,6 +153,18 @@ public class Menu extends javax.swing.JFrame implements Serializable
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
+      try
+      {
+         FileInputStream fileIn = new FileInputStream("employee.ser");
+         ObjectInputStream in = new ObjectInputStream(fileIn);
+            try
+            {   setC((Campeonato) in.readObject());
+            } catch (ClassNotFoundException ex)
+            {   Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);   }
+         in.close();
+         fileIn.close();
+      }catch(IOException i)
+      { return; }
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jMenuItem10ActionPerformed
@@ -162,18 +177,13 @@ public class Menu extends javax.swing.JFrame implements Serializable
         // TODO add your handling code here:
         
       try
-      {
-         FileOutputStream fileOut =
-         new FileOutputStream("Campeonato.ser");
-         ObjectOutputStream out =
-                            new ObjectOutputStream(fileOut);
-         out.writeObject(e);
-         out.close();
-          fileOut.close();
+      {  FileOutputStream fileOut = new FileOutputStream("Campeonato.ser");
+         ObjectOutputStream out = new ObjectOutputStream(fileOut);
+                            out.writeObject(getC());
+                            out.close();
+         fileOut.close();
       } catch(IOException i)
-      {
-          i.printStackTrace();
-      }
+      {   i.printStackTrace(); }
 
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 /**
