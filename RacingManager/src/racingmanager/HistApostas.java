@@ -35,13 +35,5 @@ public class HistApostas implements Serializable
   
   public boolean contemAposta(Aposta c)
     {   return apostas.contains(c); }
-    
-    
-    
-    
-    
-    
-    
-    
-    
+  
 }

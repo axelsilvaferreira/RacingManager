@@ -17,7 +17,7 @@ public class Jogador implements Serializable
 
     private String nome;            // Nome
     private String morada;          // Morada
-    private Integer conta;          // Balanço da Conta Corrente
+    private double conta;          // Balanço da Conta Corrente
     private Aposta atual;           // Apostas Atuais
     private HistApostas historico;  // Historico de Apostas
 
@@ -29,7 +29,7 @@ public class Jogador implements Serializable
         historico = null;
     }
 
-    public Jogador(String nome, String morada, Integer conta, Aposta atual, HistApostas historico) 
+    public Jogador(String nome, String morada, double conta, Aposta atual, HistApostas historico) 
     {   this.nome = nome;
         this.morada = morada;
         this.conta = conta;
@@ -57,10 +57,10 @@ public class Jogador implements Serializable
     public void setMorada(String morada) 
     {   this.morada = morada;  }
 
-    public Integer getConta() 
+    public double getConta() 
     {   return conta;  }
 
-    public void setConta(Integer conta) 
+    public void setConta(double conta) 
     {   this.conta = conta;  }
 
     public Aposta getAtual() 
@@ -75,12 +75,8 @@ public class Jogador implements Serializable
     public void setHistorico(HistApostas historico) 
     {   this.historico = historico; }
     
-    
-    
-    
-    
-    
-    
-    
-    
+    public void addGanhos(){
+        this.setConta(this.getConta() + this.atual.getGanhos());
+        this.historico.addAposta(this.atual);
+    }
 }

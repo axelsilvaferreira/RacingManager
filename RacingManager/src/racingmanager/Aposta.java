@@ -17,7 +17,8 @@ public class Aposta
     private String equipa;          // equipa que foi apostada
     private Integer montante;       // montante apostado
     private Corrida corrida;        // Corrida onde foi feita a aposta
-
+    private Integer posicao;        //posicao em que foi feita a aposta
+    private double ganhos;         //devolve os ganhos sobre a aposta feita
     public Aposta() 
     {   apostador   = "";
         equipa      = "";
@@ -25,11 +26,14 @@ public class Aposta
         corrida     = null;
     }
 
-    public Aposta(String apostador, String equipa, Integer montante, Corrida corrida) 
+    public Aposta(String apostador, String equipa, Integer montante, Corrida corrida, Integer posicao, double ganhos) 
     {   this.apostador = apostador;
         this.equipa = equipa;
+        this.posicao = posicao;
         this.montante = montante;
         this.corrida = corrida;
+        this.posicao = posicao;
+        this.ganhos = ganhos;
     }
     
     public Aposta(Aposta a) 
@@ -37,6 +41,8 @@ public class Aposta
         equipa      = a.getEquipa();
         montante    = a.getMontante();
         corrida     = a.getCorrida();
+        posicao     = a.getPosicao();
+        ganhos      = a.getGanhos();
     }
 
     public String getApostador()
@@ -62,6 +68,32 @@ public class Aposta
 
     public void setCorrida(Corrida corrida)
     {   this.corrida = corrida;}
+    
+    public void setPosicao(Integer p)
+    {   this.posicao = p;}
+    
+    public Integer getPosicao()
+    {   return posicao;}
+    
+    public void setGanhos(Integer g){
+        this.ganhos = g;
+    }
+    
+    public double getGanhos(){
+        return ganhos;
+    }
+    
+    public void calculaGanhos(){
+        switch (this.posicao){
+            case 1: if(corrida.getPrimeiro().getCarro().contentEquals(this.equipa)){
+            this.ganhos = this.montante * 2;}
+            case 2: if(corrida.getSegundo().getCarro().contentEquals(this.equipa)){
+            this.ganhos = this.montante * 1.5;}
+            case 3: if(corrida.getTerceiro().getCarro().contentEquals(this.equipa)){
+            this.ganhos = this.montante * 1.3;}
+        }
+        otherwise: this.ganhos = 0;
+    }
 
     @Override
     public int hashCode()

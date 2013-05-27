@@ -17,9 +17,10 @@ public class Participantes implements Serializable
     private static final long serialVersionUID = 1L;
     // Variáveis de Instâmcia
     private TreeMap<Integer, Veiculo> frota;
-    
+    private Integer totalVitorias;
 
     
+  
   // Construtor de Classe
   public Participantes()  
     {   frota = new TreeMap<Integer, Veiculo>();  }  
@@ -33,6 +34,7 @@ public class Participantes implements Serializable
   
   public TreeMap<Integer, Veiculo> getFrota() 
     {  return frota;  }
+ 
   
   /**
    * Método que verifica se o veiculo com uma dada matricula esta na frota

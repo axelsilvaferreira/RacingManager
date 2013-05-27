@@ -23,7 +23,7 @@ public class Record implements Serializable
     public Record() 
     {
         this.time = 0;
-        this.pilot = "";
+        this.pilot = null;
         this.carro = "";
     }
     
@@ -52,19 +52,12 @@ public class Record implements Serializable
     public String getPilot() 
     {   return pilot;  }
 
-    public void setPilot(String pilot) 
-    {   this.pilot = pilot;  }
+    public void setPilot(String p) 
+    {   this.pilot = p;  }
 
     public String getCarro() 
     {   return carro;  }
 
     public void setCarro(String carro) 
-    {   this.carro = carro;  }
-    
-    
-    
-
-    
-    
-    
+    {   this.carro = carro;  }   
 }
