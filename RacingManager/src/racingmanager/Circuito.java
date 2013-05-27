@@ -116,6 +116,20 @@ public class Circuito implements Serializable
         
     public Circuito clone () {
         return new Circuito(this);
-    } 
+    }
+    
+    public String toString () {
+        StringBuilder s = new StringBuilder();
+        
+        s.append("Nome: " + this.nome + "\n");
+        s.append("Numero de Voltas: " + this.nVoltas + "\n");
+        s.append("Tempo Medio: " + this.tMedio + "\n");
+        s.append("Tempo c/ Chuva: " + this.tWett + "\n");
+        s.append("Chuva: " + this.pRain + "\n");
+        s.append("Tempo Box: " + this.tBox + "\n");
+        s.append( this.record.toString() + "\n");
+        
+        return s.toString();
+    }
         
 }
