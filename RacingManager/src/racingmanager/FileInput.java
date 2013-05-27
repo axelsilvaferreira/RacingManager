@@ -7,6 +7,7 @@ package racingmanager;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.*;
+import java.util.HashMap;
 
 
 /**
@@ -15,27 +16,30 @@ import java.io.*;
  */
 public class FileInput {
     
-    private ArrayList<String> carros;
-    private ArrayList<String> pilotos;
-    private ArrayList<String> circuitos;
+    private static ArrayList<String> carros;
+    private static ArrayList<String> pilotos;
+    private static ArrayList<String> circuitos;
     
-    private Circuitos cirs;
+    private static Circuitos cirs;
+    private static Piloto pils;
+    private static HashMap<String,Piloto> pS;
+    private static Veiculo veis;
     
-    public void carInput (){
-        //ArrayList<String> linhas = new ArrayList<String> ();
+    public static ArrayList<String> carInput (){
+        carros = new ArrayList<String>();
         Scanner fichScan = null;
         try {
             fichScan = new Scanner(new FileReader("carros.txt"));
             fichScan.useDelimiter(System.getProperty("line.separator"));
             while (fichScan.hasNext()) carros.add(fichScan.next());
         }        
-        
         catch (IOException e) { System.out.println(e.getMessage()); }
-        //return carros;
+        //System.out.println(carros);
+        return carros;
     }
     
-    public void cirInput (){
-        //ArrayList<String> linhas = new ArrayList<String> ();
+    public static ArrayList<String> cirInput (){
+        circuitos = new ArrayList<String>();
         Scanner fichScan = null;
         try {
             fichScan = new Scanner(new FileReader("circuitos.txt"));
@@ -43,11 +47,11 @@ public class FileInput {
             while (fichScan.hasNext()) circuitos.add(fichScan.next());
         }
         catch (IOException e) { System.out.println(e.getMessage()); }
-        //return linhas;
+        return circuitos;
     }
     
-    public void pilInput (){
-        //ArrayList<String> linhas = new ArrayList<String> ();
+    public static ArrayList<String> pilInput (){
+        pilotos = new ArrayList<String>();
         Scanner fichScan = null;
         try {
             fichScan = new Scanner(new FileReader("pilotos.txt"));
@@ -55,62 +59,63 @@ public class FileInput {
             while (fichScan.hasNext()) pilotos.add(fichScan.next());
         }
         catch (IOException e) { System.out.println(e.getMessage()); }
-        //return linhas;
+        return pilotos;
     }
 
-    public void carToString () {
-        //ArrayList<String> carros = carInput();
-        ArrayList<String> c = carros;
+    public void carLoad (HashMap<String,Piloto> pS) {
+        carros = carInput();
+        //ArrayList<String> c = carros;
+        Piloto p1 = new Piloto();
+        Piloto p2 = new Piloto();
         Participantes f = new Participantes();
-        Integer categoria,pAtual,hibrido,cc,cv,tTotal;
+        Integer categoria,h,cc,cv,fi;
+        Boolean pActual;
         
         Veiculo v;
         int index = 0;
         
-        while (index < c.size()) {
-        String linha = c.get(index);
+        while (index < carros.size()) {
+            String linha = carros.get(index);
+            String[] campos = linha.split(",");
         
-        String[] campos = linha.split(",");
+            categoria = Integer.parseInt(campos[1]);
+            pActual = Boolean.parseBoolean(campos[6]);
+            h = Integer.parseInt(campos[7]);
+            cc = Integer.parseInt(campos[8]);
+            cv = Integer.parseInt(campos[9]);
+            fi = Integer.parseInt(campos[10]);
+            // Adicionar a Frota
+            // 1 - GT ; 2 - PC1 ; 3 - PC2 ; 4 - SC
         
-        StringBuilder output = new StringBuilder();
-        
-        output.append("|Carro| Index nº" + index + "\n\n");
-        for (int i=0; i < campos.length; i++) {
-            output.append("Campo " + i + ": " + campos[i] + "\n");
-        }
-        
-        // Adicionar a Frota
-        // 1 - GT ; 2 - PC1 ; 3 - PC2 ; 4 - SC
-        
-        categoria = Integer.parseInt(campos[1]);
-        pAtual = Integer.parseInt(campos[6]);
-        
-        
-        switch (categoria) {
-            case 1:
-                //v = new GT(campos[0], campos[2], campos[3], null, true, pAtual, 0, 0, 0);
-                break;
-            case 2:
-                v = new PC1();
-                break;
-            case 3:
-                v = new PC2();
-                break;
-            case 4:
-                v = new SC();
-                break;
-        }
+            switch (categoria) {
+                case 1:
+                    //v = new GT(campos[0], campos[2], campos[3], null, true, pAtual, 0, 0, 0);
+                    p1 = pS.get(campos[4]);
+                    p2 = pS.get(campos[5]);
+                    v = new GT(campos[0],campos[2], campos[3],p1, p2, pActual, h, cc, cv, fi);
+                    break;
+                case 2:
+                    v = new PC1();
+                    break;
+                case 3:
+                    v = new PC2();
+                    break;
+                case 4:
+                    v = new SC();
+                    break;
+            }
        
-        //f.adVeiculo(v);
+            //f.adVeiculo(v);
         
-        System.out.println(output);
-        output = null;
-        index++;
+            //System.out.println(output);
+            //output = null;
+            index++;
         }
     }
     
-    public void cirLoad () {
-        ArrayList<String> c = circuitos;
+    public static Circuitos cirLoad () {
+        cirs = new Circuitos();
+        ArrayList<String> c = cirInput();
         Integer l1,l2,l3,l4,l5,l6;
         Record r;
           
@@ -144,11 +149,13 @@ public class FileInput {
         cirs.addCircuito(cir.clone());
         index++;
         }
+        return cirs;
     }
     
-    public void pilLoad () {
-        ArrayList<String> pi = pilotos;
-        Piloto p;
+    public static HashMap<String,Piloto> pilLoad () {
+        ArrayList<String> pi = pilInput();
+        Piloto p,e;
+        pS = new HashMap<String, Piloto>();
         Integer skill,skillWet,palmares;
         
         int index = 0;
@@ -172,12 +179,27 @@ public class FileInput {
         palmares = Integer.parseInt(campos[4]);
         
         p = new Piloto(campos[0], campos[1], skill, skillWet, palmares, campos[5]);
+        //e = new Piloto("a","b",1,2,3,"c");
         //System.out.println("///// " + skill + "\\\\\\");
         //System.out.println(output);
         //output = null;
-        
+        //System.out.println(p.getNome());
+        pS.put(p.getNome(), p);
+        //pS.put("a", e);
         index++;
         }
+        //System.out.println(pS.containsKey("Manuel Castro"));
+        return pS;
     }
  
+    public static void loadAll () {
+        pS = new HashMap<String, Piloto>();
+        cirs = new Circuitos();
+        
+        pS = pilLoad();
+        cirs = cirLoad();
+        System.out.println(pS.toString());
+        System.out.println(cirs.getCircuitoAtual());
+    }
+
 }

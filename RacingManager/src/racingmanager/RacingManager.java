@@ -22,7 +22,7 @@ public class RacingManager {
       //FileInput.carToString();
       //FileInput.cirToString();
       //FileInput.pilToString();
-      
+      FileInput.loadAll();
       
       Record rec = new Record();
       Veiculo carro = new GT();
