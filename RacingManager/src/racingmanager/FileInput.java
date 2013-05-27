@@ -196,7 +196,7 @@ public class FileInput {
         return pS;
     }
  
-    public static void loadAll () {
+    public static Campeonato loadAll () {
         pS = new HashMap<String, Piloto>();
         cirs = new Circuitos();
         veis = new Participantes();
@@ -210,7 +210,7 @@ public class FileInput {
         System.out.println(cirs.toString());
         System.out.println(veis.toString());
         c = new Campeonato(cirs, veis, null, null, null);
-        
+        return c;
     }
 
 }

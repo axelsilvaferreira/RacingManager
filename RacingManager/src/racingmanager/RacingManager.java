@@ -17,12 +17,12 @@ public class RacingManager {
      */
     public static void main(String[] args) 
     {
-       // TODO code application logic here 
-      
+      // TODO code application logic here 
+      Campeonato c = new Campeonato();
       //FileInput.carToString();
       //FileInput.cirToString();
       //FileInput.pilToString();
-      FileInput.loadAll();
+      c = FileInput.loadAll();
       
       Record rec = new Record();
       Veiculo carro = new GT();
