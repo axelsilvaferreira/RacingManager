@@ -102,7 +102,8 @@ public class Piloto implements Serializable
         this.equipa = equipa;
     }
 
- 
+    public Piloto clone()
+    {   return new Piloto(this);    }
     
     
     
