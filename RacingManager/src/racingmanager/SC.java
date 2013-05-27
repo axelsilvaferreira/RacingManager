@@ -73,7 +73,7 @@ public class SC extends Veiculo implements Serializable
         
         // Verifica se completa a volta
         if (f >= r)
-        {return -1;}
+        {return Integer.MAX_VALUE;}
         
         // Escolhe o Piloto
         if (this.getPAtual())

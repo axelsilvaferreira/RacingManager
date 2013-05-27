@@ -4,9 +4,13 @@
  */
 package racingmanager;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-/**
+
+    /**
  *
  * @author axelferreira
  */
@@ -70,6 +74,13 @@ public class Menu extends javax.swing.JFrame implements Serializable
         jMenu1.add(jMenuItem1);
 
         jMenuItem7.setText("Save Game");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem7);
 
         jMenuItem2.setText("Load Game");
@@ -124,6 +135,14 @@ public class Menu extends javax.swing.JFrame implements Serializable
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public Campeonato getC()
+    {   return c;   }
+
+    public void setC(Campeonato c)
+    {   this.c = c;  }
+
+    
+    
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here: NEW GAME
         this.c = new Campeonato();
@@ -138,7 +157,26 @@ public class Menu extends javax.swing.JFrame implements Serializable
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
-    /**
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jMenuItem7ActionPerformed
+    {//GEN-HEADEREND:event_jMenuItem7ActionPerformed
+        // TODO add your handling code here:
+        
+      try
+      {
+         FileOutputStream fileOut =
+         new FileOutputStream("Campeonato.ser");
+         ObjectOutputStream out =
+                            new ObjectOutputStream(fileOut);
+         out.writeObject(e);
+         out.close();
+          fileOut.close();
+      } catch(IOException i)
+      {
+          i.printStackTrace();
+      }
+
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+/**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
