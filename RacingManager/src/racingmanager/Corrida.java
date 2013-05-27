@@ -26,6 +26,7 @@ public class Corrida implements Serializable
     private Participantes participante;
     private boolean isChuva;
     private HistApostas apostas;
+    private Integer voltaActual;
 
     public Corrida(Record primeiro, Record segundo, Record terceiro, Circuito circuito, Participantes participante){
         this.primeiro = primeiro;
@@ -96,6 +97,14 @@ public class Corrida implements Serializable
     public void setRandomChuva() {
         this.isChuva = new Random().nextInt(this.circuito.getpRain())==0;
     }
+
+    public Integer getVoltaActual() {
+        return voltaActual;
+    }
+
+    public void setVoltaActual(Integer voltaActual) {
+        this.voltaActual = voltaActual;
+    }
     
     public void execCorrida(){
         Collection c = this.participante.getFrota().values();
@@ -104,7 +113,8 @@ public class Corrida implements Serializable
         int i1 = v.tempoProximaVolta(this);
             TreeMap<Integer ,Veiculo> p;
             p = new TreeMap<Integer,Veiculo>();
-        while(this.circuito.getnVoltas()>=0){
+            this.setVoltaActual(this.circuito.getnVoltas());
+        while(this.getVoltaActual()>=0){
         while(itr.hasNext()){
             if(i1 == Integer.MAX_VALUE){
                 v.settTotal(Integer.MAX_VALUE);
@@ -135,8 +145,9 @@ public class Corrida implements Serializable
         Veiculo v1 = itr1.next();
         while(itr1.hasNext()){
             int i3 = 0;
+            Record r = new Record(v1.gettTotal(), v1.getEquipa(), v1.getPiloto1().getNome());
             switch (i3){
-                case 0 : this.setPrimeiro(v1.getEquipa(),v1.gettTotal(),v1.getPiloto1().getNome());
+                case 0 : this.setPrimeiro(r);
             }
             System.out.print(v1.getEquipa());
             if(v1.gettTotal()!=Integer.MAX_VALUE){System.out.print(v1.gettTotal());}
