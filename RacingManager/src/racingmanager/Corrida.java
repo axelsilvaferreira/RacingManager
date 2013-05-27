@@ -106,8 +106,8 @@ public class Corrida implements Serializable
             p = new TreeMap<Integer,Veiculo>();
         while(this.circuito.getnVoltas()>=0){
         while(itr.hasNext()){
-            if(i1 == -1){
-                v.settTotal(-1);
+            if(i1 == Integer.MAX_VALUE){
+                v.settTotal(Integer.MAX_VALUE);
             System.out.print(v.getEquipa()+"DNF");}
             else{
             v.settTotal(v.gettTotal() + i1);
@@ -135,10 +135,14 @@ public class Corrida implements Serializable
         Veiculo v1 = itr1.next();
         while(itr1.hasNext()){
             int i3 = 0;
-            System.out.print(v1.getEquipa());
-            if(v1.gettTotal()==-1){System.out.print("DNF");}
-            else {System.out.print(v1.gettTotal());}
+            switch (i3){
+                case 0 : this.setPrimeiro(v1.getEquipa(),v1.gettTotal(),v1.getPiloto1().getNome());
             }
+            System.out.print(v1.getEquipa());
+            if(v1.gettTotal()!=Integer.MAX_VALUE){System.out.print(v1.gettTotal());}
+            else {System.out.print("DNF");}
+            }
+        this.setPrimeiro();
        }
  }     
 

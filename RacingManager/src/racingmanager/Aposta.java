@@ -9,7 +9,7 @@ import java.util.*;
  *
  * @author axelferreira
  */
-public class Aposta 
+public class Aposta implements Serializable
 {
     private static final long serialVersionUID = 1L;
 
@@ -120,13 +120,5 @@ public class Aposta
         {   return false; }
         return true;
     }
-
-   
-    
-    
-    
-    
-    
-    
-    
+  
 }
