@@ -23,7 +23,7 @@ public class FileInput {
     private static Circuitos cirs;
     private static Piloto pils;
     private static HashMap<String,Piloto> pS;
-    private static Veiculo veis;
+    private static Participantes veis;
     
     public static ArrayList<String> carInput (){
         carros = new ArrayList<String>();
@@ -62,9 +62,8 @@ public class FileInput {
         return pilotos;
     }
 
-    public void carLoad (HashMap<String,Piloto> pS) {
+    public static Participantes carLoad (HashMap<String,Piloto> pS) {
         carros = carInput();
-        //ArrayList<String> c = carros;
         Piloto p1 = new Piloto();
         Piloto p2 = new Piloto();
         Participantes f = new Participantes();
@@ -86,31 +85,36 @@ public class FileInput {
             fi = Integer.parseInt(campos[10]);
             // Adicionar a Frota
             // 1 - GT ; 2 - PC1 ; 3 - PC2 ; 4 - SC
-        
             switch (categoria) {
                 case 1:
-                    //v = new GT(campos[0], campos[2], campos[3], null, true, pAtual, 0, 0, 0);
                     p1 = pS.get(campos[4]);
                     p2 = pS.get(campos[5]);
                     v = new GT(campos[0],campos[2], campos[3],p1, p2, pActual, h, cc, cv, fi);
+                    f.adVeiculo(v);
                     break;
                 case 2:
-                    v = new PC1();
+                    p1 = pS.get(campos[4]);
+                    p2 = pS.get(campos[5]);
+                    v = new PC1(campos[0],campos[2], campos[3],p1, p2, pActual, h, cv, fi);
+                    f.adVeiculo(v);
                     break;
                 case 3:
-                    v = new PC2();
+                    p1 = pS.get(campos[4]);
+                    p2 = pS.get(campos[5]);
+                    v = new PC2(campos[0],campos[2], campos[3],p1, p2, pActual, h, cc, cv, fi);
+                    f.adVeiculo(v);
                     break;
                 case 4:
-                    v = new SC();
+                    p1 = pS.get(campos[4]);
+                    p2 = pS.get(campos[5]);
+                    v = new SC(campos[0],campos[2], campos[3],p1, p2, pActual, h, cv, fi);
+                    f.adVeiculo(v);
                     break;
             }
-       
-            //f.adVeiculo(v);
-        
-            //System.out.println(output);
-            //output = null;
+            
             index++;
         }
+        return f;
     }
     
     public static Circuitos cirLoad () {
@@ -195,11 +199,18 @@ public class FileInput {
     public static void loadAll () {
         pS = new HashMap<String, Piloto>();
         cirs = new Circuitos();
+        veis = new Participantes();
+        Campeonato c;
         
         pS = pilLoad();
         cirs = cirLoad();
+        veis = carLoad(pS);
+        
         System.out.println(pS.toString());
-        System.out.println(cirs.getCircuitoAtual());
+        System.out.println(cirs.toString());
+        System.out.println(veis.toString());
+        c = new Campeonato(cirs, veis, null, null, null);
+        
     }
 
 }

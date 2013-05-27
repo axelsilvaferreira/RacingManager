@@ -1,3 +1,6 @@
 Manuel Castro,Portuguesa,87,51,3,30
 Carlos Eduardo,Brasileira,71,60,0,20
 Lewis Hamilton,Britanico,99,83,5,6
+Carlos Castro,Portuguesa,87,51,3,30
+Joao Carlos,Portuguesa,87,51,3,30
+Pedro Silva,Portuguesa,87,51,3,30
