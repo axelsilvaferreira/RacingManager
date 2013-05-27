@@ -14,7 +14,7 @@ import java.util.HashMap;
  *
  * @author joaorua
  */
-public class FileInput {
+public class FileInput implements Serializable {
     
     private static ArrayList<String> carros;
     private static ArrayList<String> pilotos;
