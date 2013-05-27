@@ -8,7 +8,6 @@ package racingmanager;
 import java.util.Random;
 import java.util.*;
 import java.io.*;
-import java.io.Serializable;
 
 /**
  *
@@ -26,6 +25,7 @@ public class Corrida implements Serializable
     private Circuito circuito;
     private Participantes participante;
     private boolean isChuva;
+    private HistApostas apostas;
 
     public Corrida(Record primeiro, Record segundo, Record terceiro, Circuito circuito, Participantes participante){
         this.primeiro = primeiro;
@@ -101,27 +101,44 @@ public class Corrida implements Serializable
         Collection c = this.participante.getFrota().values();
         Iterator<Veiculo> itr = c.iterator();
         Veiculo v = itr.next();
-        int i = v.tempoProximaVolta(this);
+        int i1 = v.tempoProximaVolta(this);
             TreeMap<Integer ,Veiculo> p;
             p = new TreeMap<Integer,Veiculo>();
         while(this.circuito.getnVoltas()>=0){
         while(itr.hasNext()){
-            if(i == -1){
+            if(i1 == -1){
                 v.settTotal(-1);
-            System.out.print("DNF");}
+            System.out.print(v.getEquipa()+"DNF");}
             else{
-            v.settTotal(v.gettTotal() + i);
-            p.put(i,v);
-            System.out.print(p.firstEntry());
-            p.remove(p.firstKey());
-            System.out.print(p.firstEntry());
-            p.remove(p.firstKey());
-            System.out.print(p.firstEntry());
+            v.settTotal(v.gettTotal() + i1);
+            p.put(i1,v);
+            int i2 = 0;
+            Collection t = p.values();
+            Iterator<Veiculo> it = t.iterator();
+            Veiculo vi = it.next();
+            while(i2<=1 && it.hasNext()){
+                System.out.print(vi.getEquipa()+i2);
+                i2++;
+                   }
                 }
              }
          this.circuito.setnVoltas(this.circuito.getnVoltas()-1);
           }
-        participante.adVeiculo(v);
+        Collection n = p.values();
+        Iterator<Veiculo> it = n.iterator();
+        Veiculo vi = it.next();
+       while(it.hasNext()){
+        participante.adVeiculo(vi.clone());
        }
-    }     
-  
+        Collection o = participante.getFrota().values();
+        Iterator<Veiculo> itr1 = o.iterator();
+        Veiculo v1 = itr1.next();
+        while(itr1.hasNext()){
+            int i3 = 0;
+            System.out.print(v1.getEquipa());
+            if(v1.gettTotal()==-1){System.out.print("DNF");}
+            else {System.out.print(v1.gettTotal());}
+            }
+       }
+ }     
+
