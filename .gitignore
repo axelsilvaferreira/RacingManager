@@ -20,3 +20,10 @@
 /RacingManager/nbproject/private/
 /RacingManager/build/
 /RacingManager/dist/
+
+# LaTeX
+*.aux
+*.log
+*.pdf
+*.synctex
+*.toc
