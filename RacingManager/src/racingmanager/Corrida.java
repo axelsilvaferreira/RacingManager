@@ -151,6 +151,9 @@ public class Corrida implements Serializable
             r = new Record(v1.gettTotal(), v1.getEquipa(), ps.getNome());
             switch (i3){
                 case 0 : this.setPrimeiro(r);
+                case 1 : this.setSegundo(r);
+                case 2 : this.setTerceiro(r);
+                    i3++;
             }
             System.out.print(v1.getEquipa());
             if(v1.gettTotal()!=Integer.MAX_VALUE){System.out.print(v1.gettTotal());}
