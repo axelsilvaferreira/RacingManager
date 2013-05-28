@@ -145,15 +145,17 @@ public class Corrida implements Serializable
         Veiculo v1 = itr1.next();
         while(itr1.hasNext()){
             int i3 = 0;
-            Record r = new Record(v1.gettTotal(), v1.getEquipa(), v1.getPiloto1().getNome());
+            Piloto ps;
+            Record r;
+            if (v1.getPAtual()) {ps = v1.getPiloto1();} else {ps = v1.getPiloto2();}
+            r = new Record(v1.gettTotal(), v1.getEquipa(), ps.getNome());
             switch (i3){
                 case 0 : this.setPrimeiro(r);
             }
             System.out.print(v1.getEquipa());
             if(v1.gettTotal()!=Integer.MAX_VALUE){System.out.print(v1.gettTotal());}
             else {System.out.print("DNF");}
-            }
-        this.setPrimeiro();
+        }
        }
  }     
 
