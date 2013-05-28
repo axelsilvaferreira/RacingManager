@@ -94,7 +94,17 @@ public class Participantes implements Serializable
         return aCampos;
     }
   
-    
+    @Override
+  public String toString(){
+      StringBuilder s = new StringBuilder();
+      
+      s.append("Total de Vitorias: " + totalVitorias + "\n");
+      for (Veiculo veiculo: frota.values()){
+          s.append(veiculo.toString() + "\n");
+          s.append("FROTA :" + frota.size());
+      }
+      return s.toString();
+  }  
   /**
      * Método que cria um array de objectos com as caracteristicas de um veiculo
      * @return array de objectos

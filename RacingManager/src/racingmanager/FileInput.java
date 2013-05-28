@@ -111,7 +111,7 @@ public class FileInput implements Serializable {
                     f.adVeiculo(v);
                     break;
             }
-            
+            //System.out.println(v + "\n");
             index++;
         }
         return f;
@@ -206,8 +206,8 @@ public class FileInput implements Serializable {
         cirs = cirLoad();
         veis = carLoad(pS);
         
-        System.out.println(pS.toString());
-        System.out.println(cirs.toString());
+        //System.out.println(pS.toString());
+        //System.out.println(cirs.toString());
         System.out.println(veis.toString());
         c = new Campeonato(cirs, veis, null, null, null);
         return c;
