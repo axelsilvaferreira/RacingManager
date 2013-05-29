@@ -42,6 +42,17 @@ public class HistCorridas implements Serializable
   public boolean contemCorrida(Corrida c)
     {   return corridas.contains(c); }
  
-    
+  public String toString(){
+      StringBuilder s = new StringBuilder();
+      
+      s.append("Historico de Corridas:\n");
+      for (Corrida corrida: corridas){
+          s.append(corrida.toString() + "\n");
+      }
+      s.append("Corrida Actual:\n");
+      s.append(atual.toString() + "\n");
+      
+      return s.toString();
+  }
     
 }

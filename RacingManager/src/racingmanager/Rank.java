@@ -53,6 +53,17 @@ public class Rank implements Serializable
     public void setThird(Record third) 
     {   this.third = third; }
     
-    
+    public String toString(){
+        StringBuilder s = new StringBuilder();
+        
+        s.append("1º Lugar:\n");
+        s.append(first.toString() + "\n");
+        s.append("2º Lugar:\n");
+        s.append(second.toString() + "\n");
+        s.append("3º Lugar:\n");
+        s.append(third.toString() + "\n");
+        
+        return s.toString();
+    }
     
 }

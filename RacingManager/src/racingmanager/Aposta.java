@@ -19,6 +19,7 @@ public class Aposta implements Serializable
     private Corrida corrida;        // Corrida onde foi feita a aposta
     private Integer posicao;        //posicao em que foi feita a aposta
     private double ganhos;         //devolve os ganhos sobre a aposta feita
+    
     public Aposta() 
     {   apostador   = "";
         equipa      = "";
@@ -119,6 +120,20 @@ public class Aposta implements Serializable
         if (this.corrida != other.corrida && (this.corrida == null || !this.corrida.equals(other.corrida)))
         {   return false; }
         return true;
+    }
+    
+    public String toString(){
+        StringBuilder s = new StringBuilder();
+        
+        s.append("Nome do Apostador: " + apostador + "\n" );
+        s.append("Equipa Apostada: " + equipa + "\n" );
+        s.append("Valor Apostado: " + montante + "\n" );
+        s.append("Corrida:\n");
+        s.append(corrida.toString() + "\n");
+        s.append("Posição Apostada: " + posicao + "\n" );
+        s.append("Ganhos: " + ganhos + "\n" );
+        
+        return s.toString();
     }
   
 }

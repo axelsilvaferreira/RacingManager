@@ -160,5 +160,26 @@ public class Corrida implements Serializable
             else {System.out.print("DNF");}
         }
        }
+    
+    public String toString(){
+        StringBuilder s = new StringBuilder();
+        
+        s.append("1º Lugar:\n");
+        s.append(primeiro.toString() + "\n");
+        s.append("2º Lugar:\n");
+        s.append(segundo.toString() + "\n");
+        s.append("3º Lugar:\n");
+        s.append(terceiro.toString() + "\n");
+        s.append("Circuito:\n");
+        s.append(circuito.toString() + "\n");
+        s.append("Participantes:\n");
+        s.append(participante.toString() + "\n");
+        s.append("Chuva: " + isChuva + "\n");
+        s.append("Apostas:\n");
+        s.append(apostas.toString() + "\n");
+        s.append("Volta Actual: " + voltaActual + "\n");
+     
+        return s.toString();
+    }
  }     
 

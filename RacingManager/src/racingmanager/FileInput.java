@@ -208,8 +208,9 @@ public class FileInput implements Serializable {
         
         //System.out.println(pS.toString());
         //System.out.println(cirs.toString());
-        System.out.println(veis.toString());
+        //System.out.println(veis.toString());
         c = new Campeonato(cirs, veis, null, null, null);
+        System.out.println(c.toString());
         return c;
     }
 
