@@ -42,6 +42,7 @@ public class HistCorridas implements Serializable
   public boolean contemCorrida(Corrida c)
     {   return corridas.contains(c); }
  
+    @Override
   public String toString(){
       StringBuilder s = new StringBuilder();
       

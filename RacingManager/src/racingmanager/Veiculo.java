@@ -182,9 +182,9 @@ public abstract class Veiculo implements Serializable
         s.append("Marca: " + marca + "\n");
         s.append("Modelo: " + modelo + "\n");
         s.append("Piloto 1:\n");
-        s.append(piloto1.toString() + "\n");
+        s.append(piloto1.toString());
         s.append("Piloto 2:\n");
-        s.append(piloto2.toString() + "\n");
+        s.append(piloto2.toString());
         s.append("Piloto Actual: " + pAtual + "\n");
         s.append("Hibrido: " + hibrido + "\n");
         s.append("Cilindrada: " + cc + "\n");
