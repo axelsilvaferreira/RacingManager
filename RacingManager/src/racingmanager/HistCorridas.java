@@ -21,7 +21,7 @@ public class HistCorridas implements Serializable
   // Construtor de Classe
   public HistCorridas()  
     {  corridas  = new ArrayList<Corrida>(); 
-       atual = null;
+       atual = new Corrida();
     }  
     
   // Construtor de Classe

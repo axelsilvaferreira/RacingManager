@@ -37,11 +37,12 @@ public class Corrida implements Serializable
     }
     
     public Corrida() {
-        this.primeiro = null;
-        this.segundo = null;
-        this.terceiro = null;
-        this.circuito = null;
-        this.participante = null;
+        this.primeiro = new Record();
+        this.segundo = new Record();
+        this.terceiro = new Record();
+        this.circuito = new Circuito();
+        this.apostas = new HistApostas();
+        this.participante = new Participantes();
     }
     
     public Corrida(Corrida c){

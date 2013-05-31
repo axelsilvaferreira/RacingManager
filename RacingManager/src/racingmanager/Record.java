@@ -23,7 +23,7 @@ public class Record implements Serializable
     public Record() 
     {
         this.time = 0;
-        this.pilot = null;
+        this.pilot = "";
         this.carro = "";
     }
     

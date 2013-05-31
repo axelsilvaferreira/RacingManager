@@ -40,7 +40,7 @@ public class Circuito implements Serializable
         this.tWett = 0;
         this.pRain = 0;
         this.tBox = 0;
-        this.record = null;
+        this.record = new Record();
     }
         
      public Circuito(Circuito c) {

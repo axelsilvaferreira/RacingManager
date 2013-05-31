@@ -24,7 +24,7 @@ public class Aposta implements Serializable
     {   apostador   = "";
         equipa      = "";
         montante    = 0;
-        corrida     = null;
+        corrida     = new Corrida();
     }
 
     public Aposta(String apostador, String equipa, Integer montante, Corrida corrida, Integer posicao, double ganhos) 
