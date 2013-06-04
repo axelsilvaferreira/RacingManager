@@ -97,6 +97,14 @@ public class SC extends Veiculo implements Serializable
         
         timeD = time + tRan - skill;
         
+        // Verifica se troca de piloto
+        if ((c.getCircuito().getnVoltas() /2) > c.getVoltaActual())
+        {   // Troca o piloto
+            this.setPAtual(!getPAtual()); 
+            // Acrescenta o tempo de Box
+            timeD += c.getCircuito().gettBox();
+        }
+        
         
         t = (int) timeD;
         

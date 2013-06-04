@@ -128,6 +128,15 @@ public class PC2 extends Veiculo implements Serializable
         // Reduz a fiabilidade em 2%
         //setFiabilidade(getFiabilidade() * 0.98);
       
+        // Verifica se troca de piloto
+        if ((c.getCircuito().getnVoltas() /2) > c.getVoltaActual())
+        {   // Troca o piloto
+            this.setPAtual(!getPAtual()); 
+            // Acrescenta o tempo de Box
+            timeD += c.getCircuito().gettBox();
+        }
+        
+        
         t = (int) timeD;
         
         

@@ -98,8 +98,12 @@ public class PC1 extends Veiculo implements Serializable
         else { hibr = timeD; }
         
         // Verifica se troca de piloto
-        if ((c.getCircuito().getnVoltas() /2) > c.getnVoltas())
-        { this.setPAtual(!getPAtual()); }
+        if ((c.getCircuito().getnVoltas() /2) > c.getVoltaActual())
+        {   // Troca o piloto
+            this.setPAtual(!getPAtual()); 
+            // Acrescenta o tempo de Box
+            time += c.getCircuito().gettBox();
+        }
         
         //Calcula o tempo da volta
         timeD = time;
