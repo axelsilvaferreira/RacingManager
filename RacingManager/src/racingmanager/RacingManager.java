@@ -38,7 +38,7 @@ public class RacingManager {
         
       cor.execCorrida();
       
-        System.out.println(cor.toString());
+      System.out.println(cor.toString());
       //String[] top = casa.getChampionship().getFrota().paraArray();
       
       //System.out.println(casa.toString());
