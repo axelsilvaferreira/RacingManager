@@ -31,7 +31,9 @@ public class Menu extends javax.swing.JFrame implements Serializable
      * Creates new form Menu
      */
     public Menu() 
-    {   initComponents();  }
+    {   initComponents();  
+        //EquipaDropBox = new JComboBox(casa.getChampionship().getFrota().paraArray());
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -60,7 +62,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
         TextoCircuito = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        PlayerDropBox1 = new javax.swing.JComboBox();
+        PlayerDropBox = new javax.swing.JComboBox();
         jLabel12 = new javax.swing.JLabel();
         EquipaDropBox = new javax.swing.JComboBox();
         jLabel13 = new javax.swing.JLabel();
@@ -173,12 +175,12 @@ public class Menu extends javax.swing.JFrame implements Serializable
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        PlayerDropBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        PlayerDropBox1.addActionListener(new java.awt.event.ActionListener()
+        PlayerDropBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        PlayerDropBox.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                PlayerDropBox1ActionPerformed(evt);
+                PlayerDropBoxActionPerformed(evt);
             }
         });
 
@@ -288,7 +290,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
                             .add(jPanel1Layout.createSequentialGroup()
                                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                     .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                    .add(PlayerDropBox1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 171, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                    .add(PlayerDropBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 171, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                                 .add(0, 0, Short.MAX_VALUE))))
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -303,7 +305,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jLabel12)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(PlayerDropBox1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(PlayerDropBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jSeparator3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -514,6 +516,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here: NEW GAME
         this.casa = FileInput.loadAll();
+        EquipaDropBox = new JComboBox(casa.getChampionship().getFrota().paraArray());
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -571,12 +574,13 @@ public class Menu extends javax.swing.JFrame implements Serializable
     private void EquipaDropBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_EquipaDropBoxActionPerformed
     {//GEN-HEADEREND:event_EquipaDropBoxActionPerformed
         // TODO add your handling code here:
+        EquipaDropBox = new JComboBox(casa.getJogadores().paraArray());
     }//GEN-LAST:event_EquipaDropBoxActionPerformed
 
-    private void PlayerDropBox1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_PlayerDropBox1ActionPerformed
-    {//GEN-HEADEREND:event_PlayerDropBox1ActionPerformed
+    private void PlayerDropBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_PlayerDropBoxActionPerformed
+    {//GEN-HEADEREND:event_PlayerDropBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PlayerDropBox1ActionPerformed
+    }//GEN-LAST:event_PlayerDropBoxActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton2ActionPerformed
     {//GEN-HEADEREND:event_jButton2ActionPerformed
@@ -590,7 +594,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
         Corrida corr = new Corrida(null, null, null, cir, casa.getChampionship().getFrota());
         
         TextoCircuito.setText(corr.getCircuito().getNome());
-        TextoVoltas.setText(corr.getCircuito().getnVoltas());
+        TextoVoltas.setText(corr.getCircuito().getnVoltas().toString());
         Recode.setText(corr.getCircuito().getRecord().toString());
         TextoCorrida.setText(corr.execCorrida());
 
@@ -632,7 +636,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox EquipaDropBox;
-    private javax.swing.JComboBox PlayerDropBox1;
+    private javax.swing.JComboBox PlayerDropBox;
     private javax.swing.JLabel Recode;
     private javax.swing.JLabel TextoCircuito;
     private javax.swing.JTextPane TextoCorrida;
