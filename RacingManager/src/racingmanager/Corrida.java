@@ -107,32 +107,36 @@ public class Corrida implements Serializable
         this.voltaActual = voltaActual;
     }
     
-    public void execCorrida(){
+    public String execCorrida(){
+        StringBuilder rank = new StringBuilder();
+        StringBuilder str = new StringBuilder();
         Collection c = this.participante.getFrota().values();
         Iterator<Veiculo> itr = c.iterator();
         Veiculo v = itr.next();
-        int i1 = v.tempoProximaVolta(this);
+        Integer i1 = v.tempoProximaVolta(this);
             TreeMap<Integer ,Veiculo> p;
             p = new TreeMap<Integer,Veiculo>();
             this.setVoltaActual(this.circuito.getnVoltas());
-        while(this.getVoltaActual()>=0){
+        while(this.getVoltaActual()>0){
         while(itr.hasNext()){
-            if(i1 == Integer.MAX_VALUE){
-                v.settTotal(Integer.MAX_VALUE);
-            System.out.print(v.getEquipa()+"DNF");}
-            else{
-            v.settTotal(v.gettTotal() + i1);
-            p.put(i1,v);
-            int i2 = 0;
+          if(i1 != Integer.MAX_VALUE){
+       v.settTotal(v.gettTotal() + i1);
+         p.put(i1,v);
+           int i2 = 0;
             Collection t = p.values();
             Iterator<Veiculo> it = t.iterator();
             Veiculo vi = it.next();
             while(i2<=1 && it.hasNext()){
-                System.out.print(vi.getEquipa()+i1);
+                str.append(v.getEquipa() + i1.toString() + "\n");
                 i2++;
-                   }
-                }
-             }
+               }
+          }
+            else{
+            v.settTotal(Integer.MAX_VALUE);
+                str.append("DNF " + v.getEquipa() + "\n");
+         }
+                
+             
          this.setVoltaActual(this.getVoltaActual()-1);
           }
         Collection n = p.values();
@@ -159,10 +163,12 @@ public class Corrida implements Serializable
                 case 2 : this.setTerceiro(r);
                     i3++;
             }
-            System.out.print(v1.getEquipa());
+            rank.append(v1.getEquipa());
             if(v1.gettTotal()!=Integer.MAX_VALUE){System.out.print(v1.gettTotal());}
             else {System.out.print("DNF");}
-        }
+             }
+          }
+        return rank.toString();
        }
     
     @Override
