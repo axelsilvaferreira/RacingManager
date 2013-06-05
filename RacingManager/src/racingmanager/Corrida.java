@@ -128,26 +128,29 @@ public class Corrida implements Serializable
             Iterator<Veiculo> it = t.iterator();
             Veiculo vi = it.next();
             while(i2<=1 && it.hasNext()){
-                System.out.print(vi.getEquipa()+i2);
+                System.out.print(vi.getEquipa()+i1);
                 i2++;
                    }
                 }
              }
-         this.circuito.setnVoltas(this.circuito.getnVoltas()-1);
+         this.setVoltaActual(this.getVoltaActual()-1);
           }
         Collection n = p.values();
         Iterator<Veiculo> it = n.iterator();
         Veiculo vi = it.next();
+        TreeMap<Integer,Veiculo> ranking;
+        ranking = new TreeMap<Integer,Veiculo>();
        while(it.hasNext()){
-        participante.adVeiculo(vi.clone());
+        ranking.put(vi.gettTotal(),vi.clone());
        }
-        Collection o = participante.getFrota().values();
+        Collection o = ranking.values();
         Iterator<Veiculo> itr1 = o.iterator();
         Veiculo v1 = itr1.next();
         while(itr1.hasNext()){
             int i3 = 0;
             Piloto ps;
             Record r;
+            v1.setPontos(v1.getPontos()+ranking.size()-(i3-1));
             if (v1.getPAtual()) {ps = v1.getPiloto1();} else {ps = v1.getPiloto2();}
             r = new Record(v1.gettTotal(), v1.getEquipa(), ps.getNome());
             switch (i3){

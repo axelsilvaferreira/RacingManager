@@ -29,7 +29,7 @@ public abstract class Veiculo implements Serializable
         private int cv;              // Potencia
         private int tTotal;          // Tempo acomulado da corrida
         private double fiabilidade;  // Fiabilidade do carro 0-100
-   
+        private Integer pontos;      // Pontos acumulados de um carro
 
     /**
      * Construtor Default de objectos da categoria Veiculo
@@ -157,6 +157,16 @@ public abstract class Veiculo implements Serializable
 
     public void setFiabilidade(double fiabilidade) 
     {   this.fiabilidade = fiabilidade; }
+
+    public Integer getPontos() {
+        return pontos;
+    }
+
+    public void setPontos(Integer pontos) {
+        this.pontos = pontos;
+    }
+    
+    
     
     
     
