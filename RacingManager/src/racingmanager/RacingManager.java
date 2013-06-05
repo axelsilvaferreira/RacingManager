@@ -22,18 +22,19 @@ public class RacingManager {
       Campeonato c = new Campeonato();
       Circuito cir;
       Corrida cor;
+      CasaApostas casa = new CasaApostas();
       //FileInput.carToString();
       //FileInput.cirToString();
       //FileInput.pilToString();
-      c = FileInput.loadAll();
+      casa = FileInput.loadAll();
       
-      cir = c.getPistas().getCircuitoAtual();
+      cir = casa.getChampionship().getPistas().getCircuitoAtual();
       
-      cor = new Corrida(null, null, null, cir, c.getFrota());
+      cor = new Corrida(null, null, null, cir, casa.getChampionship().getFrota());
 
       cor.execCorrida();
       
-      System.out.println(c.toString());
+      System.out.println(casa.toString());
       
       //Record rec = new Record();
       //Veiculo carro = new GT();

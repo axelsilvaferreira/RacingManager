@@ -201,7 +201,7 @@ public class FileInput implements Serializable {
         return pS;
     }
  
-    public static Campeonato loadAll () {
+    public static CasaApostas loadAll () {
         pS = new HashMap<String, Piloto>();
         cirs = new Circuitos();
         veis = new Participantes();
@@ -210,6 +210,7 @@ public class FileInput implements Serializable {
         Rank htrof = new Rank();
         
         Campeonato c;
+        CasaApostas casa;
         
         pS = pilLoad();
         cirs = cirLoad();
@@ -220,8 +221,9 @@ public class FileInput implements Serializable {
         //System.out.println(veis.toString());
         //System.out.println(hcorr.toString());
         c = new Campeonato(cirs, veis, hcorr, equipas, htrof);
+        casa = new CasaApostas(null, null, c);
         //System.out.println(c.toString());
-        return c;
+        return casa;
     }
 
 }
