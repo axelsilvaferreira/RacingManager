@@ -559,7 +559,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
         TextoCircuito.setText(casa.getChampionship().getPistas().getCircuitoAtual().getNome());
         TextoVoltas.setText(casa.getChampionship().getPistas().getCircuitoAtual().getnVoltas().toString());
         // Refresh dos Jogadores
-        PlayerDropBox = new JComboBox(casa.getJogadores().paraArray());
+        //PlayerDropBox = new JComboBox(casa.getJogadores().paraArray());
         EquipaDropBox = new JComboBox(casa.getChampionship().getFrota().paraArray());
     }//GEN-LAST:event_jTabbedPane1KeyPressed
 
@@ -590,7 +590,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
         Corrida corr = new Corrida(null, null, null, cir, casa.getChampionship().getFrota());
         
         TextoCircuito.setText(corr.getCircuito().getNome());
-        TextoVoltas.setText(corr.getCircuito().getnVoltas());
+        //TextoVoltas.setText(corr.getCircuito().getnVoltas());
         Recode.setText(corr.getCircuito().getRecord().toString());
         TextoCorrida.setText(corr.execCorrida());
 

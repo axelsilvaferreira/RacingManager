@@ -111,14 +111,17 @@ public class Participantes implements Serializable
     
     
   public String[] paraArray(){
+      //System.out.println(frota.size());
       String[] str = new String[frota.size()];
+      //ArrayList<String> ar = new ArrayList<String>();
       int i = 0;
       
       for (Veiculo v: frota.values()){
+          //System.out.println(v.getEquipa());
           str[i] = v.getEquipa();
           i++;
       }
-      
+      //System.out.println(ar.toArray().toString());
       return str;
   }
   /**
