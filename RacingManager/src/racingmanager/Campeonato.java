@@ -21,11 +21,11 @@ public class Campeonato implements Serializable
 
     
     public Campeonato() 
-    {   this.pistas    = null;
-        this.frota     = null;
-        this.hCorridas = null;
-        this.equipas   = null;
-        this.trofeuH   = null;
+    {   this.pistas    = new Circuitos();
+        this.frota     = new Participantes();
+        this.hCorridas = new HistCorridas();
+        this.equipas   = new Rank();
+        this.trofeuH   = new Rank();
     }
 
     public Campeonato(Circuitos pistas, Participantes frota, HistCorridas hCorridas, Rank equipas, Rank trofeuH) 

@@ -23,9 +23,9 @@ public class CasaApostas implements Serializable
     
     
     public CasaApostas() 
-    {   apostas      = null;
-        jogadores    = null;
-        championship = null;
+    {   apostas      = new Rank();
+        jogadores    = new Players();
+        championship = new Campeonato();
     }
 
     public CasaApostas(Rank apostas, Players jogadores, Campeonato championship) 

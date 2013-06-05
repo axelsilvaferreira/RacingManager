@@ -48,10 +48,10 @@ public class HistCorridas implements Serializable
       
       s.append("Historico de Corridas:\n");
       for (Corrida corrida: corridas){
-          s.append(corrida.toString() + "\n");
+          s.append(corrida.toString());
       }
-      s.append("Corrida Actual:\n");
-      s.append(atual.toString() + "\n");
+      s.append("\nCorrida Actual:\n");
+      s.append(atual.toString()); s.append("\n");
       
       return s.toString();
   }
