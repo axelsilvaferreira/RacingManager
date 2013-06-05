@@ -23,8 +23,8 @@ public class Menu extends javax.swing.JFrame implements Serializable
 {   
     private static final long serialVersionUID = 1L;
 
-    Campeonato c;   // Campeonato
-    
+    //Campeonato c;   // Campeonato
+    CasaApostas casa; // Casa de Apostas
     
 
     /**
@@ -417,17 +417,17 @@ public class Menu extends javax.swing.JFrame implements Serializable
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public Campeonato getC()
-    {   return c;   }
+    public CasaApostas getC()
+    {   return casa;   }
 
-    public void setC(Campeonato c)
-    {   this.c = c;  }
+    public void setC(CasaApostas c)
+    {   this.casa = c;  }
 
     
     
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here: NEW GAME
-        this.c = FileInput.loadAll();
+        this.casa = FileInput.loadAll();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -437,7 +437,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
          FileInputStream fileIn = new FileInputStream("employee.ser");
          ObjectInputStream in = new ObjectInputStream(fileIn);
             try
-            {   setC((Campeonato) in.readObject());
+            {   setC((CasaApostas) in.readObject());
             } catch (ClassNotFoundException ex)
             {   Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);   }
          in.close();
@@ -469,11 +469,11 @@ public class Menu extends javax.swing.JFrame implements Serializable
     private void jTabbedPane1KeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTabbedPane1KeyPressed
     {//GEN-HEADEREND:event_jTabbedPane1KeyPressed
         // Atualiza os textos
-        Recode.setText(c.getPistas().getCircuitoAtual().getRecord().toString());
-        TextoCircuito.setText(c.getPistas().getCircuitoAtual().getNome());
-        TextoVoltas.setText(c.getPistas().getCircuitoAtual().getnVoltas().toString());
+        Recode.setText(casa.getChampionship().getPistas().getCircuitoAtual().getRecord().toString());
+        TextoCircuito.setText(casa.getChampionship().getPistas().getCircuitoAtual().getNome());
+        TextoVoltas.setText(casa.getChampionship().getPistas().getCircuitoAtual().getnVoltas().toString());
         // Refresh dos Jogadores
-        
+        PlayerDropBox = new JComboBox(casa.getJogadores().paraArray());
     }//GEN-LAST:event_jTabbedPane1KeyPressed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton2ActionPerformed
@@ -484,19 +484,19 @@ public class Menu extends javax.swing.JFrame implements Serializable
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
     {//GEN-HEADEREND:event_jButton1ActionPerformed
         //Simulação de uma corrida
-        Circuito cir = c.getPistas().getCircuitoAtual();
-        Corrida corr = new Corrida(null, null, null, cir, c.getFrota());
+        Circuito cir = casa.getChampionship().getPistas().getCircuitoAtual();
+        Corrida corr = new Corrida(null, null, null, cir, casa.getChampionship().getFrota());
         
         TextoCorrida.setText(corr.execCorrida());
         
-        c.gethCorridas().addCorrida(corr);
+        casa.getChampionship().gethCorridas().addCorrida(corr);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void PlayerDropBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_PlayerDropBoxActionPerformed
     {//GEN-HEADEREND:event_PlayerDropBoxActionPerformed
         // TODO add your handling code here:
-        PlayerDropBox = new JComboBox(c.get);
+        
     }//GEN-LAST:event_PlayerDropBoxActionPerformed
 /**
      * @param args the command line arguments
