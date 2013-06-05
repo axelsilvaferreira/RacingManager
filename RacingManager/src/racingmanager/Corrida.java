@@ -134,11 +134,8 @@ public class Corrida implements Serializable
             else{
             v.settTotal(Integer.MAX_VALUE);
                 str.append("DNF " + v.getEquipa() + "\n");
-         }
-                
-             
-         this.setVoltaActual(this.getVoltaActual()-1);
-          }
+          }  
+              }
         Collection n = p.values();
         Iterator<Veiculo> it = n.iterator();
         Veiculo vi = it.next();
@@ -167,6 +164,7 @@ public class Corrida implements Serializable
             if(v1.gettTotal()!=Integer.MAX_VALUE){System.out.print(v1.gettTotal());}
             else {System.out.print("DNF");}
              }
+            this.setVoltaActual(this.getVoltaActual()-1);
           }
         return rank.toString();
        }
