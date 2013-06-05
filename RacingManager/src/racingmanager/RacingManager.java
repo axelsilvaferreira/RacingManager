@@ -36,10 +36,11 @@ public class RacingManager {
       //System.out.println("::::::::::::::::CORRIDA::::::::::::::::");
       //System.out.println(cor.toString());
         
-      //cor.execCorrida();
-      String[] top = casa.getChampionship().getFrota().paraArray();
+      cor.execCorrida();
       
-      System.out.println(top[0]+top[1]+top[2]);
+      //String[] top = casa.getChampionship().getFrota().paraArray();
+      
+      //System.out.println(top[0]+top[1]+top[2]);
       
       //Record rec = new Record();
       //Veiculo carro = new GT();

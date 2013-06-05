@@ -67,7 +67,7 @@ public class FileInput implements Serializable {
         Piloto p1 = new Piloto();
         Piloto p2 = new Piloto();
         Participantes f = new Participantes();
-        Integer categoria,h,cc,cv,fi;
+        Integer categoria,h,cc,cv,fi,pontos;
         Boolean pActual;
         
         Veiculo v;
@@ -84,34 +84,35 @@ public class FileInput implements Serializable {
             cc = Integer.parseInt(campos[8]);
             cv = Integer.parseInt(campos[9]);
             fi = Integer.parseInt(campos[10]);
+            pontos = Integer.parseInt(campos[11]);
             // Adicionar a Frota
             // 1 - GT ; 2 - PC1 ; 3 - PC2 ; 4 - SC
             switch (categoria) {
                 case 1:
                     p1 = pS.get(campos[4]);
                     p2 = pS.get(campos[5]);
-                    v = new GT(campos[0],campos[2], campos[3],p1, p2, pActual, h, cc, cv, fi, p);
+                    v = new GT(campos[0],campos[2], campos[3],p1, p2, pActual, h, cc, cv, fi, pontos);
                     //System.out.println(v + "\n");
                     f.adVeiculo(v);
                     break;
                 case 2:
                     p1 = pS.get(campos[4]);
                     p2 = pS.get(campos[5]);
-                    v = new PC1(campos[0],campos[2], campos[3],p1, p2, pActual, h, cv, fi);
+                    v = new PC1(campos[0],campos[2], campos[3],p1, p2, pActual, h, cv, fi,pontos);
                     //System.out.println(v + "\n");
                     f.adVeiculo(v);
                     break;
                 case 3:
                     p1 = pS.get(campos[4]);
                     p2 = pS.get(campos[5]);
-                    v = new PC2(campos[0],campos[2], campos[3],p1, p2, pActual, h, cc, cv, fi);
+                    v = new PC2(campos[0],campos[2], campos[3],p1, p2, pActual, h, cc, cv, fi,pontos);
                     //System.out.println(v + "\n");
                     f.adVeiculo(v);
                     break;
                 case 4:
                     p1 = pS.get(campos[4]);
                     p2 = pS.get(campos[5]);
-                    v = new SC(campos[0],campos[2], campos[3],p1, p2, pActual, h, cv, fi);
+                    v = new SC(campos[0],campos[2], campos[3],p1, p2, pActual, h, cv, fi,pontos);
                     //System.out.println(v + "\n");
                     f.adVeiculo(v);
                     break;
