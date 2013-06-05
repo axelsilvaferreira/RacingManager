@@ -50,7 +50,14 @@ public class Circuitos implements Serializable
     return c;
   }
   
-  
+  public String toString () {
+      StringBuilder s = new StringBuilder();
+      
+      for (Circuito c : circuitos){
+          s.append(c.toString());
+      }
+      return s.toString();
+  }
   
   
   /**

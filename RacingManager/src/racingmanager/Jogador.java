@@ -79,4 +79,19 @@ public class Jogador implements Serializable
         this.setConta(this.getConta() + this.atual.getGanhos());
         this.historico.addAposta(this.atual);
     }
+    
+    public String toString(){
+        StringBuilder s = new StringBuilder();
+        
+        s.append("Nome: " + nome + "\n");
+        s.append("Morada: " + morada + "\n");
+        s.append("Saldo: " + conta + "\n");
+        s.append("Apostas Atuais:\n");
+        s.append(atual.toString() + "\n");
+        s.append("Historico:\n");
+        s.append(historico.toString() + "\n");
+        
+        return s.toString();
+
+    }
 }

@@ -142,7 +142,7 @@ public class PC2 extends Veiculo implements Serializable
         
         return t;
     }
-
+    /*
     @Override
     public String toString() 
     {   StringBuilder str = new StringBuilder();
@@ -158,7 +158,8 @@ public class PC2 extends Veiculo implements Serializable
         
         return str.toString();
     }
-
+    */
+    
     @Override
     public boolean equals(Object o) 
     {      boolean bool=false;

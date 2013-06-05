@@ -71,6 +71,7 @@ public class FileInput implements Serializable {
         Boolean pActual;
         
         Veiculo v;
+        
         int index = 0;
         
         while (index < carros.size()) {
@@ -90,28 +91,32 @@ public class FileInput implements Serializable {
                     p1 = pS.get(campos[4]);
                     p2 = pS.get(campos[5]);
                     v = new GT(campos[0],campos[2], campos[3],p1, p2, pActual, h, cc, cv, fi);
+                    //System.out.println(v + "\n");
                     f.adVeiculo(v);
                     break;
                 case 2:
                     p1 = pS.get(campos[4]);
                     p2 = pS.get(campos[5]);
                     v = new PC1(campos[0],campos[2], campos[3],p1, p2, pActual, h, cv, fi);
+                    //System.out.println(v + "\n");
                     f.adVeiculo(v);
                     break;
                 case 3:
                     p1 = pS.get(campos[4]);
                     p2 = pS.get(campos[5]);
                     v = new PC2(campos[0],campos[2], campos[3],p1, p2, pActual, h, cc, cv, fi);
+                    //System.out.println(v + "\n");
                     f.adVeiculo(v);
                     break;
                 case 4:
                     p1 = pS.get(campos[4]);
                     p2 = pS.get(campos[5]);
                     v = new SC(campos[0],campos[2], campos[3],p1, p2, pActual, h, cv, fi);
+                    //System.out.println(v + "\n");
                     f.adVeiculo(v);
                     break;
             }
-            
+            //System.out.println(v + "\n");
             index++;
         }
         return f;
@@ -200,16 +205,22 @@ public class FileInput implements Serializable {
         pS = new HashMap<String, Piloto>();
         cirs = new Circuitos();
         veis = new Participantes();
+        HistCorridas hcorr = new HistCorridas();
+        Rank equipas = new Rank();
+        Rank htrof = new Rank();
+        
         Campeonato c;
         
         pS = pilLoad();
         cirs = cirLoad();
         veis = carLoad(pS);
         
-        System.out.println(pS.toString());
-        System.out.println(cirs.toString());
-        System.out.println(veis.toString());
-        c = new Campeonato(cirs, veis, null, null, null);
+        //System.out.println(pS.toString());
+        //System.out.println(cirs.toString());
+        //System.out.println(veis.toString());
+        System.out.println(hcorr.toString());
+        c = new Campeonato(cirs, veis, hcorr, equipas, htrof);
+        //System.out.println(c.toString());
         return c;
     }
 

@@ -66,7 +66,18 @@ public class Campeonato implements Serializable
     public void setTrofeuH(Rank trofeuH) 
     {   this.trofeuH = trofeuH;  }
     
-    
+    public String toString(){
+        StringBuilder s = new StringBuilder();
+        s.append("::: Pistas :::\n\n");
+        s.append(pistas.toString() + "\n");
+        s.append("::: Participantes :::\n\n");
+        s.append(frota.toString() + "\n");
+        s.append(hCorridas.toString() + "\n");
+        s.append(equipas.toString() + "\n");
+        s.append(trofeuH.toString() + "\n");
+        
+        return s.toString();
+    }
     
     
     

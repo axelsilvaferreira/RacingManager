@@ -37,11 +37,12 @@ public class Corrida implements Serializable
     }
     
     public Corrida() {
-        this.primeiro = null;
-        this.segundo = null;
-        this.terceiro = null;
-        this.circuito = null;
-        this.participante = null;
+        this.primeiro = new Record();
+        this.segundo = new Record();
+        this.terceiro = new Record();
+        this.circuito = new Circuito();
+        this.apostas = new HistApostas();
+        this.participante = new Participantes();
     }
     
     public Corrida(Corrida c){
@@ -145,15 +146,42 @@ public class Corrida implements Serializable
         Veiculo v1 = itr1.next();
         while(itr1.hasNext()){
             int i3 = 0;
-            Record r = new Record(v1.gettTotal(), v1.getEquipa(), v1.getPiloto1().getNome());
+            Piloto ps;
+            Record r;
+            if (v1.getPAtual()) {ps = v1.getPiloto1();} else {ps = v1.getPiloto2();}
+            r = new Record(v1.gettTotal(), v1.getEquipa(), ps.getNome());
             switch (i3){
                 case 0 : this.setPrimeiro(r);
+                case 1 : this.setSegundo(r);
+                case 2 : this.setTerceiro(r);
+                    i3++;
             }
             System.out.print(v1.getEquipa());
             if(v1.gettTotal()!=Integer.MAX_VALUE){System.out.print(v1.gettTotal());}
             else {System.out.print("DNF");}
-            }
-        this.setPrimeiro();
+        }
        }
+    
+    @Override
+    public String toString(){
+        StringBuilder s = new StringBuilder();
+        
+        s.append("1º Lugar:\n");
+        s.append(primeiro.toString() + "\n");
+        s.append("2º Lugar:\n");
+        s.append(segundo.toString() + "\n");
+        s.append("3º Lugar:\n");
+        s.append(terceiro.toString() + "\n");
+        s.append("Circuito:\n");
+        s.append(circuito.toString() + "\n");
+        s.append("Participantes:\n");
+        s.append(participante.toString() + "\n");
+        s.append("Chuva: " + isChuva + "\n");
+        s.append("Apostas:\n");
+        s.append(apostas.toString() + "\n");
+        s.append("Volta Actual: " + voltaActual + "\n");
+     
+        return s.toString();
+    }
  }     
 

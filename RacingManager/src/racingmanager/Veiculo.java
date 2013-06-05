@@ -175,13 +175,25 @@ public abstract class Veiculo implements Serializable
 
     
     @Override
-    public abstract String toString();
-    /*{ StringBuilder s = new StringBuilder;
-        s.append(Veiculo);
-        s.append(this.getMarca());
+    public String toString(){ 
+        StringBuilder s = new StringBuilder();
+        
+        s.append("Equipa: " + equipa + "\n");
+        s.append("Marca: " + marca + "\n");
+        s.append("Modelo: " + modelo + "\n");
+        s.append("Piloto 1:\n");
+        s.append(piloto1.toString());
+        s.append("Piloto 2:\n");
+        s.append(piloto2.toString());
+        s.append("Piloto Actual: " + pAtual + "\n");
+        s.append("Hibrido: " + hibrido + "\n");
+        s.append("Cilindrada: " + cc + "\n");
+        s.append("Potencia: " + cv + "\n");
+        s.append("Tempo de Corrida: " + tTotal + "\n");
+        s.append("Fiabilidade: " + fiabilidade + "\n");
         s.append("\n");
         return s.toString();
-    }*/
+    }
     
     /**
      * Metodo que compara o veiculo com outro.

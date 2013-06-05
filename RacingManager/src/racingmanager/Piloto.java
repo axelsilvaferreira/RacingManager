@@ -105,7 +105,18 @@ public class Piloto implements Serializable
     public Piloto clone()
     {   return new Piloto(this);    }
     
-    
+    public String toString(){
+        StringBuilder s = new StringBuilder();
+        
+        s.append("Nome : " + nome + "\n");
+        s.append("Nacionalidade : " + nacionalidade + "\n");
+        s.append("Skill : " + skill + "\n");
+        s.append("Skill Chuva : " + wSkill + "\n");
+        s.append("Vitorias : " + vitorias + "\n");
+        s.append("Equipa : " + equipa + "\n");
+        
+        return s.toString();
+    }
     
     
 }

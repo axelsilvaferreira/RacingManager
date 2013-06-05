@@ -36,4 +36,13 @@ public class HistApostas implements Serializable
   public boolean contemAposta(Aposta c)
     {   return apostas.contains(c); }
   
+  public String toString(){
+      StringBuilder s = new StringBuilder();
+      
+      for (Aposta aposta : apostas){
+          s.append(aposta.toString() + "\n");
+      }
+      
+      return s.toString();
+  }
 }

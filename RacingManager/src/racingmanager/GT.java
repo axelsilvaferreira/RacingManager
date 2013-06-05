@@ -144,7 +144,7 @@ public class GT extends Veiculo implements Serializable
     }
 
     
-    
+    /*
     @Override
     public String toString() 
     {   StringBuilder str = new StringBuilder();
@@ -160,7 +160,7 @@ public class GT extends Veiculo implements Serializable
         
         return str.toString();
     }
-
+    */
     
     
     @Override

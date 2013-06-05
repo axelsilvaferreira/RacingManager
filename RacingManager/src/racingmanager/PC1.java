@@ -104,6 +104,7 @@ public class PC1 extends Veiculo implements Serializable
             // Acrescenta o tempo de Box
             time += c.getCircuito().gettBox();
         }
+
         
         //Calcula o tempo da volta
         timeD = time;
@@ -113,6 +114,7 @@ public class PC1 extends Veiculo implements Serializable
         return time;
     }
 
+    /*
     @Override
     public String toString() 
     {   StringBuilder str = new StringBuilder();
@@ -128,7 +130,8 @@ public class PC1 extends Veiculo implements Serializable
         
         return str.toString();
     }
-
+    */
+    
     @Override
     public boolean equals(Object o) 
     {      boolean bool=false;

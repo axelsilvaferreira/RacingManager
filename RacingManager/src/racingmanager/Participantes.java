@@ -16,23 +16,25 @@ public class Participantes implements Serializable
 {
     private static final long serialVersionUID = 1L;
     // Variáveis de Instâmcia
-    private TreeMap<Integer, Veiculo> frota;
+    private TreeMap<String, Veiculo> frota; //Alterei de Integer para String
     private Integer totalVitorias;
 
     
   
   // Construtor de Classe
   public Participantes()  
-    {   frota = new TreeMap<Integer, Veiculo>();  }  
+    {   frota = new TreeMap<String, Veiculo>();  }  
     
   /**
    * Método que adiciona um veiculo a frota
    * @param v veiculo a adicionar
    */
-  public void adVeiculo(Veiculo v) 
-    {   frota.put(v.gettTotal(), v);  }
+  public void adVeiculo(Veiculo v) {   
+        //System.out.println(v.getEquipa());
+        frota.put(v.getEquipa(), v); //Alterei de v.gettTotal() para v.getEquipa(); 
+  }
   
-  public TreeMap<Integer, Veiculo> getFrota() 
+  public TreeMap<String, Veiculo> getFrota() 
     {  return frota;  }
  
   
@@ -94,7 +96,17 @@ public class Participantes implements Serializable
         return aCampos;
     }
   
-    
+    @Override
+  public String toString(){
+      StringBuilder s = new StringBuilder();
+      
+      for (Veiculo veiculo: frota.values()){
+          s.append(veiculo.toString());
+      }
+      s.append("Total de Vitorias: " + totalVitorias + "\n");
+      
+      return s.toString();
+  }  
   /**
      * Método que cria um array de objectos com as caracteristicas de um veiculo
      * @return array de objectos

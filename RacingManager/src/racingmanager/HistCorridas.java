@@ -21,7 +21,7 @@ public class HistCorridas implements Serializable
   // Construtor de Classe
   public HistCorridas()  
     {  corridas  = new ArrayList<Corrida>(); 
-       atual = null;
+       atual = new Corrida();
     }  
     
   // Construtor de Classe
@@ -42,6 +42,18 @@ public class HistCorridas implements Serializable
   public boolean contemCorrida(Corrida c)
     {   return corridas.contains(c); }
  
-    
+    @Override
+  public String toString(){
+      StringBuilder s = new StringBuilder();
+      
+      s.append("Historico de Corridas:\n");
+      for (Corrida corrida: corridas){
+          s.append(corrida.toString() + "\n");
+      }
+      s.append("Corrida Actual:\n");
+      s.append(atual.toString() + "\n");
+      
+      return s.toString();
+  }
     
 }
