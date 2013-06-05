@@ -26,8 +26,8 @@ public class PC1 extends Veiculo implements Serializable
     public PC1() 
     {   super(); }
 
-    public PC1(String equipa, String marca, String modelo, Piloto p1, Piloto p2, boolean pAtual, Integer h, int cv, double f) 
-    {   super(equipa, marca, modelo, p1, p2, pAtual, h, 6000, cv, f); }
+    public PC1(String equipa, String marca, String modelo, Piloto p1, Piloto p2, boolean pAtual, Integer h, int cv, double f, int p) 
+    {   super(equipa, marca, modelo, p1, p2, pAtual, h, 6000, cv, f, p); }
 
     public PC1(Veiculo v) 
     {   super(v); 

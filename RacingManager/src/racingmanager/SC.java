@@ -29,8 +29,8 @@ public class SC extends Veiculo implements Serializable
       this.fiabilidade = 0;
     }
 
-    public SC(String equipa, String marca, String modelo, Piloto p1, Piloto p2, boolean pAtual, Integer h, int cv, double f)
-    {   super(equipa, marca, modelo, p1, p2, pAtual, h, 2500, cv, f); }
+    public SC(String equipa, String marca, String modelo, Piloto p1, Piloto p2, boolean pAtual, Integer h, int cv, double f, int p)
+    {   super(equipa, marca, modelo, p1, p2, pAtual, h, 2500, cv, f, p); }
 
     
     public SC(Veiculo v) 

@@ -112,13 +112,13 @@ public class Corrida implements Serializable
         StringBuilder str = new StringBuilder();
         Collection c = this.participante.getFrota().values();
         Iterator<Veiculo> itr = c.iterator();
-        Veiculo v = itr.next();
-        Integer i1 = v.tempoProximaVolta(this);
-            TreeMap<Integer ,Veiculo> p;
-            p = new TreeMap<Integer,Veiculo>();
+            Veiculo v = itr.next();
             this.setVoltaActual(this.circuito.getnVoltas());
         while(this.getVoltaActual()>0){
+           TreeMap<Integer ,Veiculo> p;
+           p = new TreeMap<Integer,Veiculo>();
         while(itr.hasNext()){
+        Integer i1 = v.tempoProximaVolta(this);
           if(i1 != Integer.MAX_VALUE){
        v.settTotal(v.gettTotal() + i1);
          p.put(i1,v);
@@ -126,7 +126,7 @@ public class Corrida implements Serializable
             Collection t = p.values();
             Iterator<Veiculo> it = t.iterator();
             Veiculo vi = it.next();
-            while(i2<=1 && it.hasNext()){
+            while(i2<=1){
                 str.append(v.getEquipa() + i1.toString() + "\n");
                 i2++;
                }
@@ -134,35 +134,37 @@ public class Corrida implements Serializable
             else{
             v.settTotal(Integer.MAX_VALUE);
                 str.append("DNF " + v.getEquipa() + "\n");
+                 v = itr.next();
           }  
               }
         Collection n = p.values();
         Iterator<Veiculo> it = n.iterator();
-        Veiculo vi = it.next();
         TreeMap<Integer,Veiculo> ranking;
+        Veiculo vi;
         ranking = new TreeMap<Integer,Veiculo>();
-       while(it.hasNext()){
+        while(it.hasNext()){
+        vi = it.next();
         ranking.put(vi.gettTotal(),vi.clone());
        }
         Collection o = ranking.values();
         Iterator<Veiculo> itr1 = o.iterator();
-        Veiculo v1 = itr1.next();
         while(itr1.hasNext()){
+            Veiculo v1 = itr1.next();
             int i3 = 0;
             Piloto ps;
             Record r;
-            v1.setPontos(v1.getPontos()+ranking.size()-(i3-1));
             if (v1.getPAtual()) {ps = v1.getPiloto1();} else {ps = v1.getPiloto2();}
             r = new Record(v1.gettTotal(), v1.getEquipa(), ps.getNome());
             switch (i3){
                 case 0 : this.setPrimeiro(r);
                 case 1 : this.setSegundo(r);
                 case 2 : this.setTerceiro(r);
-                    i3++;
             }
+            v1.setPontos(v1.getPontos()+ranking.size()-(i3-1));
             rank.append(v1.getEquipa());
             if(v1.gettTotal()!=Integer.MAX_VALUE){System.out.print(v1.gettTotal());}
             else {System.out.print("DNF");}
+            i3++;
              }
             this.setVoltaActual(this.getVoltaActual()-1);
           }

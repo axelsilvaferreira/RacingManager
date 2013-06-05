@@ -29,8 +29,8 @@ public class GT extends Veiculo implements Serializable
         setCC(0);
     }
 
-    public GT(String equipa, String marca, String modelo, Piloto p1, Piloto p2, boolean pAtual, Integer h, int cc, int cv, double f) 
-    {   super(equipa, marca, modelo, p1, p2, pAtual, h, cc, cv, f);
+    public GT(String equipa, String marca, String modelo, Piloto p1, Piloto p2, boolean pAtual, Integer h, int cc, int cv, double f, int p) 
+    {   super(equipa, marca, modelo, p1, p2, pAtual, h, cc, cv, f ,p);
         setCC(cc);
     }
 
