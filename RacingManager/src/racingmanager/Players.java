@@ -56,7 +56,16 @@ public class Players implements Serializable
   }
       
       
-      
+  public String[] paraArray(){
+        String[] str = new String[jogadores.size()];
+        int i=0;
+    
+        for (Jogador p: jogadores.values()){
+            str[i] =  p.getNome();
+            i++;
+        }
+   return str;
+   }    
       
       
       
