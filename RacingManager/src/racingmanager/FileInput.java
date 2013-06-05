@@ -90,7 +90,7 @@ public class FileInput implements Serializable {
                 case 1:
                     p1 = pS.get(campos[4]);
                     p2 = pS.get(campos[5]);
-                    v = new GT(campos[0],campos[2], campos[3],p1, p2, pActual, h, cc, cv, fi);
+                    v = new GT(campos[0],campos[2], campos[3],p1, p2, pActual, h, cc, cv, fi, p);
                     //System.out.println(v + "\n");
                     f.adVeiculo(v);
                     break;

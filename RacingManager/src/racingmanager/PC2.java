@@ -25,8 +25,8 @@ public class PC2 extends Veiculo implements Serializable
     public PC2()
     { super();}
 
-    public PC2(String equipa, String marca, String modelo, Piloto p1, Piloto p2, boolean pAtual, Integer h, int cc, int cv, double f)
-    {   super(equipa, marca, modelo, p1, p2, pAtual, h, cc, cv, f); 
+    public PC2(String equipa, String marca, String modelo, Piloto p1, Piloto p2, boolean pAtual, Integer h, int cc, int cv, double f, int p)
+    {   super(equipa, marca, modelo, p1, p2, pAtual, h, cc, cv, f, p); 
         this.setCC(cc);
     }
 

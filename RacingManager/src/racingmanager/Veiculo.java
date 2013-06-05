@@ -29,7 +29,7 @@ public abstract class Veiculo implements Serializable
         private int cv;              // Potencia
         private int tTotal;          // Tempo acomulado da corrida
         private double fiabilidade;  // Fiabilidade do carro 0-100
-        private Integer pontos;      // Pontos acumulados de um carro
+        private int pontos;      // Pontos acumulados de um carro
 
     /**
      * Construtor Default de objectos da categoria Veiculo
@@ -47,12 +47,13 @@ public abstract class Veiculo implements Serializable
         this.cv          = 0;
         this.tTotal      = 0;
         this.fiabilidade = 0;
+        this.pontos      = 0;
     }
     
     /**
      * Construtor da categoria Veiculo com argumentos
      */
-    public Veiculo(String equipa, String marca, String modelo, Piloto p1, Piloto p2, boolean pAtual, Integer h, int cc, int cv, double f) 
+    public Veiculo(String equipa, String marca, String modelo, Piloto p1, Piloto p2, boolean pAtual, Integer h, int cc, int cv, double f,int p) 
     {   // initialização das variáveis de instância
         this.equipa      = equipa;
         this.marca       = marca;
@@ -65,6 +66,7 @@ public abstract class Veiculo implements Serializable
         this.cv          = cv;
         this.tTotal      = 0;
         this.fiabilidade = f;
+        this.pontos      = p;
     }
     
     /**
@@ -83,6 +85,7 @@ public abstract class Veiculo implements Serializable
         this.cv          = v.getCV();
         this.tTotal      = v.gettTotal();
         this.fiabilidade = v.getFiabilidade();
+        this.pontos      = v.getPontos();
     }
 
     public String getEquipa() 
