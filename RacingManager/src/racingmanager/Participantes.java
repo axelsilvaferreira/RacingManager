@@ -3,6 +3,7 @@ package racingmanager;
 
 import java.io.Serializable;
 import java.util.*;
+import java.lang.String;
 
 
 /**
@@ -107,6 +108,19 @@ public class Participantes implements Serializable
       
       return s.toString();
   }  
+    
+    
+  public String[] paraArray(){
+      String[] str = new String[frota.size()];
+      int i = 0;
+      
+      for (Veiculo v: frota.values()){
+          str[i] = v.getEquipa();
+          i++;
+      }
+      
+      return str;
+  }
   /**
      * Método que cria um array de objectos com as caracteristicas de um veiculo
      * @return array de objectos

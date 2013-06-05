@@ -33,6 +33,9 @@ public class RacingManager {
       cor = new Corrida(null, null, null, cir, casa.getChampionship().getFrota());
 
       System.out.println(cir.toString());
+      System.out.println("::::::::::::::::CORRIDA::::::::::::::::");
+      System.out.println(cor.toString());
+        
       cor.execCorrida();
       
       //System.out.println(casa.toString());
