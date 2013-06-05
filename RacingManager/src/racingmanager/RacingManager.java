@@ -32,9 +32,10 @@ public class RacingManager {
       
       cor = new Corrida(null, null, null, cir, casa.getChampionship().getFrota());
 
+      System.out.println(cir.toString());
       cor.execCorrida();
       
-      System.out.println(casa.toString());
+      //System.out.println(casa.toString());
       
       //Record rec = new Record();
       //Veiculo carro = new GT();

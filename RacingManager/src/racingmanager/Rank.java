@@ -57,11 +57,11 @@ public class Rank implements Serializable
         StringBuilder s = new StringBuilder();
         
         s.append("1º Lugar:\n");
-        s.append(first.toString());
+        if (first != null) s.append(first.toString());
         s.append("\n2º Lugar:\n");
-        s.append(second.toString());
+        if (second != null)s.append(second.toString());
         s.append("\n3º Lugar:\n");
-        s.append(third.toString());
+        if (third != null)s.append(third.toString());
         s.append("\n");
         
         return s.toString();

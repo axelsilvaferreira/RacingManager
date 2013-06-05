@@ -174,18 +174,18 @@ public class Corrida implements Serializable
         StringBuilder s = new StringBuilder();
         
         s.append("1º Lugar:\n");
-        s.append(primeiro.toString() + "\n");
+        if (primeiro != null) s.append(primeiro.toString() + "\n");
         s.append("2º Lugar:\n");
-        s.append(segundo.toString() + "\n");
+        if (segundo != null) s.append(segundo.toString() + "\n");
         s.append("3º Lugar:\n");
-        s.append(terceiro.toString() + "\n");
+        if (terceiro != null) s.append(terceiro.toString() + "\n");
         s.append("Circuito:\n");
         s.append(circuito.toString() + "\n");
         s.append("Participantes:\n");
         s.append(participante.toString() + "\n");
         s.append("Chuva: " + isChuva + "\n");
         s.append("Apostas:\n");
-        s.append(apostas.toString() + "\n");
+        if (apostas != null) s.append(apostas.toString() + "\n");
         s.append("Volta Actual: " + voltaActual + "\n");
      
         return s.toString();

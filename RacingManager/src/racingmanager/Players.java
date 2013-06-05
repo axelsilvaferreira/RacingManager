@@ -67,7 +67,14 @@ public class Players implements Serializable
    return str;
    }    
       
-      
+   public String toString(){
+       StringBuilder s = new StringBuilder();
+       
+       for (Jogador j: jogadores.values()){
+       s.append(j.toString());
+       }
+       return s.toString();
+   }   
       
       
       

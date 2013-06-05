@@ -54,6 +54,15 @@ public class CasaApostas implements Serializable
     public void setChampionship(Campeonato championship) 
     {   this.championship = championship; }
     
+    public String toString(){
+        StringBuilder s = new StringBuilder();
+        
+        if (apostas != null)s.append(apostas.toString());
+        if (jogadores != null) s.append(jogadores.toString());
+        s.append(championship.toString());
+        
+        return s.toString();
+    }
     
     
     
