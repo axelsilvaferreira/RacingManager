@@ -18,9 +18,9 @@ public class Rank implements Serializable
     private Record third;
 
     public Rank() 
-    { first = null;
-      second = null;
-      third = null;
+    { first = new Record();
+      second = new Record();
+      third = new Record();
     }
 
     public Rank(Record first, Record second, Record third) {
@@ -57,11 +57,12 @@ public class Rank implements Serializable
         StringBuilder s = new StringBuilder();
         
         s.append("1º Lugar:\n");
-        s.append(first.toString() + "\n");
-        s.append("2º Lugar:\n");
-        s.append(second.toString() + "\n");
-        s.append("3º Lugar:\n");
-        s.append(third.toString() + "\n");
+        s.append(first.toString());
+        s.append("\n2º Lugar:\n");
+        s.append(second.toString());
+        s.append("\n3º Lugar:\n");
+        s.append(third.toString());
+        s.append("\n");
         
         return s.toString();
     }

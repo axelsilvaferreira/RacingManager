@@ -24,6 +24,8 @@ public class RacingManager {
       //FileInput.pilToString();
       c = FileInput.loadAll();
       
+      System.out.println(c.toString());
+      
       Record rec = new Record();
       Veiculo carro = new GT();
       

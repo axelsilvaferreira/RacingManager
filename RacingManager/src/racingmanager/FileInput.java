@@ -218,7 +218,7 @@ public class FileInput implements Serializable {
         //System.out.println(pS.toString());
         //System.out.println(cirs.toString());
         //System.out.println(veis.toString());
-        System.out.println(hcorr.toString());
+        //System.out.println(hcorr.toString());
         c = new Campeonato(cirs, veis, hcorr, equipas, htrof);
         //System.out.println(c.toString());
         return c;
