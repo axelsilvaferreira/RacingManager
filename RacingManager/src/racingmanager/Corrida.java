@@ -110,11 +110,11 @@ public class Corrida implements Serializable
     public String execCorrida(){
         StringBuilder rank = new StringBuilder();
         Collection c = this.participante.getFrota().values();
-        Iterator<Veiculo> itr = c.iterator();
             this.setVoltaActual(this.circuito.getnVoltas());
         while(this.getVoltaActual()>0){
            TreeMap<Integer ,Veiculo> p;
            p = new TreeMap<Integer,Veiculo>();
+           Iterator<Veiculo> itr = c.iterator();
         while(itr.hasNext()){
         Veiculo v = itr.next();
         Integer i1 = v.tempoProximaVolta(this);
