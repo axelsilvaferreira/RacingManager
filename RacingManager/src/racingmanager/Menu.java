@@ -871,9 +871,13 @@ public class Menu extends javax.swing.JFrame implements Serializable
             TextoCircuito.setText(cir.getNome());
             TextoVoltas.setText(cir.getnVoltas().toString());
             Recode.setText(corr.getCircuito().getRecord().toString());
-
+            
+            // Processa Corrida
             String str = corr.execCorrida();
             TextoCorrida.setText(str);
+            // Processa Apostas
+            BLA BLA
+            
 
             casa.getChampionship().gethCorridas().addCorrida(corr);
             

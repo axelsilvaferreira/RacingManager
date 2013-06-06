@@ -17,7 +17,7 @@ public class Record implements Serializable
     private Integer time;       // Tempo record em segundos
     private String pilot;       // Nome do piloto
     private String carro;       // Nome do carro
-
+    //private String equipa;      // Nome da Equipa
     
     
     public Record() 
@@ -25,13 +25,15 @@ public class Record implements Serializable
         this.time = 0;
         this.pilot = "";
         this.carro = "";
+        //equipa = "";
     }
     
-    public Record(Integer time, String pilot, String carro) 
+    public Record(Integer time, String pilot, String carro, String equipa) 
     {
         this.time = time;
         this.pilot = pilot;
         this.carro = carro;
+        //this.equipa = equipa;
     }
 
     public Record(Record r) 
@@ -39,6 +41,7 @@ public class Record implements Serializable
         this.time = r.getTime();
         this.pilot = r.getPilot();
         this.carro = r.getCarro();
+        //this.equipa = r.getEquipa();
     }
     
     
@@ -55,6 +58,16 @@ public class Record implements Serializable
     public void setPilot(String p) 
     {   this.pilot = p;  }
 
+   /* public String getEquipa()
+    {
+        return equipa;
+    }
+
+    public void setEquipa(String equipa)
+    {
+        this.equipa = equipa;
+    }
+    */
     public String getCarro() 
     {   return carro;  }
 

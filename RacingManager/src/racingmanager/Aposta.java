@@ -80,6 +80,16 @@ public class Aposta implements Serializable
         this.ganhos = g;
     }
     
+    public void processaAposta(Rank r)
+    {   int i = getPosicao();
+        Jogador j;
+        switch (i)
+                { case 1: if (r.getFirst().getCarro().equals(getEquipa()))
+                          {}
+                          break;
+                } 
+    }
+    
     public double getGanhos(){
         return ganhos;
     }
