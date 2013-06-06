@@ -24,6 +24,12 @@ public class Circuitos implements Serializable
     {  circuitos  = new ArrayList<Circuito>(); 
        atual = 0;
     }  
+
+    public int getAtual()
+    {   return atual; }
+
+    public void setAtual(int atual)
+    {   this.atual = atual; }
     
   /**
    * Método que adiciona um veiculo a circuitos
@@ -45,9 +51,7 @@ public class Circuitos implements Serializable
   { Circuito c=null;
   
     if ((circuitos.size() > 0) && (circuitos.size() >= atual))
-    { c = circuitos.get(atual); 
-      atual++;
-    }
+    { c = circuitos.get(atual);}
     
     return c;
   }
