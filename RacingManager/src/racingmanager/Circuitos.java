@@ -50,8 +50,19 @@ public class Circuitos implements Serializable
   public Circuito getCircuitoAtual()
   { Circuito c=null;
   
-    if ((circuitos.size() > 0) && (circuitos.size() >= atual))
-    { c = circuitos.get(atual);}
+    if ((circuitos.size() > 0) && (circuitos.size() > (atual) ))
+    { c = circuitos.get(atual);
+     //System.out.print("\n######"+atual+","+circuitos.size());
+    }
+    
+    return c;
+  }
+  
+  public boolean isCircuitoAtual()
+  { boolean c=false;
+  
+    if ((circuitos.size() > 0) && (circuitos.size() > (atual) ))
+    { c = true;}
     
     return c;
   }

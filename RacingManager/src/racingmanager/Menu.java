@@ -74,6 +74,9 @@ public class Menu extends javax.swing.JFrame implements Serializable
         jScrollPane1 = new javax.swing.JScrollPane();
         NextRaceTextBox = new javax.swing.JTextArea();
         PlayerDropBox = new javax.swing.JComboBox();
+        jLabel18 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -231,6 +234,20 @@ public class Menu extends javax.swing.JFrame implements Serializable
             }
         });
 
+        jLabel18.setText("Saldo");
+
+        jTextField2.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jTextField2.setText("0");
+        jTextField2.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+
+        jLabel19.setText("€");
+
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -276,38 +293,48 @@ public class Menu extends javax.swing.JFrame implements Serializable
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                                 .add(PlayerDropBox, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .add(123, 123, 123))
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .add(jButton3)
-                        .add(133, 133, 133))
                     .add(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(jPanel1Layout.createSequentialGroup()
                                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                                    .add(jPanel1Layout.createSequentialGroup()
-                                        .add(6, 6, 6)
-                                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                            .add(jLabel13)
-                                            .add(jPanel1Layout.createSequentialGroup()
-                                                .add(jLabel15)
-                                                .add(18, 18, 18)
-                                                .add(jTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 68, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                                .add(jLabel16)))
-                                        .add(6, 6, Short.MAX_VALUE)
-                                        .add(jLabel14))
                                     .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel1Layout.createSequentialGroup()
                                         .add(EquipaDropBox, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                                         .add(jComboBox2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                        .add(19, 19, 19)))
-                                .add(123, 123, 123))
+                                        .add(61, 61, 61))
+                                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .add(6, 6, 6)
+                                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                            .add(jPanel1Layout.createSequentialGroup()
+                                                .add(jLabel13)
+                                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .add(jLabel14))
+                                            .add(jPanel1Layout.createSequentialGroup()
+                                                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                                    .add(jPanel1Layout.createSequentialGroup()
+                                                        .add(jLabel18)
+                                                        .add(18, 18, 18)
+                                                        .add(jTextField2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 68, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                                        .add(jLabel19))
+                                                    .add(jPanel1Layout.createSequentialGroup()
+                                                        .add(jLabel15)
+                                                        .add(18, 18, 18)
+                                                        .add(jTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 68, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                                        .add(jLabel16)))
+                                                .add(0, 0, Short.MAX_VALUE)))))
+                                .add(81, 81, 81))
                             .add(jPanel1Layout.createSequentialGroup()
                                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                     .add(jLabel12)
                                     .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .add(jButton3)
+                        .add(47, 47, 47))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -335,9 +362,17 @@ public class Menu extends javax.swing.JFrame implements Serializable
                     .add(jLabel15)
                     .add(jTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(jLabel16))
-                .add(23, 23, 23)
-                .add(jButton3)
-                .add(26, 26, 26))
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                            .add(jLabel18)
+                            .add(jTextField2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(jLabel19)))
+                    .add(jPanel1Layout.createSequentialGroup()
+                        .add(55, 55, 55)
+                        .add(jButton3)))
+                .add(11, 11, 11))
             .add(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
@@ -636,12 +671,16 @@ public class Menu extends javax.swing.JFrame implements Serializable
     private void SimularCorridaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_SimularCorridaActionPerformed
     {//GEN-HEADEREND:event_SimularCorridaActionPerformed
         //Simulação de uma corrida
-      if (casa.getChampionship().getPistas().getCircuitoAtual() != null)  
+        int n = casa.getChampionship().getPistas().numeroCircuitos();
+        
+      if (casa.getChampionship().getPistas().isCircuitoAtual())  
       {  Circuito cir = casa.getChampionship().getPistas().getCircuitoAtual();
         Corrida corr = new Corrida(null, null, null, cir, casa.getChampionship().getFrota());
         
         casa.getChampionship().getPistas().setAtual(casa.getChampionship().getPistas().getAtual()+1);
-        NextRaceTextBox.setText(casa.getChampionship().getPistas().getCircuitoAtual().toString());
+        if (n==casa.getChampionship().getPistas().getAtual()) 
+        {NextRaceTextBox.setText("");}
+        else {NextRaceTextBox.setText(casa.getChampionship().getPistas().getCircuitoAtual().toString());}
         TextoCircuito.setText(cir.getNome());
         TextoVoltas.setText(cir.getnVoltas().toString());
         Recode.setText(corr.getCircuito().getRecord().toString());
@@ -675,6 +714,11 @@ public class Menu extends javax.swing.JFrame implements Serializable
         // TODO add your handling code here:
        
     }//GEN-LAST:event_PlayerDropBoxActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTextField2ActionPerformed
+    {//GEN-HEADEREND:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
 /**
      * @param args the command line arguments
      */
@@ -728,6 +772,8 @@ public class Menu extends javax.swing.JFrame implements Serializable
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
@@ -758,6 +804,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextPane jTextPane5;
     private javax.swing.JTextPane jTextPane6;
     private javax.swing.JTextPane jTextPane7;
