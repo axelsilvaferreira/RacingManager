@@ -87,7 +87,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
         NextRaceTextBox = new javax.swing.JTextArea();
         PlayerDropBox = new javax.swing.JComboBox();
         jLabel18 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        SaldoPlayer = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -332,14 +332,14 @@ public class Menu extends javax.swing.JFrame implements Serializable
 
         jLabel18.setText("Saldo");
 
-        jTextField2.setEditable(false);
-        jTextField2.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextField2.setText("0");
-        jTextField2.addActionListener(new java.awt.event.ActionListener()
+        SaldoPlayer.setEditable(false);
+        SaldoPlayer.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        SaldoPlayer.setText("0");
+        SaldoPlayer.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                jTextField2ActionPerformed(evt);
+                SaldoPlayerActionPerformed(evt);
             }
         });
 
@@ -412,7 +412,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
                                                     .add(jPanel1Layout.createSequentialGroup()
                                                         .add(jLabel18)
                                                         .add(18, 18, 18)
-                                                        .add(jTextField2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 68, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                                        .add(SaldoPlayer, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 68, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                                                         .add(jLabel19))
                                                     .add(jPanel1Layout.createSequentialGroup()
@@ -464,7 +464,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                             .add(jLabel18)
-                            .add(jTextField2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(SaldoPlayer, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                             .add(jLabel19)))
                     .add(jPanel1Layout.createSequentialGroup()
                         .add(55, 55, 55)
@@ -768,15 +768,17 @@ public class Menu extends javax.swing.JFrame implements Serializable
         EquipaDropBox = new JComboBox(casa.getChampionship().getFrota().paraArray());
     }//GEN-LAST:event_jTabbedPane1MouseClicked
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTextField2ActionPerformed
-    {//GEN-HEADEREND:event_jTextField2ActionPerformed
+    private void SaldoPlayerActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_SaldoPlayerActionPerformed
+    {//GEN-HEADEREND:event_SaldoPlayerActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_SaldoPlayerActionPerformed
 
     private void PlayerDropBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_PlayerDropBoxActionPerformed
     {//GEN-HEADEREND:event_PlayerDropBoxActionPerformed
         // TODO add your handling code here:
-
+        String player = (String) PlayerDropBox.getSelectedItem();
+        Jogador j =(Jogador) casa.getJogadores().getJogador(player);
+        SaldoPlayer.setText(j.getConta().toString());
     }//GEN-LAST:event_PlayerDropBoxActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTextField1ActionPerformed
@@ -883,6 +885,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
     private javax.swing.JTextArea NextRaceTextBox;
     private javax.swing.JComboBox PlayerDropBox;
     private javax.swing.JLabel Recode;
+    private javax.swing.JTextField SaldoPlayer;
     private javax.swing.JButton SimularCorrida;
     private javax.swing.JLabel TextoCircuito;
     private javax.swing.JTextArea TextoCorrida;
@@ -934,7 +937,6 @@ public class Menu extends javax.swing.JFrame implements Serializable
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextPane jTextPane5;
     private javax.swing.JTextPane jTextPane6;
     private javax.swing.JTextPane jTextPane7;
