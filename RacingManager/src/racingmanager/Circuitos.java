@@ -56,6 +56,15 @@ public class Circuitos implements Serializable
     return c;
   }
   
+  public Circuito getCircuitoAnterior()
+  { Circuito c=null;
+  
+    if (((circuitos.size()-1) > 0) && (circuitos.size() >= (atual)-1))
+    { c = circuitos.get(atual -1);}
+    
+    return c;
+  }
+  
   public int numeroCircuitos(){
       return circuitos.size();
   }
