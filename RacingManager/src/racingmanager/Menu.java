@@ -73,7 +73,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
         jButton3 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         NextRaceTextBox = new javax.swing.JTextArea();
-        jComboBox1 = new javax.swing.JComboBox();
+        PlayerDropBox = new javax.swing.JComboBox();
         jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -222,12 +222,12 @@ public class Menu extends javax.swing.JFrame implements Serializable
         NextRaceTextBox.setRows(5);
         jScrollPane1.setViewportView(NextRaceTextBox);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener()
+        PlayerDropBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        PlayerDropBox.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                jComboBox1ActionPerformed(evt);
+                PlayerDropBoxActionPerformed(evt);
             }
         });
 
@@ -274,7 +274,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
                                 .add(0, 0, Short.MAX_VALUE))
                             .add(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                .add(jComboBox1, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .add(PlayerDropBox, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .add(123, 123, 123))
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -317,7 +317,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
                 .add(12, 12, 12)
                 .add(jLabel12)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jComboBox1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(PlayerDropBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jSeparator3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -538,8 +538,8 @@ public class Menu extends javax.swing.JFrame implements Serializable
         //Recode.setText(casa.getChampionship().getPistas().getCircuitoAtual().getRecord().toString());
         //TextoCircuito.setText(casa.getChampionship().getPistas().getCircuitoAtual().getNome());
         //TextoVoltas.setText(casa.getChampionship().getPistas().getCircuitoAtual().getnVoltas().toString());
-        // Refresh dos Jogadores
-        //PlayerDropBox = new JComboBox(casa.getJogadores().paraArray());
+        //Refresh dos Jogadores
+        PlayerDropBox = new JComboBox(casa.getJogadores().paraArray());
         EquipaDropBox = new JComboBox(casa.getChampionship().getFrota().paraArray());
         NextRaceTextBox.setText(casa.getChampionship().getPistas().getCircuitoAtual().toString());
     }//GEN-LAST:event_jMenuItem1ActionPerformed
@@ -641,11 +641,11 @@ public class Menu extends javax.swing.JFrame implements Serializable
         EquipaDropBox = new JComboBox(casa.getChampionship().getFrota().paraArray());
     }//GEN-LAST:event_jTabbedPane1MouseClicked
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jComboBox1ActionPerformed
-    {//GEN-HEADEREND:event_jComboBox1ActionPerformed
+    private void PlayerDropBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_PlayerDropBoxActionPerformed
+    {//GEN-HEADEREND:event_PlayerDropBoxActionPerformed
         // TODO add your handling code here:
         //Jogadores
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_PlayerDropBoxActionPerformed
 /**
      * @param args the command line arguments
      */
@@ -683,6 +683,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox EquipaDropBox;
     private javax.swing.JTextArea NextRaceTextBox;
+    private javax.swing.JComboBox PlayerDropBox;
     private javax.swing.JLabel Recode;
     private javax.swing.JLabel TextoCircuito;
     private javax.swing.JTextPane TextoCorrida;
@@ -690,7 +691,6 @@ public class Menu extends javax.swing.JFrame implements Serializable
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
