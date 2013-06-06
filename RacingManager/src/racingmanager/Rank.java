@@ -34,6 +34,7 @@ public class Rank implements Serializable
         this.second = r.getSecond();
         this.third = r.getThird();
     }
+    
 
     public Record getFirst() 
     {   return first;  }
