@@ -99,12 +99,12 @@ public class Menu extends javax.swing.JFrame implements Serializable
         jPanel5 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTextPane5 = new javax.swing.JTextPane();
+        TextoRankHibrido = new javax.swing.JTextPane();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTextPane6 = new javax.swing.JTextPane();
+        TextoRankApostas = new javax.swing.JTextPane();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jTextPane7 = new javax.swing.JTextPane();
+        TextoRankCampeonato = new javax.swing.JTextPane();
         jLabel7 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -514,23 +514,23 @@ public class Menu extends javax.swing.JFrame implements Serializable
         jLabel5.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel5.setText("Campeonato");
 
-        jTextPane5.setBackground(new java.awt.Color(0, 0, 0));
-        jTextPane5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jTextPane5.setForeground(new java.awt.Color(255, 255, 255));
-        jScrollPane5.setViewportView(jTextPane5);
+        TextoRankHibrido.setBackground(new java.awt.Color(0, 0, 0));
+        TextoRankHibrido.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        TextoRankHibrido.setForeground(new java.awt.Color(255, 255, 255));
+        jScrollPane5.setViewportView(TextoRankHibrido);
 
         jLabel6.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel6.setText("Apostadores");
 
-        jTextPane6.setBackground(new java.awt.Color(0, 0, 0));
-        jTextPane6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jTextPane6.setForeground(new java.awt.Color(255, 255, 255));
-        jScrollPane6.setViewportView(jTextPane6);
+        TextoRankApostas.setBackground(new java.awt.Color(0, 0, 0));
+        TextoRankApostas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        TextoRankApostas.setForeground(new java.awt.Color(255, 255, 255));
+        jScrollPane6.setViewportView(TextoRankApostas);
 
-        jTextPane7.setBackground(new java.awt.Color(0, 0, 0));
-        jTextPane7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jTextPane7.setForeground(new java.awt.Color(255, 255, 255));
-        jScrollPane7.setViewportView(jTextPane7);
+        TextoRankCampeonato.setBackground(new java.awt.Color(0, 0, 0));
+        TextoRankCampeonato.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        TextoRankCampeonato.setForeground(new java.awt.Color(255, 255, 255));
+        jScrollPane7.setViewportView(TextoRankCampeonato);
 
         jLabel7.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel7.setText("Hibrido");
@@ -802,6 +802,21 @@ public class Menu extends javax.swing.JFrame implements Serializable
         // Refresh dos Jogadores
         //PlayerDropBox = new JComboBox(casa.getJogadores().paraArray());
         EquipaDropBox = new JComboBox(casa.getChampionship().getFrota().paraArray());
+        
+        // REFRESH DOS RANKINGS
+        if ( casa.getChampionship().getEquipas()!=null && 
+             casa.getChampionship().getTrofeuH()!=null &&
+             casa.getApostas()!=null
+           )
+        {   TextoRankCampeonato.setText(casa.getChampionship().getEquipas().toString());
+            TextoRankHibrido.setText(casa.getChampionship().getTrofeuH().toString());
+            TextoRankApostas.setText(casa.getApostas().toString());
+        }
+        else 
+        {   TextoRankCampeonato.setText("");
+            TextoRankHibrido.setText("");
+            TextoRankApostas.setText("");
+        }
     }//GEN-LAST:event_jTabbedPane1MouseClicked
 
     private void SaldoPlayerActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_SaldoPlayerActionPerformed
@@ -899,6 +914,8 @@ public class Menu extends javax.swing.JFrame implements Serializable
         Integer pos      = Integer.parseInt(Posicao.getSelectedItem().toString());
         
         double ven = 2*valor;
+        
+        
                 
         Aposta a = new Aposta(apostador, equipa, valor, atual, pos, ven);
         atual.setAposta(a);
@@ -958,6 +975,9 @@ public class Menu extends javax.swing.JFrame implements Serializable
     private javax.swing.JButton SimularCorrida;
     private javax.swing.JLabel TextoCircuito;
     private javax.swing.JTextArea TextoCorrida;
+    private javax.swing.JTextPane TextoRankApostas;
+    private javax.swing.JTextPane TextoRankCampeonato;
+    private javax.swing.JTextPane TextoRankHibrido;
     private javax.swing.JLabel TextoVoltas;
     private javax.swing.JTextField ValorAposta;
     private javax.swing.JButton jButton1;
@@ -1004,8 +1024,5 @@ public class Menu extends javax.swing.JFrame implements Serializable
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextPane jTextPane5;
-    private javax.swing.JTextPane jTextPane6;
-    private javax.swing.JTextPane jTextPane7;
     // End of variables declaration//GEN-END:variables
 }
