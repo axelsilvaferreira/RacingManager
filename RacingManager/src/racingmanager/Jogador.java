@@ -17,7 +17,7 @@ public class Jogador implements Serializable
 
     private String nome;            // Nome
     private String morada;          // Morada
-    private double conta;          // Balanço da Conta Corrente
+    private double conta;           // Balanço da Conta Corrente
     private Aposta atual;           // Apostas Atuais
     private HistApostas historico;  // Historico de Apostas
 

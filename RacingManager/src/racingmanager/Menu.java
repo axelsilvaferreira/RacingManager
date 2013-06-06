@@ -48,9 +48,9 @@ public class Menu extends javax.swing.JFrame implements Serializable
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        TextoCorrida = new javax.swing.JTextPane();
         jLabel3 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        TextoCorrida = new javax.swing.JTextArea();
         SimularCorrida = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -115,14 +115,15 @@ public class Menu extends javax.swing.JFrame implements Serializable
             }
         });
 
-        TextoCorrida.setBackground(new java.awt.Color(0, 0, 0));
-        TextoCorrida.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        TextoCorrida.setForeground(new java.awt.Color(255, 255, 255));
-        jScrollPane2.setViewportView(TextoCorrida);
-
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Simulação");
+
+        TextoCorrida.setBackground(new java.awt.Color(0, 0, 0));
+        TextoCorrida.setColumns(20);
+        TextoCorrida.setForeground(new java.awt.Color(255, 255, 255));
+        TextoCorrida.setRows(5);
+        jScrollPane3.setViewportView(TextoCorrida);
 
         org.jdesktop.layout.GroupLayout jPanel2Layout = new org.jdesktop.layout.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -130,22 +131,23 @@ public class Menu extends javax.swing.JFrame implements Serializable
             jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel2Layout.createSequentialGroup()
-                        .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 469, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .add(jLabel3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .add(30, 30, 30))))
+                .add(jLabel3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
+                .add(30, 30, 30))
+            .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel2Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .add(jScrollPane3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel2Layout.createSequentialGroup()
                 .add(12, 12, 12)
                 .add(jLabel3)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 342, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(360, Short.MAX_VALUE))
+            .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel2Layout.createSequentialGroup()
+                    .add(0, 47, Short.MAX_VALUE)
+                    .add(jScrollPane3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 347, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
         );
 
         SimularCorrida.setText("Corrida");
@@ -237,7 +239,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
                 .addContainerGap()
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jPanel1Layout.createSequentialGroup()
-                        .add(jPanel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 476, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(jPanel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(0, 0, Short.MAX_VALUE))
                     .add(jPanel1Layout.createSequentialGroup()
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -539,10 +541,16 @@ public class Menu extends javax.swing.JFrame implements Serializable
         //TextoVoltas.setText(casa.getChampionship().getPistas().getCircuitoAtual().getnVoltas().toString());
         //Refresh dos Jogadores
         NextRaceTextBox.setText(casa.getChampionship().getPistas().getCircuitoAtual().toString());
-        //PlayerDropBox.add(casa.getJogadores().paraArray());
-        //Object[] str = casa.getJogadores().paraArray();
-        //for (int i=0;i<=casa.getJogadores().numeroJogadores();i++)
-        //{PlayerDropBox.addItem(str[i]); System.out.println(str[i]);}
+        
+        // Carrega menu Jogadores
+        Object[] jgr = casa.getJogadores().paraArray();
+        for (int i=0;i<=casa.getJogadores().numeroJogadores();i++)
+        { PlayerDropBox.addItem(jgr[i]); }
+        
+        // Carrega menu Equipas
+        Object[] eqi = casa.getChampionship().getFrota().paraArray();
+        for (int i=0;i<=casa.getChampionship().getFrota().numeroEquipas();i++)
+        { EquipaDropBox.addItem(eqi[i]); }
         EquipaDropBox = new JComboBox(casa.getChampionship().getFrota().paraArray());
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
@@ -602,9 +610,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
     private void EquipaDropBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_EquipaDropBoxActionPerformed
     {//GEN-HEADEREND:event_EquipaDropBoxActionPerformed
         // TODO add your handling code here:
-        Object[] str = casa.getChampionship().getFrota().paraArray();
-        for (int i=0;i<=casa.getChampionship().getFrota().numeroEquipas();i++)
-        {PlayerDropBox.addItem(str[i]); System.out.println(str[i]);}
+        
     }//GEN-LAST:event_EquipaDropBoxActionPerformed
 
     private void PlayerDropBox1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_PlayerDropBox1ActionPerformed
@@ -632,9 +638,10 @@ public class Menu extends javax.swing.JFrame implements Serializable
         TextoCircuito.setText(cir.getNome());
         TextoVoltas.setText(cir.getnVoltas().toString());
         Recode.setText(corr.getCircuito().getRecord().toString());
-        TextoCorrida.setText(corr.execCorrida());
         
-        corr.execCorrida();
+        
+        String str = corr.execCorrida();
+        TextoCorrida.setText(str);
         
         casa.getChampionship().gethCorridas().addCorrida(corr);
       }
@@ -702,7 +709,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
     private javax.swing.JLabel Recode;
     private javax.swing.JButton SimularCorrida;
     private javax.swing.JLabel TextoCircuito;
-    private javax.swing.JTextPane TextoCorrida;
+    private javax.swing.JTextArea TextoCorrida;
     private javax.swing.JLabel TextoVoltas;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -735,7 +742,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
