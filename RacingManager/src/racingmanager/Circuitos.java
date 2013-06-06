@@ -52,6 +52,10 @@ public class Circuitos implements Serializable
     return c;
   }
   
+  public int numeroCircuitos(){
+      return circuitos.size();
+  }
+  
   public Circuito getNextCircuito()
   { Circuito c=null;
   

@@ -27,18 +27,18 @@ public class RacingManager {
       //FileInput.cirToString();
       //FileInput.pilToString();
       casa = FileInput.loadAll();
-      
-      cir = casa.getChampionship().getPistas().getCircuitoAtual();
-      
-      cor = new Corrida(null, null, null, cir, casa.getChampionship().getFrota());
 
       //System.out.println(cir.toString());
       //System.out.println("::::::::::::::::CORRIDA::::::::::::::::");
       //System.out.println(cor.toString());
-        
-      cor.execCorrida();
-      
-      System.out.println(cor.toString());
+      for (int j = 1; j <= casa.getChampionship().getPistas().numeroCircuitos(); j++) {
+        System.out.println("---> " + j +"º Corrida <---");
+        cir = casa.getChampionship().getPistas().getCircuitoAtual();
+        cor = new Corrida(null, null, null, cir, casa.getChampionship().getFrota());
+        cor.execCorrida();
+        System.out.println();
+        System.out.println(cor.toString());
+      }
       //String[] top = casa.getChampionship().getFrota().paraArray();
       
       //System.out.println(casa.toString());
