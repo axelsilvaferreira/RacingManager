@@ -778,6 +778,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
         // TODO add your handling code here:
         String player = (String) PlayerDropBox.getSelectedItem();
         Jogador j =(Jogador) casa.getJogadores().getJogador(player);
+        
         SaldoPlayer.setText(j.getConta().toString());
     }//GEN-LAST:event_PlayerDropBoxActionPerformed
 
