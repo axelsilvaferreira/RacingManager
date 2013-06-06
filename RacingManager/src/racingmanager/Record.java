@@ -28,7 +28,7 @@ public class Record implements Serializable
         //equipa = "";
     }
     
-    public Record(Integer time, String pilot, String carro, String equipa) 
+    public Record(Integer time, String pilot, String carro) 
     {
         this.time = time;
         this.pilot = pilot;
