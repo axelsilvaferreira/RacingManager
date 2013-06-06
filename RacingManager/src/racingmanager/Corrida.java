@@ -34,6 +34,7 @@ public class Corrida implements Serializable
         this.terceiro = terceiro;
         this.circuito = circuito;
         this.participante = participante;
+        
     }
     
     public Corrida() {
@@ -43,6 +44,7 @@ public class Corrida implements Serializable
         this.circuito = new Circuito();
         this.apostas = new HistApostas();
         this.participante = new Participantes();
+        
     }
     
     public Corrida(Corrida c){

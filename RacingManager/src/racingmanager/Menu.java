@@ -865,6 +865,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
             if (casa.getChampionship().getPistas().isCircuitoAtual())
             {   atual = new Corrida(null,null,null,casa.getChampionship().getPistas().getCircuitoAtual(),casa.getChampionship().getFrota());
                 casa.getChampionship().getPistas().setAtual(casa.getChampionship().getPistas().getAtual()+1);
+                atual.setRandomChuva();
             }
             else {atual = null;}
         }
