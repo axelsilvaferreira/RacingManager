@@ -119,6 +119,12 @@ public class Corrida implements Serializable
            p = new TreeMap<Integer,Veiculo>();
         while(itr.hasNext()){
         Integer i1 = v.tempoProximaVolta(this);
+        if(i1 < this.circuito.getRecord().getTime()){
+            Piloto p1;
+            Record r;
+           if (v.getPAtual()) {p1 = v.getPiloto1();} else {p1 = v.getPiloto2();}
+            r = new Record(i1, v.getEquipa(), p1.getNome());
+        }
           if(i1 != Integer.MAX_VALUE){
        v.settTotal(v.gettTotal() + i1);
          p.put(i1,v);
