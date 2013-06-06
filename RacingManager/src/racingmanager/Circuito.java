@@ -123,11 +123,11 @@ public class Circuito implements Serializable
         
         s.append("Nome: " + this.nome + "\n");
         s.append("Numero de Voltas: " + this.nVoltas + "\n");
-        s.append("Tempo Medio: " + this.tMedio + "\n");
-        s.append("Tempo c/ Chuva: " + this.tWett + "\n");
-        s.append("Chuva: " + this.pRain + "\n");
-        s.append("Tempo Box: " + this.tBox + "\n");
-        s.append( this.record.toString() + "\n");
+        //s.append("Tempo Medio: " + this.tMedio + "\n");
+        //s.append("Tempo c/ Chuva: " + this.tWett + "\n");
+        s.append("Chuva: " + this.pRain + "% \n");
+        s.append("Tempo Box: " + this.tBox + "seg \n");
+        s.append("Record:\n" + this.record.toString() + "\n");
         
         return s.toString();
     }
