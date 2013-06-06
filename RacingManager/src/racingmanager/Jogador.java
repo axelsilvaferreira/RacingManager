@@ -69,7 +69,7 @@ public class Jogador implements Serializable
     public void setMorada(String morada) 
     {   this.morada = morada;  }
 
-    public double getConta() 
+    public Double getConta() 
     {   return conta;  }
 
     public void setConta(double conta) 
