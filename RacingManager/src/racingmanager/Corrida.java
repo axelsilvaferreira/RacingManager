@@ -106,6 +106,10 @@ public class Corrida implements Serializable
     public void setVoltaActual(Integer voltaActual) {
         this.voltaActual = voltaActual;
     }
+
+    public void setAposta(Aposta aposta) {
+        this.apostas.addAposta(aposta);
+    }
     
     public String execCorrida(){
         StringBuilder rank = new StringBuilder();
