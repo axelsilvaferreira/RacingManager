@@ -32,7 +32,9 @@ public class Menu extends javax.swing.JFrame implements Serializable
      * Creates new form Menu
      */
     public Menu() 
-    {   initComponents();  }
+    {   initComponents();  
+        NewPlayerBox.setVisible(false);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -57,10 +59,10 @@ public class Menu extends javax.swing.JFrame implements Serializable
         jLabel4 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        NewPlayerName = new javax.swing.JTextField();
         NewPlayerAdress = new javax.swing.JTextField();
         NewPlayerBalance = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        NewPlayerName = new javax.swing.JTextField();
         SimularCorrida = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -167,14 +169,6 @@ public class Menu extends javax.swing.JFrame implements Serializable
 
         jLabel11.setText("Saldo");
 
-        NewPlayerName.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                NewPlayerNameActionPerformed(evt);
-            }
-        });
-
         jButton1.setText("Criar");
         jButton1.addActionListener(new java.awt.event.ActionListener()
         {
@@ -199,9 +193,9 @@ public class Menu extends javax.swing.JFrame implements Serializable
                             .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel4))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                         .add(NewPlayerBoxLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(NewPlayerName, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 302, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                             .add(NewPlayerAdress, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 302, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(NewPlayerBalance, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 302, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
+                            .add(NewPlayerBalance, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 302, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(NewPlayerName, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 302, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
         NewPlayerBoxLayout.setVerticalGroup(
@@ -221,7 +215,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
                     .add(NewPlayerBalance, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jButton1)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(8, Short.MAX_VALUE))
         );
 
         org.jdesktop.layout.GroupLayout jPanel2Layout = new org.jdesktop.layout.GroupLayout(jPanel2);
@@ -248,7 +242,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
                 .add(jLabel3)
                 .add(43, 43, 43)
                 .add(NewPlayerBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addContainerGap(109, Short.MAX_VALUE))
             .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                 .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel2Layout.createSequentialGroup()
                     .add(0, 47, Short.MAX_VALUE)
@@ -629,6 +623,13 @@ public class Menu extends javax.swing.JFrame implements Serializable
         jMenu2.setText("Game");
 
         jMenuItem9.setText("New Player");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem9);
 
         jMenuBar1.add(jMenu2);
@@ -747,12 +748,13 @@ public class Menu extends javax.swing.JFrame implements Serializable
     private void jTabbedPane1KeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTabbedPane1KeyPressed
     {//GEN-HEADEREND:event_jTabbedPane1KeyPressed
         // Atualiza os textos
-        Recode.setText(casa.getChampionship().getPistas().getCircuitoAtual().getRecord().toString());
-        TextoCircuito.setText(casa.getChampionship().getPistas().getCircuitoAtual().getNome());
-        TextoVoltas.setText(casa.getChampionship().getPistas().getCircuitoAtual().getnVoltas().toString());
+        //Recode.setText(casa.getChampionship().getPistas().getCircuitoAtual().getRecord().toString());
+        //TextoCircuito.setText(casa.getChampionship().getPistas().getCircuitoAtual().getNome());
+        //TextoVoltas.setText(casa.getChampionship().getPistas().getCircuitoAtual().getnVoltas().toString());
         // Refresh dos Jogadores
         //PlayerDropBox = new JComboBox(casa.getJogadores().paraArray());
-        EquipaDropBox = new JComboBox(casa.getChampionship().getFrota().paraArray());
+        //EquipaDropBox = new JComboBox(casa.getChampionship().getFrota().paraArray());
+        
     }//GEN-LAST:event_jTabbedPane1KeyPressed
 
     private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jTabbedPane1MouseClicked
@@ -820,22 +822,24 @@ public class Menu extends javax.swing.JFrame implements Serializable
         }
     }//GEN-LAST:event_SimularCorridaActionPerformed
 
-    private void NewPlayerNameActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_NewPlayerNameActionPerformed
-    {//GEN-HEADEREND:event_NewPlayerNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NewPlayerNameActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
     {//GEN-HEADEREND:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String nome = NewPlayerBox.getTitle();
+        String nome = NewPlayerName.getText();
         String morada = NewPlayerAdress.getText();
         Double saldo = Double.parseDouble(NewPlayerBalance.getText());
         Jogador p = new Jogador(nome,morada,saldo);
         casa.getJogadores().addPlayer(p);
         NewPlayerBox.setVisible(false);
-        System.out.print(p.toString());
+        
+        PlayerDropBox.addItem(p.getNome());
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jMenuItem9ActionPerformed
+    {//GEN-HEADEREND:event_jMenuItem9ActionPerformed
+        // TODO add your handling code here:
+        NewPlayerBox.setVisible(true);
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
 /**
      * @param args the command line arguments
      */
