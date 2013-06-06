@@ -165,6 +165,7 @@ public class Corrida implements Serializable
             if(v1.gettTotal()!=Integer.MAX_VALUE){System.out.print(v1.gettTotal());}
             else {System.out.print("DNF");}
             i3++;
+            v1 = itr1.next();
              }
             this.setVoltaActual(this.getVoltaActual()-1);
           }
