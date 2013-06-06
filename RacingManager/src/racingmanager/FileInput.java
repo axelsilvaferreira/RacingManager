@@ -19,11 +19,13 @@ public class FileInput implements Serializable {
     private static ArrayList<String> carros;
     private static ArrayList<String> pilotos;
     private static ArrayList<String> circuitos;
+    private static ArrayList<String> players;
     
     private static Circuitos cirs;
     private static Piloto pils;
     private static HashMap<String,Piloto> pS;
     private static Participantes veis;
+    private static Players pL;
     
     public static ArrayList<String> carInput (){
         carros = new ArrayList<String>();
@@ -60,6 +62,18 @@ public class FileInput implements Serializable {
         }
         catch (IOException e) { System.out.println(e.getMessage()); }
         return pilotos;
+    }
+    
+    public static ArrayList<String> playInput (){
+        players = new ArrayList<String>();
+        Scanner fichScan = null;
+        try {
+            fichScan = new Scanner(new FileReader("jogadores.txt"));
+            fichScan.useDelimiter(System.getProperty("line.separator"));
+            while (fichScan.hasNext()) players.add(fichScan.next());
+        }
+        catch (IOException e) { System.out.println(e.getMessage()); }
+        return players;
     }
 
     public static Participantes carLoad (HashMap<String,Piloto> pS) {
@@ -201,11 +215,59 @@ public class FileInput implements Serializable {
         //System.out.println(pS.containsKey("Manuel Castro"));
         return pS;
     }
+    
+    public static Players playLoad () {
+        ArrayList<String> play = playInput();
+        //Piloto p,e;
+        Jogador j;
+        Aposta a;
+        HistApostas h;
+        pL = new Players();
+        Double value;
+        int index = 0;
+        
+        while (index < play.size()) {
+        String linha = play.get(index);
+        
+        String[] campos = linha.split(",");
+        
+        //StringBuilder output = new StringBuilder();
+        
+        /*
+        output.append("|Piloto| Index nº" + index + "\n\n");
+        for (int i=0; i < campos.length; i++) {
+            output.append("Campo " + i + ": " + campos[i] + "\n");
+        }
+        */
+        
+        //skill = Integer.parseInt(campos[2]);
+        //skillWet = Integer.parseInt(campos[3]);
+        //palmares = Integer.parseInt(campos[4]);
+        
+        value = Double.parseDouble(campos[2]);
+        a = new Aposta();
+        h = new HistApostas();
+        
+        j = new Jogador(campos[0], campos[1], value, a, h);
+        //e = new Piloto("a","b",1,2,3,"c");
+        //System.out.println("///// " + skill + "\\\\\\");
+        //System.out.println(output);
+        //output = null;
+        //System.out.println(p.getNome());
+        pL.addPlayer(j);
+        //pS.put("a", e);
+        index++;
+            System.out.println(j.toString());
+        }
+        //System.out.println(pS.containsKey("Manuel Castro"));
+        return pL;
+    }
  
     public static CasaApostas loadAll () {
         pS = new HashMap<String, Piloto>();
         cirs = new Circuitos();
         veis = new Participantes();
+        pL = new Players();
         HistCorridas hcorr = new HistCorridas();
         Rank equipas = new Rank();
         Rank htrof = new Rank();
@@ -216,14 +278,16 @@ public class FileInput implements Serializable {
         pS = pilLoad();
         cirs = cirLoad();
         veis = carLoad(pS);
+        pL = playLoad();
         
         //System.out.println(pS.toString());
         //System.out.println(cirs.toString());
         //System.out.println(veis.toString());
         //System.out.println(hcorr.toString());
         c = new Campeonato(cirs, veis, hcorr, equipas, htrof);
-        casa = new CasaApostas(null, null, c);
+        casa = new CasaApostas(null, pL, c);
         //System.out.println(c.toString());
+        
         return casa;
     }
 

@@ -1,0 +1,2 @@
+Pedro Andre,Braga,10.00
+Joaquim Fernandes,Porto,5.10

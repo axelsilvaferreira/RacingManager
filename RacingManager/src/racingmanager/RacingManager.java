@@ -31,6 +31,8 @@ public class RacingManager {
       //System.out.println(cir.toString());
       //System.out.println("::::::::::::::::CORRIDA::::::::::::::::");
       //System.out.println(cor.toString());
+      //System.out.println(casa.getJogadores().toString());
+      
       for (int j = 1; j <= casa.getChampionship().getPistas().numeroCircuitos(); j++) {
         System.out.println("---> " + j +"º Corrida <---");
         cir = casa.getChampionship().getPistas().getCircuitoAtual();
@@ -39,6 +41,7 @@ public class RacingManager {
         System.out.println();
         System.out.println(cor.toString());
       }
+      
       //String[] top = casa.getChampionship().getFrota().paraArray();
       
       //System.out.println(casa.toString());
