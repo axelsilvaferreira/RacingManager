@@ -4,7 +4,6 @@
  */
 package racingmanager;
 
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.IntArrayData;
 import java.awt.event.ActionEvent;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -35,6 +34,12 @@ public class Menu extends javax.swing.JFrame implements Serializable
     public Menu() 
     {   initComponents();  
         NewPlayerBox.setVisible(false);
+        
+        SimularCorrida.setEnabled(false);
+        ApostaButton.setEnabled(false);
+        jButton2.setEnabled(false);
+        
+        
     }
 
     /**
@@ -83,7 +88,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
-        jButton3 = new javax.swing.JButton();
+        ApostaButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         NextRaceTextBox = new javax.swing.JTextArea();
         PlayerDropBox = new javax.swing.JComboBox();
@@ -322,12 +327,12 @@ public class Menu extends javax.swing.JFrame implements Serializable
 
         jLabel16.setText("€");
 
-        jButton3.setText("Apostar");
-        jButton3.addActionListener(new java.awt.event.ActionListener()
+        ApostaButton.setText("Apostar");
+        ApostaButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                jButton3ActionPerformed(evt);
+                ApostaButtonActionPerformed(evt);
             }
         });
 
@@ -438,7 +443,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
                         .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .add(jButton3)
+                        .add(ApostaButton)
                         .add(47, 47, 47))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -476,7 +481,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
                             .add(jLabel19)))
                     .add(jPanel1Layout.createSequentialGroup()
                         .add(55, 55, 55)
-                        .add(jButton3)))
+                        .add(ApostaButton)))
                 .add(11, 11, 11))
             .add(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
@@ -674,6 +679,8 @@ public class Menu extends javax.swing.JFrame implements Serializable
         // TODO add your handling code here: NEW GAME
         this.casa = FileInput.loadAll();
         Corrida c;
+        PlayerDropBox.removeAllItems();
+        EquipaDropBox.removeAllItems();
         //Recode.setText(casa.getChampionship().getPistas().getCircuitoAtual().getRecord().toString());
         //TextoCircuito.setText(casa.getChampionship().getPistas().getCircuitoAtual().getNome());
         //TextoVoltas.setText(casa.getChampionship().getPistas().getCircuitoAtual().getnVoltas().toString());
@@ -694,7 +701,9 @@ public class Menu extends javax.swing.JFrame implements Serializable
         NextRaceTextBox.setText(casa.getChampionship().getPistas().getCircuitoAtual().toString());
         
        
-        
+        SimularCorrida.setEnabled(true);
+        ApostaButton.setEnabled(true);
+        jButton2.setEnabled(true);
        
 
         
@@ -724,7 +733,23 @@ public class Menu extends javax.swing.JFrame implements Serializable
                    TextoCircuito.setText(cir.getNome());
                    TextoVoltas.setText(cir.getnVoltas().toString());
                    Recode.setText(cir.getRecord().toString());
-                   System.out.print("BAZINGA");
+                   TextoCorrida.setText("");
+                   
+                   PlayerDropBox.removeAllItems();
+                   EquipaDropBox.removeAllItems();
+                   
+                   Object[] jgr = casa.getJogadores().paraArray();
+                   for (int i=0;i<casa.getJogadores().numeroJogadores();i++)
+                   { PlayerDropBox.addItem(jgr[i]); }
+        
+                   // Carrega menu Equipas
+                   Object[] eqi = casa.getChampionship().getFrota().paraArray();
+                   for (int j=0;j<casa.getChampionship().getFrota().numeroEquipas();j++)
+                   { EquipaDropBox.addItem(eqi[j]); }
+                   
+                   SimularCorrida.setEnabled(true);
+                   ApostaButton.setEnabled(true);
+                   jButton2.setEnabled(true);
                 }
             } catch (ClassNotFoundException ex)
             {   System.out.print(ex.getMessage());
@@ -786,11 +811,14 @@ public class Menu extends javax.swing.JFrame implements Serializable
 
     private void PlayerDropBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_PlayerDropBoxActionPerformed
     {//GEN-HEADEREND:event_PlayerDropBoxActionPerformed
-        // TODO add your handling code here:
-        String player = (String) PlayerDropBox.getSelectedItem();
-        Jogador j =(Jogador) casa.getJogadores().getJogador(player);
+        // TODO add your handling code here
+        if (PlayerDropBox.getItemCount()>0)
+        { 
+            String player = (String) PlayerDropBox.getSelectedItem();
+            Jogador j =(Jogador) casa.getJogadores().getJogador(player);
+            SaldoPlayer.setText(j.getConta().toString());
+        }
         
-        SaldoPlayer.setText(j.getConta().toString());
     }//GEN-LAST:event_PlayerDropBoxActionPerformed
 
     private void ValorApostaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ValorApostaActionPerformed
@@ -861,8 +889,8 @@ public class Menu extends javax.swing.JFrame implements Serializable
         NewPlayerBox.setVisible(true);
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton3ActionPerformed
-    {//GEN-HEADEREND:event_jButton3ActionPerformed
+    private void ApostaButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ApostaButtonActionPerformed
+    {//GEN-HEADEREND:event_ApostaButtonActionPerformed
         // TODO add your handling code here:
         String apostador = (String) PlayerDropBox.getSelectedItem();
         String equipa    = (String) EquipaDropBox.getSelectedItem();
@@ -874,7 +902,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
         Aposta a = new Aposta(apostador, equipa, valor, atual, pos, ven);
         atual.setAposta(a);
         System.out.println(a.toString());
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_ApostaButtonActionPerformed
 
     private void PosicaoActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_PosicaoActionPerformed
     {//GEN-HEADEREND:event_PosicaoActionPerformed
@@ -915,6 +943,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ApostaButton;
     private javax.swing.JComboBox EquipaDropBox;
     private javax.swing.JTextField NewPlayerAdress;
     private javax.swing.JTextField NewPlayerBalance;
@@ -932,7 +961,6 @@ public class Menu extends javax.swing.JFrame implements Serializable
     private javax.swing.JTextField ValorAposta;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JFrame jFrame2;
     private javax.swing.JLabel jLabel1;
