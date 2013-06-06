@@ -165,12 +165,14 @@ public class Corrida implements Serializable
             Veiculo v1 = itr1.next();
             Piloto ps;
             Record r;
+            if(v1.gettTotal() != Integer.MAX_VALUE){
             if (v1.getPAtual()) {ps = v1.getPiloto1();} else {ps = v1.getPiloto2();}
             r = new Record(v1.gettTotal(), v1.getEquipa(), ps.getNome());
             switch (i3){
                 case 0 : this.setPrimeiro(r);
                 case 1 : this.setSegundo(r);
                 case 2 : this.setTerceiro(r);
+               }
             }
             if(v1.gettTotal()!=Integer.MAX_VALUE){rank.append(v1.getEquipa() + ":" + v1.gettTotal() + "\n");
             v1.setPontos(v1.getPontos()+ranking.size()-(i3-1));}
