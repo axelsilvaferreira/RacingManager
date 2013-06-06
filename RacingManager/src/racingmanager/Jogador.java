@@ -36,6 +36,14 @@ public class Jogador implements Serializable
         this.atual = atual;
         this.historico = historico;
     }
+
+    public Jogador(String nome, String morada, double conta) {
+        this.nome = nome;
+        this.morada = morada;
+        this.conta = conta;
+    }
+    
+    
     
     public Jogador(Jogador j)
     {   nome      = j.getNome();
