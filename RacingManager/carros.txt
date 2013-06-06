@@ -1,3 +1,4 @@
-Ferrari,1,Opel,Corsa,Manuel Castro,Carlos Eduardo,1,100,2000,100,1,0
-Mercedes,2,Fiat,Uno,Lewis Hamilton,Carlos Castro,1,100,2000,100,2,0
-McLaren,3,Audi,A5,Joao Carlos,Pedro Silva,1,100,2000,100,3,0
+TeamPower,1,Opel,Corsa,Manuel Castro,Carlos Eduardo,1,100,2000,100,1,0
+FuckingTeam,2,Fiat,Uno,Lewis Hamilton,Carlos Castro,1,100,2000,100,2,0
+CrazyPower,3,Audi,A5,Joao Carlos,Pedro Silva,1,100,2000,100,3,0
+IWannaBe,4,Mclarren,Top,Helder Dias,Pedro Dias,0,75,2500,75,20,10
