@@ -257,7 +257,6 @@ public class FileInput implements Serializable {
         pL.addPlayer(j);
         //pS.put("a", e);
         index++;
-            System.out.println(j.toString());
         }
         //System.out.println(pS.containsKey("Manuel Castro"));
         return pL;
