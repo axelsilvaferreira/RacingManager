@@ -449,6 +449,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
 
         jMenu1.setText("File");
 
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem1.setText("New Game");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener()
         {
@@ -538,10 +539,10 @@ public class Menu extends javax.swing.JFrame implements Serializable
         //TextoVoltas.setText(casa.getChampionship().getPistas().getCircuitoAtual().getnVoltas().toString());
         //Refresh dos Jogadores
         NextRaceTextBox.setText(casa.getChampionship().getPistas().getCircuitoAtual().toString());
-        //PlayerDropBox = new JComboBox(casa.getJogadores().paraArray());
-         String[] str =(String[]) casa.getJogadores().paraArray();
-        for (String s: str)
-        {PlayerDropBox.addItem(s); System.out.println(s.toString());}
+        //PlayerDropBox.add(casa.getJogadores().paraArray());
+        //Object[] str = casa.getJogadores().paraArray();
+        //for (int i=0;i<=casa.getJogadores().numeroJogadores();i++)
+        //{PlayerDropBox.addItem(str[i]); System.out.println(str[i]);}
         EquipaDropBox = new JComboBox(casa.getChampionship().getFrota().paraArray());
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
@@ -601,6 +602,9 @@ public class Menu extends javax.swing.JFrame implements Serializable
     private void EquipaDropBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_EquipaDropBoxActionPerformed
     {//GEN-HEADEREND:event_EquipaDropBoxActionPerformed
         // TODO add your handling code here:
+        Object[] str = casa.getChampionship().getFrota().paraArray();
+        for (int i=0;i<=casa.getChampionship().getFrota().numeroEquipas();i++)
+        {PlayerDropBox.addItem(str[i]); System.out.println(str[i]);}
     }//GEN-LAST:event_EquipaDropBoxActionPerformed
 
     private void PlayerDropBox1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_PlayerDropBox1ActionPerformed
