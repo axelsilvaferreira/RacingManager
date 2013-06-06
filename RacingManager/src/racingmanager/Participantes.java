@@ -85,6 +85,7 @@ public class Participantes implements Serializable
      while (itr.hasNext())
      { v = itr.next();
        v.geraFiabilidade(nVoltas);
+       v.settTotal(0);
      }
    }  
   
