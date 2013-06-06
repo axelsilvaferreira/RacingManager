@@ -114,6 +114,8 @@ public class Corrida implements Serializable
     public String execCorrida(){
         this.participante.preparaCorrida(this.circuito.getnVoltas());
         StringBuilder rank = new StringBuilder();
+        if(this.isChuva){rank.append("Weather : Sol" + "\n");}
+        else{rank.append("Tempo : Chuva" + "\n");}
         Collection c = this.participante.getFrota().values();
         this.setVoltaActual(this.circuito.getnVoltas());
         TreeMap<Integer ,Veiculo> p;
