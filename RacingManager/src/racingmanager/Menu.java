@@ -78,7 +78,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox();
-        jTextField1 = new javax.swing.JTextField();
+        ValorAposta = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
@@ -300,13 +300,13 @@ public class Menu extends javax.swing.JFrame implements Serializable
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1º", "2º", "3º" }));
 
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextField1.setText("0");
-        jTextField1.addActionListener(new java.awt.event.ActionListener()
+        ValorAposta.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        ValorAposta.setText("0");
+        ValorAposta.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                jTextField1ActionPerformed(evt);
+                ValorApostaActionPerformed(evt);
             }
         });
 
@@ -315,6 +315,13 @@ public class Menu extends javax.swing.JFrame implements Serializable
         jLabel16.setText("€");
 
         jButton3.setText("Apostar");
+        jButton3.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         NextRaceTextBox.setBackground(new java.awt.Color(0, 0, 0));
         NextRaceTextBox.setColumns(20);
@@ -418,7 +425,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
                                                     .add(jPanel1Layout.createSequentialGroup()
                                                         .add(jLabel15)
                                                         .add(18, 18, 18)
-                                                        .add(jTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 68, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                                        .add(ValorAposta, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 68, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                                                         .add(jLabel16)))
                                                 .add(0, 0, Short.MAX_VALUE)))))
@@ -457,7 +464,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
                 .add(18, 18, 18)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel15)
-                    .add(jTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(ValorAposta, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(jLabel16))
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jPanel1Layout.createSequentialGroup()
@@ -782,10 +789,10 @@ public class Menu extends javax.swing.JFrame implements Serializable
         SaldoPlayer.setText(j.getConta().toString());
     }//GEN-LAST:event_PlayerDropBoxActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTextField1ActionPerformed
-    {//GEN-HEADEREND:event_jTextField1ActionPerformed
+    private void ValorApostaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ValorApostaActionPerformed
+    {//GEN-HEADEREND:event_ValorApostaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_ValorApostaActionPerformed
 
     private void EquipaDropBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_EquipaDropBoxActionPerformed
     {//GEN-HEADEREND:event_EquipaDropBoxActionPerformed
@@ -843,6 +850,17 @@ public class Menu extends javax.swing.JFrame implements Serializable
         // TODO add your handling code here:
         NewPlayerBox.setVisible(true);
     }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton3ActionPerformed
+    {//GEN-HEADEREND:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        String apostador = (String) PlayerDropBox.getSelectedItem();
+        String equipa    = (String) EquipaDropBox.getSelectedItem();
+        Integer valor    = Integer.parseInt(ValorAposta.getText());
+        
+        Aposta a = new Aposta(null, null, WIDTH, atual, WIDTH, WIDTH)
+        casa.getJogadores().
+    }//GEN-LAST:event_jButton3ActionPerformed
 /**
      * @param args the command line arguments
      */
@@ -891,6 +909,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
     private javax.swing.JLabel TextoCircuito;
     private javax.swing.JTextArea TextoCorrida;
     private javax.swing.JLabel TextoVoltas;
+    private javax.swing.JTextField ValorAposta;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -937,7 +956,6 @@ public class Menu extends javax.swing.JFrame implements Serializable
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextPane jTextPane5;
     private javax.swing.JTextPane jTextPane6;
     private javax.swing.JTextPane jTextPane7;
