@@ -109,7 +109,6 @@ public class Corrida implements Serializable
     
     public String execCorrida(){
         StringBuilder rank = new StringBuilder();
-        StringBuilder str = new StringBuilder();
         Collection c = this.participante.getFrota().values();
         Iterator<Veiculo> itr = c.iterator();
             this.setVoltaActual(this.circuito.getnVoltas());
@@ -133,13 +132,13 @@ public class Corrida implements Serializable
             Iterator<Veiculo> it = t.iterator();
             Veiculo vi = it.next();
             while(i2<=1){
-                str.append(v.getEquipa() + i1.toString() + "\n");
+                rank.append(v.getEquipa() + i1.toString() + "\n");
                 i2++;
                }
           }
             else{
             v.settTotal(Integer.MAX_VALUE);
-                str.append("DNF " + v.getEquipa() + "\n");
+                rank.append("DNF " + v.getEquipa() + "\n");
                   }  
             }
         Collection n = p.values();
@@ -165,7 +164,7 @@ public class Corrida implements Serializable
                 case 2 : this.setTerceiro(r);
             }
             v1.setPontos(v1.getPontos()+ranking.size()-(i3-1));
-            rank.append(v1.getEquipa());
+            rank.append(v1.getEquipa() + "\n");
             if(v1.gettTotal()!=Integer.MAX_VALUE){System.out.print(v1.gettTotal());}
             else {System.out.print("DNF");}
             i3++;
