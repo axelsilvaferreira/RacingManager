@@ -73,6 +73,10 @@ public class Players implements Serializable
        return jogadores.size();
    }
   
+   public Jogador getJogador(String nome){
+       return jogadores.get(nome);
+   }
+   
    public String toString(){
        StringBuilder s = new StringBuilder();
        
