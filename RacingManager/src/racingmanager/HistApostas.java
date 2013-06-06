@@ -34,7 +34,12 @@ public class HistApostas implements Serializable
   { return apostas.get(i); }
   
   public boolean contemAposta(Aposta c)
-    {   return apostas.contains(c); }
+  {   return apostas.contains(c); }
+  
+  public void processaAposta(Rank r)
+  {   for(Aposta a: apostas)
+      {a.processaAposta(r);}
+  }
   
   public String toString(){
       StringBuilder s = new StringBuilder();
