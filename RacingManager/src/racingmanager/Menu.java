@@ -832,8 +832,9 @@ public class Menu extends javax.swing.JFrame implements Serializable
         String morada = NewPlayerAdress.getText();
         Double saldo = Double.parseDouble(NewPlayerBalance.getText());
         Jogador p = new Jogador(nome,morada,saldo);
-        casa.getJogadores().addPlayer(p)
+        casa.getJogadores().addPlayer(p);
         NewPlayerBox.setVisible(false);
+        System.out.print(p.toString());
     }//GEN-LAST:event_jButton1ActionPerformed
 /**
      * @param args the command line arguments
