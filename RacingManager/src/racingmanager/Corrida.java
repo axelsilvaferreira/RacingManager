@@ -112,15 +112,19 @@ public class Corrida implements Serializable
     }
     
     public String execCorrida(){
+        this.participante.preparaCorrida(this.circuito.getnVoltas());
         StringBuilder rank = new StringBuilder();
         Collection c = this.participante.getFrota().values();
-            this.setVoltaActual(this.circuito.getnVoltas());
+        this.setVoltaActual(this.circuito.getnVoltas());
+        TreeMap<Integer ,Veiculo> p;
+        p = new TreeMap<Integer,Veiculo>();
         while(this.getVoltaActual()>0){
-           TreeMap<Integer ,Veiculo> p;
-           p = new TreeMap<Integer,Veiculo>();
            Iterator<Veiculo> itr = c.iterator();
+           rank.append("Volta:" + this.getVoltaActual() + "\n");
+           int i2 = 0;
         while(itr.hasNext()){
-        Veiculo v = itr.next();
+            Veiculo v = itr.next();
+            if(v.gettTotal() != Integer.MAX_VALUE){
         Integer i1 = v.tempoProximaVolta(this);
         if(i1 < this.circuito.getRecord().getTime()){
             Piloto p1;
@@ -129,22 +133,21 @@ public class Corrida implements Serializable
             r = new Record(i1, v.getEquipa(), p1.getNome());
         }
           if(i1 != Integer.MAX_VALUE){
-       v.settTotal(v.gettTotal() + i1);
-         p.put(i1,v);
-           int i2 = 0;
-            Collection t = p.values();
-            Iterator<Veiculo> it = t.iterator();
-            rank.append(this.getVoltaActual() + "\n");
-            while(i2<=1){
-                rank.append(v.getEquipa() + " " + i1.toString() + "\n");
+            v.settTotal(v.gettTotal() + i1);
+            p.put(i1,v);
+            while(i2==0){
+                rank.append(v.getEquipa() + ":" + i1.toString() + "\n");
                 i2++;
+                    }
                }
-          }
             else{
             v.settTotal(Integer.MAX_VALUE);
                 rank.append("DNF " + v.getEquipa() + "\n");
                   }  
+               }
             }
+            this.setVoltaActual(this.getVoltaActual()-1);
+          }     
         Collection n = p.values();
         Iterator<Veiculo> it = n.iterator();
         TreeMap<Integer,Veiculo> ranking;
@@ -167,14 +170,13 @@ public class Corrida implements Serializable
                 case 1 : this.setSegundo(r);
                 case 2 : this.setTerceiro(r);
             }
+            rank.append(v1.getEquipa() + ":");
+            if(v1.gettTotal()!=Integer.MAX_VALUE){rank.append(v1.gettTotal() + "\n");
             v1.setPontos(v1.getPontos()+ranking.size()-(i3-1));
-            rank.append(v1.getEquipa() + "\n");
-            if(v1.gettTotal()!=Integer.MAX_VALUE){System.out.print(v1.gettTotal());}
-            else {System.out.print("DNF");}
+               }
+            else {rank.append("DNF" + "\n");}
             i3++;
              }
-            this.setVoltaActual(this.getVoltaActual()-1);
-          }
         return rank.toString();
        }
     
