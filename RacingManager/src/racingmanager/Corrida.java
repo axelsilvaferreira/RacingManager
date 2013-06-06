@@ -143,7 +143,8 @@ public class Corrida implements Serializable
             else{
             v.settTotal(Integer.MAX_VALUE);
                 rank.append("DNF " + v.getEquipa() + "\n");
-                  }  
+                p.put(Integer.MAX_VALUE, v);
+                  }
                }
             }
             this.setVoltaActual(this.getVoltaActual()-1);
@@ -159,6 +160,7 @@ public class Corrida implements Serializable
         Collection o = ranking.values();
         Iterator<Veiculo> itr1 = o.iterator();
         int i3 = 0;
+        rank.append("Ranking" + "\n");
         while(itr1.hasNext()){
             Veiculo v1 = itr1.next();
             Piloto ps;
@@ -170,13 +172,11 @@ public class Corrida implements Serializable
                 case 1 : this.setSegundo(r);
                 case 2 : this.setTerceiro(r);
             }
-            rank.append(v1.getEquipa() + ":");
-            if(v1.gettTotal()!=Integer.MAX_VALUE){rank.append(v1.gettTotal() + "\n");
-            v1.setPontos(v1.getPontos()+ranking.size()-(i3-1));
-               }
-            else {rank.append("DNF" + "\n");}
+            if(v1.gettTotal()!=Integer.MAX_VALUE){rank.append(v1.getEquipa() + ":" + v1.gettTotal() + "\n");
+            v1.setPontos(v1.getPontos()+ranking.size()-(i3-1));}
+            else {rank.append("DNF" + ":" + v1.getEquipa() + "\n");}
             i3++;
-             }
+           }
         return rank.toString();
        }
     

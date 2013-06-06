@@ -81,7 +81,6 @@ public class Participantes implements Serializable
   {  Collection c = frota.values();
      Iterator<Veiculo> itr = c.iterator();
      Veiculo v=null;
-     
      while (itr.hasNext())
      { v = itr.next();
        v.geraFiabilidade(nVoltas);
