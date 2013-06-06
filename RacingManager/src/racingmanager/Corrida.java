@@ -130,7 +130,6 @@ public class Corrida implements Serializable
            int i2 = 0;
             Collection t = p.values();
             Iterator<Veiculo> it = t.iterator();
-            Veiculo vi = it.next();
             while(i2<=1){
                 rank.append(v.getEquipa() + i1.toString() + "\n");
                 i2++;
