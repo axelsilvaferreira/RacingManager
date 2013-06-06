@@ -110,19 +110,20 @@ public class Participantes implements Serializable
   }  
     
     
-  public String[] paraArray(){
+  public Object[] paraArray(){
       //System.out.println(frota.size());
-      String[] str = new String[frota.size()];
-      //ArrayList<String> ar = new ArrayList<String>();
+      //String[] str = new String[frota.size()];
+      ArrayList<String> str = new ArrayList<String>();
       int i = 0;
       
       for (Veiculo v: frota.values()){
           //System.out.println(v.getEquipa());
-          str[i] = v.getEquipa();
-          i++;
+          //str[i] = v.getEquipa();
+          str.add(v.getEquipa());
+          //i++;
       }
       //System.out.println(ar.toArray().toString());
-      return str;
+      return str.toArray();
   }
   /**
      * Método que cria um array de objectos com as caracteristicas de um veiculo
