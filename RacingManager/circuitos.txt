@@ -1,3 +1,3 @@
-Estoril,55,13020,7,50,20,-1,Manuel Castro,Opel
-Valencia,55,13020,7,50,20,-1,Castro Manuel,Audi
+Estoril,45,13020,7,50,20,-1,Manuel Castro,Opel
+Valencia,65,13020,7,50,20,-1,Castro Manuel,Audi
 Monaco,55,13020,7,50,20,-1,Toni Castro,BMW

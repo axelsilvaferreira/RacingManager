@@ -26,7 +26,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
 
     //Campeonato c;   // Campeonato
     CasaApostas casa; // Casa de Apostas
-    
+    Corrida     atual;
 
     /**
      * Creates new form Menu
@@ -45,12 +45,22 @@ public class Menu extends javax.swing.JFrame implements Serializable
     {
 
         jMenuItem5 = new javax.swing.JMenuItem();
+        jFrame1 = new javax.swing.JFrame();
+        jFrame2 = new javax.swing.JFrame();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         TextoCorrida = new javax.swing.JTextArea();
+        NewPlayerBox = new javax.swing.JInternalFrame();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        NewPlayerName = new javax.swing.JTextField();
+        NewPlayerAdress = new javax.swing.JTextField();
+        NewPlayerBalance = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         SimularCorrida = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -97,9 +107,30 @@ public class Menu extends javax.swing.JFrame implements Serializable
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem9 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
 
         jMenuItem5.setText("jMenuItem5");
+
+        org.jdesktop.layout.GroupLayout jFrame1Layout = new org.jdesktop.layout.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(0, 400, Short.MAX_VALUE)
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(0, 300, Short.MAX_VALUE)
+        );
+
+        org.jdesktop.layout.GroupLayout jFrame2Layout = new org.jdesktop.layout.GroupLayout(jFrame2.getContentPane());
+        jFrame2.getContentPane().setLayout(jFrame2Layout);
+        jFrame2Layout.setHorizontalGroup(
+            jFrame2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(0, 400, Short.MAX_VALUE)
+        );
+        jFrame2Layout.setVerticalGroup(
+            jFrame2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -128,6 +159,71 @@ public class Menu extends javax.swing.JFrame implements Serializable
         TextoCorrida.setRows(5);
         jScrollPane3.setViewportView(TextoCorrida);
 
+        NewPlayerBox.setVisible(true);
+
+        jLabel4.setText("Nome");
+
+        jLabel8.setText("Morada");
+
+        jLabel11.setText("Saldo");
+
+        NewPlayerName.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                NewPlayerNameActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Criar");
+        jButton1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        org.jdesktop.layout.GroupLayout NewPlayerBoxLayout = new org.jdesktop.layout.GroupLayout(NewPlayerBox.getContentPane());
+        NewPlayerBox.getContentPane().setLayout(NewPlayerBoxLayout);
+        NewPlayerBoxLayout.setHorizontalGroup(
+            NewPlayerBoxLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(NewPlayerBoxLayout.createSequentialGroup()
+                .add(19, 19, 19)
+                .add(NewPlayerBoxLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                    .add(jButton1)
+                    .add(NewPlayerBoxLayout.createSequentialGroup()
+                        .add(NewPlayerBoxLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(jLabel8)
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel11)
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel4))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                        .add(NewPlayerBoxLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(NewPlayerName, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 302, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(NewPlayerAdress, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 302, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(NewPlayerBalance, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 302, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(33, Short.MAX_VALUE))
+        );
+        NewPlayerBoxLayout.setVerticalGroup(
+            NewPlayerBoxLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(NewPlayerBoxLayout.createSequentialGroup()
+                .add(17, 17, 17)
+                .add(NewPlayerBoxLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(jLabel4)
+                    .add(NewPlayerName, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(NewPlayerBoxLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(jLabel8)
+                    .add(NewPlayerAdress, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(NewPlayerBoxLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(jLabel11)
+                    .add(NewPlayerBalance, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                .add(jButton1)
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+
         org.jdesktop.layout.GroupLayout jPanel2Layout = new org.jdesktop.layout.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -136,6 +232,10 @@ public class Menu extends javax.swing.JFrame implements Serializable
                 .addContainerGap()
                 .add(jLabel3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
                 .add(30, 30, 30))
+            .add(jPanel2Layout.createSequentialGroup()
+                .add(20, 20, 20)
+                .add(NewPlayerBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                 .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel2Layout.createSequentialGroup()
                     .addContainerGap()
@@ -146,7 +246,9 @@ public class Menu extends javax.swing.JFrame implements Serializable
             .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel2Layout.createSequentialGroup()
                 .add(12, 12, 12)
                 .add(jLabel3)
-                .addContainerGap(360, Short.MAX_VALUE))
+                .add(43, 43, 43)
+                .add(NewPlayerBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(103, Short.MAX_VALUE))
             .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                 .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel2Layout.createSequentialGroup()
                     .add(0, 47, Short.MAX_VALUE)
@@ -236,6 +338,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
 
         jLabel18.setText("Saldo");
 
+        jTextField2.setEditable(false);
         jTextField2.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         jTextField2.setText("0");
         jTextField2.addActionListener(new java.awt.event.ActionListener()
@@ -528,16 +631,6 @@ public class Menu extends javax.swing.JFrame implements Serializable
         jMenuItem9.setText("New Player");
         jMenu2.add(jMenuItem9);
 
-        jMenuItem10.setText("Player List");
-        jMenuItem10.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                jMenuItem10ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem10);
-
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -601,22 +694,35 @@ public class Menu extends javax.swing.JFrame implements Serializable
         // TODO add your handling code here:
       try
       {
-         FileInputStream fileIn = new FileInputStream("employee.ser");
+         FileInputStream fileIn = new FileInputStream("Campeonato.ser");
          ObjectInputStream in = new ObjectInputStream(fileIn);
             try
             {   setC((CasaApostas) in.readObject());
+                
+                int n = casa.getChampionship().getPistas().numeroCircuitos();
+        
+                if (casa.getChampionship().getPistas().isCircuitoAtual())  
+                {  Circuito cir = casa.getChampionship().getPistas().getCircuitoAnterior();
+                   
+        
+                   if (n==casa.getChampionship().getPistas().getAtual()) 
+                      {NextRaceTextBox.setText("");}
+                   else {NextRaceTextBox.setText(casa.getChampionship().getPistas().getCircuitoAtual().toString());}
+                   
+                   TextoCircuito.setText(cir.getNome());
+                   TextoVoltas.setText(cir.getnVoltas().toString());
+                   Recode.setText(cir.getRecord().toString());
+                   System.out.print("BAZINGA");
+                }
             } catch (ClassNotFoundException ex)
-            {   Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);   }
+            {   System.out.print(ex.getMessage());
+                Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);   }
          in.close();
          fileIn.close();
       }catch(IOException i)
+          
       { return; }
     }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jMenuItem10ActionPerformed
-    {//GEN-HEADEREND:event_jMenuItem10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jMenuItem7ActionPerformed
     {//GEN-HEADEREND:event_jMenuItem7ActionPerformed
@@ -633,6 +739,11 @@ public class Menu extends javax.swing.JFrame implements Serializable
 
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
+    private void PlayerDropBox1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_PlayerDropBox1ActionPerformed
+    {//GEN-HEADEREND:event_PlayerDropBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PlayerDropBox1ActionPerformed
+
     private void jTabbedPane1KeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTabbedPane1KeyPressed
     {//GEN-HEADEREND:event_jTabbedPane1KeyPressed
         // Atualiza os textos
@@ -644,6 +755,28 @@ public class Menu extends javax.swing.JFrame implements Serializable
         EquipaDropBox = new JComboBox(casa.getChampionship().getFrota().paraArray());
     }//GEN-LAST:event_jTabbedPane1KeyPressed
 
+    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jTabbedPane1MouseClicked
+    {//GEN-HEADEREND:event_jTabbedPane1MouseClicked
+        // TODO add your handling code here:
+        Recode.setText(casa.getChampionship().getPistas().getCircuitoAtual().getRecord().toString());
+        TextoCircuito.setText(casa.getChampionship().getPistas().getCircuitoAtual().getNome());
+        TextoVoltas.setText(casa.getChampionship().getPistas().getCircuitoAtual().getnVoltas().toString());
+        // Refresh dos Jogadores
+        //PlayerDropBox = new JComboBox(casa.getJogadores().paraArray());
+        EquipaDropBox = new JComboBox(casa.getChampionship().getFrota().paraArray());
+    }//GEN-LAST:event_jTabbedPane1MouseClicked
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTextField2ActionPerformed
+    {//GEN-HEADEREND:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void PlayerDropBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_PlayerDropBoxActionPerformed
+    {//GEN-HEADEREND:event_PlayerDropBoxActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_PlayerDropBoxActionPerformed
+
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTextField1ActionPerformed
     {//GEN-HEADEREND:event_jTextField1ActionPerformed
         // TODO add your handling code here:
@@ -652,13 +785,8 @@ public class Menu extends javax.swing.JFrame implements Serializable
     private void EquipaDropBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_EquipaDropBoxActionPerformed
     {//GEN-HEADEREND:event_EquipaDropBoxActionPerformed
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_EquipaDropBoxActionPerformed
 
-    private void PlayerDropBox1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_PlayerDropBox1ActionPerformed
-    {//GEN-HEADEREND:event_PlayerDropBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PlayerDropBox1ActionPerformed
+    }//GEN-LAST:event_EquipaDropBoxActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton2ActionPerformed
     {//GEN-HEADEREND:event_jButton2ActionPerformed
@@ -672,53 +800,41 @@ public class Menu extends javax.swing.JFrame implements Serializable
     {//GEN-HEADEREND:event_SimularCorridaActionPerformed
         //Simulação de uma corrida
         int n = casa.getChampionship().getPistas().numeroCircuitos();
-        
-      if (casa.getChampionship().getPistas().isCircuitoAtual())  
-      {  Circuito cir = casa.getChampionship().getPistas().getCircuitoAtual();
-        Corrida corr = new Corrida(null, null, null, cir, casa.getChampionship().getFrota());
-        
-        casa.getChampionship().getPistas().setAtual(casa.getChampionship().getPistas().getAtual()+1);
-        if (n==casa.getChampionship().getPistas().getAtual()) 
-        {NextRaceTextBox.setText("");}
-        else {NextRaceTextBox.setText(casa.getChampionship().getPistas().getCircuitoAtual().toString());}
-        TextoCircuito.setText(cir.getNome());
-        TextoVoltas.setText(cir.getnVoltas().toString());
-        Recode.setText(corr.getCircuito().getRecord().toString());
-        
-        
-        String str = corr.execCorrida();
-        TextoCorrida.setText(str);
-        
-        casa.getChampionship().gethCorridas().addCorrida(corr);
-      }
-      else 
-      { TextoCircuito.setText(casa.getChampionship().getPistas().getCircuitoAnterior().getNome());
-        TextoVoltas.setText(casa.getChampionship().getPistas().getCircuitoAnterior().getnVoltas().toString());
-        Recode.setText(casa.getChampionship().getPistas().getCircuitoAnterior().getRecord().toString());
-      }
+
+        if (casa.getChampionship().getPistas().isCircuitoAtual())
+        {  Circuito cir = casa.getChampionship().getPistas().getCircuitoAtual();
+            Corrida corr = new Corrida(null, null, null, cir, casa.getChampionship().getFrota());
+
+            casa.getChampionship().getPistas().setAtual(casa.getChampionship().getPistas().getAtual()+1);
+            if (n==casa.getChampionship().getPistas().getAtual())
+            {NextRaceTextBox.setText("");}
+            else {NextRaceTextBox.setText(casa.getChampionship().getPistas().getCircuitoAtual().toString());}
+            TextoCircuito.setText(cir.getNome());
+            TextoVoltas.setText(cir.getnVoltas().toString());
+            Recode.setText(corr.getCircuito().getRecord().toString());
+
+            String str = corr.execCorrida();
+            TextoCorrida.setText(str);
+
+            casa.getChampionship().gethCorridas().addCorrida(corr);
+        }
     }//GEN-LAST:event_SimularCorridaActionPerformed
 
-    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jTabbedPane1MouseClicked
-    {//GEN-HEADEREND:event_jTabbedPane1MouseClicked
+    private void NewPlayerNameActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_NewPlayerNameActionPerformed
+    {//GEN-HEADEREND:event_NewPlayerNameActionPerformed
         // TODO add your handling code here:
-        Recode.setText(casa.getChampionship().getPistas().getCircuitoAtual().getRecord().toString());
-        TextoCircuito.setText(casa.getChampionship().getPistas().getCircuitoAtual().getNome());
-        TextoVoltas.setText(casa.getChampionship().getPistas().getCircuitoAtual().getnVoltas().toString());
-        // Refresh dos Jogadores
-        //PlayerDropBox = new JComboBox(casa.getJogadores().paraArray());
-        EquipaDropBox = new JComboBox(casa.getChampionship().getFrota().paraArray());
-    }//GEN-LAST:event_jTabbedPane1MouseClicked
+    }//GEN-LAST:event_NewPlayerNameActionPerformed
 
-    private void PlayerDropBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_PlayerDropBoxActionPerformed
-    {//GEN-HEADEREND:event_PlayerDropBoxActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
+    {//GEN-HEADEREND:event_jButton1ActionPerformed
         // TODO add your handling code here:
-       
-    }//GEN-LAST:event_PlayerDropBoxActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTextField2ActionPerformed
-    {//GEN-HEADEREND:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+        String nome = NewPlayerBox.getTitle();
+        String morada = NewPlayerAdress.getText();
+        Double saldo = Double.parseDouble(NewPlayerBalance.getText());
+        Jogador p = new Jogador(nome,morada,saldo);
+        casa.getJogadores().addPlayer(p)
+        NewPlayerBox.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 /**
      * @param args the command line arguments
      */
@@ -755,6 +871,10 @@ public class Menu extends javax.swing.JFrame implements Serializable
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox EquipaDropBox;
+    private javax.swing.JTextField NewPlayerAdress;
+    private javax.swing.JTextField NewPlayerBalance;
+    private javax.swing.JInternalFrame NewPlayerBox;
+    private javax.swing.JTextField NewPlayerName;
     private javax.swing.JTextArea NextRaceTextBox;
     private javax.swing.JComboBox PlayerDropBox;
     private javax.swing.JLabel Recode;
@@ -762,11 +882,15 @@ public class Menu extends javax.swing.JFrame implements Serializable
     private javax.swing.JLabel TextoCircuito;
     private javax.swing.JTextArea TextoCorrida;
     private javax.swing.JLabel TextoVoltas;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JComboBox jComboBox2;
+    private javax.swing.JFrame jFrame1;
+    private javax.swing.JFrame jFrame2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -776,15 +900,16 @@ public class Menu extends javax.swing.JFrame implements Serializable
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem7;
