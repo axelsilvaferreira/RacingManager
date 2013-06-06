@@ -38,9 +38,13 @@ public class Jogador implements Serializable
     }
 
     public Jogador(String nome, String morada, double conta) {
+        Aposta a = new Aposta();
+        HistApostas h = new HistApostas();
         this.nome = nome;
         this.morada = morada;
         this.conta = conta;
+        this.atual = a;
+        this.historico = h;
     }
     
     
