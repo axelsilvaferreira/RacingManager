@@ -540,18 +540,25 @@ public class Menu extends javax.swing.JFrame implements Serializable
         //TextoCircuito.setText(casa.getChampionship().getPistas().getCircuitoAtual().getNome());
         //TextoVoltas.setText(casa.getChampionship().getPistas().getCircuitoAtual().getnVoltas().toString());
         //Refresh dos Jogadores
-        NextRaceTextBox.setText(casa.getChampionship().getPistas().getCircuitoAtual().toString());
-        
-        // Carrega menu Jogadores
+         // Carrega menu Jogadores
         Object[] jgr = casa.getJogadores().paraArray();
-        for (int i=0;i<=casa.getJogadores().numeroJogadores();i++)
+        for (int i=0;i<casa.getJogadores().numeroJogadores();i++)
         { PlayerDropBox.addItem(jgr[i]); }
         
         // Carrega menu Equipas
         Object[] eqi = casa.getChampionship().getFrota().paraArray();
-        for (int i=0;i<=casa.getChampionship().getFrota().numeroEquipas();i++)
-        { EquipaDropBox.addItem(eqi[i]); }
-        EquipaDropBox = new JComboBox(casa.getChampionship().getFrota().paraArray());
+        for (int j=0;j<casa.getChampionship().getFrota().numeroEquipas();j++)
+        { EquipaDropBox.addItem(eqi[j]); }
+        
+        
+        NextRaceTextBox.setText(casa.getChampionship().getPistas().getCircuitoAtual().toString());
+        
+       
+        
+       
+
+        
+        //EquipaDropBox = new JComboBox(casa.getChampionship().getFrota().paraArray());
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
