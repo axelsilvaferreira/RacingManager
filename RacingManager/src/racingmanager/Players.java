@@ -66,9 +66,9 @@ public class Players implements Serializable
             str.add(p.getNome());
             //i++;
         }
-   return str.toArray();
+        return str.toArray();
    }    
-      
+  
    public int numeroJogadores(){
        return jogadores.size();
    }

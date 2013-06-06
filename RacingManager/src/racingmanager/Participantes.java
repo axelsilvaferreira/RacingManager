@@ -125,6 +125,10 @@ public class Participantes implements Serializable
       //System.out.println(ar.toArray().toString());
       return str.toArray();
   }
+  
+  public int numeroEquipas(){
+      return frota.size();
+  }
   /**
      * Método que cria um array de objectos com as caracteristicas de um veiculo
      * @return array de objectos
