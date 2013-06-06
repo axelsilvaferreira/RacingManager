@@ -4,6 +4,7 @@
  */
 package racingmanager;
 
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.IntArrayData;
 import java.awt.event.ActionEvent;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -77,7 +78,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
         EquipaDropBox = new javax.swing.JComboBox();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox();
+        Posicao = new javax.swing.JComboBox();
         ValorAposta = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -298,7 +299,14 @@ public class Menu extends javax.swing.JFrame implements Serializable
 
         jLabel14.setText("Classificação");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1º", "2º", "3º" }));
+        Posicao.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3" }));
+        Posicao.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                PosicaoActionPerformed(evt);
+            }
+        });
 
         ValorAposta.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         ValorAposta.setText("0");
@@ -400,41 +408,34 @@ public class Menu extends javax.swing.JFrame implements Serializable
                     .add(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(jPanel1Layout.createSequentialGroup()
-                                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel1Layout.createSequentialGroup()
-                                        .add(EquipaDropBox, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                        .add(jComboBox2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                        .add(61, 61, 61))
-                                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel1Layout.createSequentialGroup()
-                                        .add(6, 6, 6)
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .add(6, 6, 6)
+                                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(jPanel1Layout.createSequentialGroup()
+                                        .add(jLabel18)
+                                        .add(18, 18, 18)
+                                        .add(SaldoPlayer, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 68, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                        .add(jLabel19))
+                                    .add(jPanel1Layout.createSequentialGroup()
+                                        .add(jLabel15)
+                                        .add(18, 18, 18)
+                                        .add(ValorAposta, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 68, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                        .add(jLabel16))
+                                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .add(jLabel13)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                            .add(jPanel1Layout.createSequentialGroup()
-                                                .add(jLabel13)
-                                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .add(jLabel14))
-                                            .add(jPanel1Layout.createSequentialGroup()
-                                                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                                    .add(jPanel1Layout.createSequentialGroup()
-                                                        .add(jLabel18)
-                                                        .add(18, 18, 18)
-                                                        .add(SaldoPlayer, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 68, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                                        .add(jLabel19))
-                                                    .add(jPanel1Layout.createSequentialGroup()
-                                                        .add(jLabel15)
-                                                        .add(18, 18, 18)
-                                                        .add(ValorAposta, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 68, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                                        .add(jLabel16)))
-                                                .add(0, 0, Short.MAX_VALUE)))))
-                                .add(81, 81, 81))
+                                            .add(Posicao, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                            .add(jLabel14)))))
                             .add(jPanel1Layout.createSequentialGroup()
                                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                     .add(jLabel12)
-                                    .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(EquipaDropBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 160, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                .add(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .add(jButton3)
@@ -460,7 +461,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(EquipaDropBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jComboBox2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(Posicao, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .add(18, 18, 18)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel15)
@@ -672,6 +673,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here: NEW GAME
         this.casa = FileInput.loadAll();
+        Corrida c;
         //Recode.setText(casa.getChampionship().getPistas().getCircuitoAtual().getRecord().toString());
         //TextoCircuito.setText(casa.getChampionship().getPistas().getCircuitoAtual().getNome());
         //TextoVoltas.setText(casa.getChampionship().getPistas().getCircuitoAtual().getnVoltas().toString());
@@ -686,6 +688,8 @@ public class Menu extends javax.swing.JFrame implements Serializable
         for (int j=0;j<casa.getChampionship().getFrota().numeroEquipas();j++)
         { EquipaDropBox.addItem(eqi[j]); }
         
+        c = new Corrida(null, null, null, casa.getChampionship().getPistas().getCircuitoAtual(), casa.getChampionship().getFrota());
+        atual = c;
         
         NextRaceTextBox.setText(casa.getChampionship().getPistas().getCircuitoAtual().toString());
         
@@ -813,11 +817,11 @@ public class Menu extends javax.swing.JFrame implements Serializable
         //Simulação de uma corrida
         int n = casa.getChampionship().getPistas().numeroCircuitos();
 
-        if (casa.getChampionship().getPistas().isCircuitoAtual())
+        if (atual!=null)
         {  Circuito cir = casa.getChampionship().getPistas().getCircuitoAtual();
-            Corrida corr = new Corrida(null, null, null, cir, casa.getChampionship().getFrota());
+            Corrida corr = atual;
 
-            casa.getChampionship().getPistas().setAtual(casa.getChampionship().getPistas().getAtual()+1);
+            
             if (n==casa.getChampionship().getPistas().getAtual())
             {NextRaceTextBox.setText("");}
             else {NextRaceTextBox.setText(casa.getChampionship().getPistas().getCircuitoAtual().toString());}
@@ -829,6 +833,12 @@ public class Menu extends javax.swing.JFrame implements Serializable
             TextoCorrida.setText(str);
 
             casa.getChampionship().gethCorridas().addCorrida(corr);
+            
+            if (casa.getChampionship().getPistas().isCircuitoAtual())
+            {   atual = new Corrida(null,null,null,casa.getChampionship().getPistas().getCircuitoAtual(),casa.getChampionship().getFrota());
+                casa.getChampionship().getPistas().setAtual(casa.getChampionship().getPistas().getAtual()+1);
+            }
+            else {atual = null;}
         }
     }//GEN-LAST:event_SimularCorridaActionPerformed
 
@@ -857,10 +867,19 @@ public class Menu extends javax.swing.JFrame implements Serializable
         String apostador = (String) PlayerDropBox.getSelectedItem();
         String equipa    = (String) EquipaDropBox.getSelectedItem();
         Integer valor    = Integer.parseInt(ValorAposta.getText());
+        Integer pos      = Integer.parseInt(Posicao.getSelectedItem().toString());
         
-        Aposta a = new Aposta(null, null, WIDTH, atual, WIDTH, WIDTH)
-        casa.getJogadores().
+        double ven = 2*valor;
+                
+        Aposta a = new Aposta(apostador, equipa, valor, atual, pos, ven);
+        atual.setAposta(a);
+        System.out.println(a.toString());
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void PosicaoActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_PosicaoActionPerformed
+    {//GEN-HEADEREND:event_PosicaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PosicaoActionPerformed
 /**
      * @param args the command line arguments
      */
@@ -903,6 +922,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
     private javax.swing.JTextField NewPlayerName;
     private javax.swing.JTextArea NextRaceTextBox;
     private javax.swing.JComboBox PlayerDropBox;
+    private javax.swing.JComboBox Posicao;
     private javax.swing.JLabel Recode;
     private javax.swing.JTextField SaldoPlayer;
     private javax.swing.JButton SimularCorrida;
@@ -913,7 +933,6 @@ public class Menu extends javax.swing.JFrame implements Serializable
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox jComboBox2;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JFrame jFrame2;
     private javax.swing.JLabel jLabel1;
