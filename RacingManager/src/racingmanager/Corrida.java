@@ -112,12 +112,12 @@ public class Corrida implements Serializable
         StringBuilder str = new StringBuilder();
         Collection c = this.participante.getFrota().values();
         Iterator<Veiculo> itr = c.iterator();
-            Veiculo v = itr.next();
             this.setVoltaActual(this.circuito.getnVoltas());
         while(this.getVoltaActual()>0){
            TreeMap<Integer ,Veiculo> p;
            p = new TreeMap<Integer,Veiculo>();
         while(itr.hasNext()){
+        Veiculo v = itr.next();
         Integer i1 = v.tempoProximaVolta(this);
         if(i1 < this.circuito.getRecord().getTime()){
             Piloto p1;
@@ -140,23 +140,21 @@ public class Corrida implements Serializable
             else{
             v.settTotal(Integer.MAX_VALUE);
                 str.append("DNF " + v.getEquipa() + "\n");
-                 v = itr.next();
-          }  
-              }
+                  }  
+            }
         Collection n = p.values();
         Iterator<Veiculo> it = n.iterator();
         TreeMap<Integer,Veiculo> ranking;
-        Veiculo vi;
         ranking = new TreeMap<Integer,Veiculo>();
         while(it.hasNext()){
-        vi = it.next();
+          Veiculo vi = it.next();
         ranking.put(vi.gettTotal(),vi.clone());
        }
         Collection o = ranking.values();
         Iterator<Veiculo> itr1 = o.iterator();
+        int i3 = 0;
         while(itr1.hasNext()){
             Veiculo v1 = itr1.next();
-            int i3 = 0;
             Piloto ps;
             Record r;
             if (v1.getPAtual()) {ps = v1.getPiloto1();} else {ps = v1.getPiloto2();}
@@ -171,7 +169,6 @@ public class Corrida implements Serializable
             if(v1.gettTotal()!=Integer.MAX_VALUE){System.out.print(v1.gettTotal());}
             else {System.out.print("DNF");}
             i3++;
-            v1 = itr1.next();
              }
             this.setVoltaActual(this.getVoltaActual()-1);
           }
