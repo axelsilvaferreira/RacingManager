@@ -69,6 +69,10 @@ public class Players implements Serializable
    return str.toArray();
    }    
       
+   public int numeroJogadores(){
+       return jogadores.size();
+   }
+  
    public String toString(){
        StringBuilder s = new StringBuilder();
        
