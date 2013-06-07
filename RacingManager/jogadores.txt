@@ -1,2 +1,6 @@
 Pedro Andre,Braga,10.00
 Joaquim Fernandes,Porto,5.10
+Tiago Sousa, Guimarães,127
+João Rua, Braga, 155
+Axel Ferreira, Guimarães, 144
+Nestor Ribeiro, Braga, 210
