@@ -55,6 +55,10 @@ public class Players implements Serializable
       jogadores.remove(j.getNome());
   }
       
+  public void processaApostas(Corrida c)
+  {  for (Jogador j: jogadores.values())
+     {  j.processaAposta(c); }
+  }
       
   public Object[] paraArray(){
         //String[] str = new String[jogadores.size()];
