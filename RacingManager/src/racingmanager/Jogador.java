@@ -92,6 +92,30 @@ public class Jogador implements Serializable
         this.historico.addAposta(this.atual);
     }
     
+    public void processaAposta(Corrida c)
+    {   int pos = -1; 
+        System.out.print(getAtual().getPosicao().toString());
+
+      if (this.atual !=null && (getAtual() != null))  
+      {  // Processa a aposta
+          pos = getAtual().getPosicao();
+        switch (pos)
+                { case 1: if (c.getPrimeiro().getEquipa().equals(this.atual.getEquipa()))
+                          { this.setConta((conta + getAtual().getGanhos())); }
+                          break;
+                  case 2: if (c.getSegundo().equals(this.atual.getEquipa()))
+                          { this.setConta((conta + getAtual().getGanhos())); }
+                          break;
+                  case 3: if (c.getTerceiro().equals(this.atual.getEquipa()))
+                          { this.setConta((conta + getAtual().getGanhos())); }
+                          break;
+                  default: break;
+                } 
+        getHistorico().addAposta(getAtual());
+        this.setAtual(null);
+      }
+    }
+    
     public String toString(){
         StringBuilder s = new StringBuilder();
         
