@@ -18,7 +18,7 @@ public class Aposta implements Serializable
     private Integer montante;       // montante apostado
     private Corrida corrida;        // Corrida onde foi feita a aposta
     private Integer posicao;        //posicao em que foi feita a aposta
-    private double ganhos;         //devolve os ganhos sobre a aposta feita
+    private double ganhos;          //devolve os ganhos sobre a aposta feita
     
     public Aposta() 
     {   apostador   = "";
@@ -80,15 +80,7 @@ public class Aposta implements Serializable
         this.ganhos = g;
     }
     
-    public void processaAposta(Rank r)
-    {   int i = getPosicao();
-        Jogador j;
-        switch (i)
-                { case 1: if (r.getFirst().getCarro().equals(getEquipa()))
-                          {}
-                          break;
-                } 
-    }
+  
     
     public double getGanhos(){
         return ganhos;
