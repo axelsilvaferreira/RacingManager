@@ -876,9 +876,10 @@ public class Menu extends javax.swing.JFrame implements Serializable
             String str = corr.execCorrida();
             TextoCorrida.setText(str);
             // Processa Apostas
-            BLA BLA
+            casa.getJogadores().processaApostas(corr);
             
-
+            
+            
             casa.getChampionship().gethCorridas().addCorrida(corr);
             
             if (casa.getChampionship().getPistas().isCircuitoAtual())
@@ -887,6 +888,14 @@ public class Menu extends javax.swing.JFrame implements Serializable
                 atual.setRandomChuva();
             }
             else {atual = null;}
+            
+            //Refresh da lista de apostadores
+            PlayerDropBox.removeAllItems();
+            Object[] jgr = casa.getJogadores().paraArray();
+            for (int i=0;i<casa.getJogadores().numeroJogadores();i++)
+            { PlayerDropBox.addItem(jgr[i]); }
+            
+            
         }
     }//GEN-LAST:event_SimularCorridaActionPerformed
 
@@ -916,14 +925,20 @@ public class Menu extends javax.swing.JFrame implements Serializable
         String equipa    = (String) EquipaDropBox.getSelectedItem();
         Integer valor    = Integer.parseInt(ValorAposta.getText());
         Integer pos      = Integer.parseInt(Posicao.getSelectedItem().toString());
-        
         double ven = 2*valor;
+        Jogador j = casa.getJogadores().getJogador(apostador);
         
-        
-                
-        Aposta a = new Aposta(apostador, equipa, valor, atual, pos, ven);
-        atual.setAposta(a);
-        System.out.println(a.toString());
+        if ((valor > 0) && (valor <= j.getConta()))
+        { Aposta a = new Aposta(apostador, equipa, valor, atual, pos, ven);
+          //atual.setAposta(a);
+          j.setAtual(a);
+          j.setConta((j.getConta() - valor));
+          
+          String player = (String) PlayerDropBox.getSelectedItem();
+          SaldoPlayer.setText(j.getConta().toString());
+          ValorAposta.setText("0");
+          PlayerDropBox.removeItem(j.getNome());
+        }
     }//GEN-LAST:event_ApostaButtonActionPerformed
 
     private void PosicaoActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_PosicaoActionPerformed
