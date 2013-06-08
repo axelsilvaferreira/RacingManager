@@ -36,7 +36,7 @@ public class RacingManager {
       for (int j = 1; j <= casa.getChampionship().getPistas().numeroCircuitos(); j++) {
         System.out.println("---> " + j +"º Corrida <---");
         cir = casa.getChampionship().getPistas().getCircuitoAtual();
-        cor = new Corrida(null, null, null, cir, casa.getChampionship().getFrota());
+        cor = new Corrida(null, null, null, cir, casa.getChampionship().getFrota(),null);
         cor.execCorrida();
       }
       

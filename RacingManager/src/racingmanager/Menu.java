@@ -695,7 +695,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
         for (int j=0;j<casa.getChampionship().getFrota().numeroEquipas();j++)
         { EquipaDropBox.addItem(eqi[j]); }
         
-        c = new Corrida(null, null, null, casa.getChampionship().getPistas().getCircuitoAtual(), casa.getChampionship().getFrota());
+        c = new Corrida(null, null, null, casa.getChampionship().getPistas().getCircuitoAtual(), casa.getChampionship().getFrota(),null);
         atual = c;
         
         NextRaceTextBox.setText(casa.getChampionship().getPistas().getCircuitoAtual().toString());
@@ -890,7 +890,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
             casa.getChampionship().gethCorridas().addCorrida(corr);
             
             if (casa.getChampionship().getPistas().isCircuitoAtual())
-            {   atual = new Corrida(null,null,null,casa.getChampionship().getPistas().getCircuitoAtual(),casa.getChampionship().getFrota());
+            {   atual = new Corrida(null,null,null,casa.getChampionship().getPistas().getCircuitoAtual(),casa.getChampionship().getFrota(),null);
                 casa.getChampionship().getPistas().setAtual(casa.getChampionship().getPistas().getAtual()+1);
                 atual.setRandomChuva();
             }
