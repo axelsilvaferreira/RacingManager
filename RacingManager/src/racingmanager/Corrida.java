@@ -27,13 +27,15 @@ public class Corrida implements Serializable
     private boolean isChuva;
     private HistApostas apostas;
     private Integer voltaActual;
+    private Ranking ranking;
 
-    public Corrida(Record primeiro, Record segundo, Record terceiro, Circuito circuito, Participantes participante){
+    public Corrida(Record primeiro, Record segundo, Record terceiro, Circuito circuito, Participantes participante, Ranking ranking){
         this.primeiro = primeiro;
         this.segundo = segundo;
         this.terceiro = terceiro;
         this.circuito = circuito;
         this.participante = participante;
+        this.ranking = ranking;
         
     }
     
@@ -44,6 +46,7 @@ public class Corrida implements Serializable
         this.circuito = new Circuito();
         this.apostas = new HistApostas();
         this.participante = new Participantes();
+        this.ranking = new Ranking();
         
     }
     
@@ -134,7 +137,7 @@ public class Corrida implements Serializable
             Piloto p1;
             Record r;
            if (v.getPAtual()) {p1 = v.getPiloto1();} else {p1 = v.getPiloto2();}
-            r = new Record(i1, v.getEquipa(), p1.getNome());
+            r = new Record(i1, p1.getNome(), v.getEquipa(), v.getMarca());
         }
           if(i1 != Integer.MAX_VALUE){
             v.settTotal(v.gettTotal() + i1);
@@ -171,7 +174,7 @@ public class Corrida implements Serializable
             Record r;
             if(v1.gettTotal() != Integer.MAX_VALUE){
             if (v1.getPAtual()) {ps = v1.getPiloto1();} else {ps = v1.getPiloto2();}
-            r = new Record(v1.gettTotal(), v1.getEquipa(), ps.getNome());
+            r = new Record(v1.gettTotal(),ps.getNome(), v1.getMarca(),ps.getEquipa());
             switch (i3){
                 case 0 : this.setPrimeiro(r);
                 case 1 : this.setSegundo(r);
@@ -182,6 +185,7 @@ public class Corrida implements Serializable
             v1.setPontos(v1.getPontos()+ranking.size()-(i3-1));}
             else {rank.append("DNF" + ":" + v1.getEquipa() + "\n");}
             i3++;
+            this.ranking.addVeiculo(v1);
            }
         return rank.toString();
        }

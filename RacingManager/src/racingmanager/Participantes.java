@@ -7,7 +7,7 @@ import java.lang.String;
 
 
 /**
- *Conjunto de todos os veiculos que a empresa possuí
+ *Conjunto de todos os participantes de um campeonato
  * 
  * @author axelferreira
  * 
@@ -18,6 +18,7 @@ public class Participantes implements Serializable
     private static final long serialVersionUID = 1L;
     // Variáveis de Instâmcia
     private TreeMap<String, Veiculo> frota; //Alterei de Integer para String
+    private Ranking ranking;
     private Integer totalVitorias;
 
     
@@ -31,7 +32,6 @@ public class Participantes implements Serializable
    * @param v veiculo a adicionar
    */
   public void adVeiculo(Veiculo v) {   
-        //System.out.println(v.getEquipa());
         frota.put(v.getEquipa(), v); //Alterei de v.gettTotal() para v.getEquipa(); 
   }
   
@@ -78,7 +78,8 @@ public class Participantes implements Serializable
    * Método que prepara os veiculos para a proxima corrida
    */
   public void preparaCorrida(int nVoltas)
-  {  Collection c = frota.values();
+  { // this.ranking.clearRanking();
+     Collection c = frota.values();
      Iterator<Veiculo> itr = c.iterator();
      Veiculo v=null;
      while (itr.hasNext())
