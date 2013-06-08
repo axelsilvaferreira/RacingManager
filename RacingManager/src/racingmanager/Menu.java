@@ -872,6 +872,13 @@ public class Menu extends javax.swing.JFrame implements Serializable
             TextoVoltas.setText(cir.getnVoltas().toString());
             Recode.setText(corr.getCircuito().getRecord().toString());
             
+            //Refresh da lista de apostadores
+            PlayerDropBox.removeAllItems();
+            Object[] jgr = casa.getJogadores().paraArray();
+            for (int i=0;i<casa.getJogadores().numeroJogadores();i++)
+            { PlayerDropBox.addItem(jgr[i]); }
+            
+            
             // Processa Corrida
             String str = corr.execCorrida();
             TextoCorrida.setText(str);
@@ -889,11 +896,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
             }
             else {atual = null;}
             
-            //Refresh da lista de apostadores
-            PlayerDropBox.removeAllItems();
-            Object[] jgr = casa.getJogadores().paraArray();
-            for (int i=0;i<casa.getJogadores().numeroJogadores();i++)
-            { PlayerDropBox.addItem(jgr[i]); }
+            
             
             
         }
@@ -930,9 +933,10 @@ public class Menu extends javax.swing.JFrame implements Serializable
         
         if ((valor > 0) && (valor <= j.getConta()))
         { Aposta a = new Aposta(apostador, equipa, valor, atual, pos, ven);
-          //atual.setAposta(a);
+          
           j.setAtual(a);
           j.setConta((j.getConta() - valor));
+          atual.setAposta(a);
           
           String player = (String) PlayerDropBox.getSelectedItem();
           SaldoPlayer.setText(j.getConta().toString());

@@ -94,7 +94,7 @@ public class Jogador implements Serializable
     
     public void processaAposta(Corrida c)
     {   int pos = -1; 
-        System.out.print(getAtual().getPosicao().toString());
+        //System.out.print(getAtual().getPosicao().toString());
 
       if (this.atual !=null && (getAtual() != null))  
       {  // Processa a aposta
