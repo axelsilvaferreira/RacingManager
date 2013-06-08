@@ -54,6 +54,10 @@ public class Corrida implements Serializable
         this.primeiro = c.getPrimeiro();
         this.segundo = c.getSegundo();
         this.terceiro = c.getTerceiro();
+        this.circuito = c.getCircuito();
+        this.apostas = c.getApostas();
+        this.participante = c.getParticipante();
+        this.ranking = this.getRanking();
     }
 
     public Record getPrimeiro() {
@@ -115,6 +119,31 @@ public class Corrida implements Serializable
     public void setAposta(Aposta aposta) {
         this.apostas.addAposta(aposta);
     }
+
+    public boolean isIsChuva() {
+        return isChuva;
+    }
+
+    public void setIsChuva(boolean isChuva) {
+        this.isChuva = isChuva;
+    }
+
+    public HistApostas getApostas() {
+        return apostas;
+    }
+
+    public void setApostas(HistApostas apostas) {
+        this.apostas = apostas;
+    }
+
+    public Ranking getRanking() {
+        return ranking;
+    }
+
+    public void setRanking(Ranking ranking) {
+        this.ranking = ranking;
+    }
+    
     
     public String execCorrida(){
         this.participante.preparaCorrida(this.circuito.getnVoltas());
@@ -183,9 +212,10 @@ public class Corrida implements Serializable
             }
             if(v1.gettTotal()!=Integer.MAX_VALUE){rank.append(v1.getEquipa() + ":" + v1.gettTotal() + "\n");
             v1.setPontos(v1.getPontos()+ranking.size()-(i3-1));}
-            else {rank.append("DNF" + ":" + v1.getEquipa() + "\n");}
+            else {rank.append("DNF" + ":" + v1.getEquipa() + "\n");
+            v1.setPontos(v1.getPontos() + 0);
+            }
             i3++;
-            this.ranking.addVeiculo(v1);
            }
         return rank.toString();
        }

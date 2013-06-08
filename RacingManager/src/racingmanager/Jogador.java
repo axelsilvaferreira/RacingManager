@@ -130,4 +130,14 @@ public class Jogador implements Serializable
         return s.toString();
 
     }
+    
+    public String toRank(){
+        StringBuilder s = new StringBuilder();
+        
+        s.append("Nome" + nome);
+        s.append(":" + conta);
+        
+        return s.toString();
+    }
+    
 }
