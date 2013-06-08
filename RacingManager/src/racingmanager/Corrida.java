@@ -209,13 +209,12 @@ public class Corrida implements Serializable
                 case 1 : this.setSegundo(r);
                 case 2 : this.setTerceiro(r);
                }
+             i3++;
             }
             if(v1.gettTotal()!=Integer.MAX_VALUE){rank.append(v1.getEquipa() + ":" + v1.gettTotal() + "\n");
             v1.setPontos(v1.getPontos()+ranking.size()-(i3-1));}
             else {rank.append("DNF" + ":" + v1.getEquipa() + "\n");
-            v1.setPontos(v1.getPontos() + 0);
-            }
-            i3++;
+             }
            }
         return rank.toString();
        }
