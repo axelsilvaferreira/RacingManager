@@ -166,7 +166,7 @@ public class FileInput implements Serializable {
         l5 = Integer.parseInt(campos[5]);
         l6 = Integer.parseInt(campos[6]);
         
-        r = new Record(l6, campos[7], campos[8]);
+        r = new Record(l6, campos[7], campos[8], campos[9]);
         
         cir = new Circuito(campos[0], l1, l2, l3, l4, l5, r);
         
