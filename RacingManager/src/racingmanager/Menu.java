@@ -936,7 +936,7 @@ public class Menu extends javax.swing.JFrame implements Serializable
           
           j.setAtual(a);
           j.setConta((j.getConta() - valor));
-          atual.setAposta(a);
+          //atual.setAposta(a);
           
           String player = (String) PlayerDropBox.getSelectedItem();
           SaldoPlayer.setText(j.getConta().toString());
