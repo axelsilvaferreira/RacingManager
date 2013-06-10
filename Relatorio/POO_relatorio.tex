@@ -108,42 +108,38 @@
 		Este relatório inicia-se com uma capa, incluindo o título do projeto, a data, a identificação dos autores e da equipa docente que acompanhou o projeto. Segue-se o Índice, o Abstract que resume o projeto, a Introdução ao mesmo (onde se explicita o objetivo a atingir) e a Estrutura do Relatório. 
 		No desenvolvimento é abordada a implementação do simulador e da casa de apostas em detalhe. 
 		São ainda apresentadas as estruturas de dados utilizadas e explicada a razão de utilização das mesmas.
-		Por fim apresentam-se a Conclusão, os anexos e o Grupo.
+		Por fim apresentam-se a Conclusão.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%      ESTRUTURAS & TIPOS DE DADOS     %%%%%%%%%%
 \section{Simulador de Corridas}
 
-		A cada volta é calculado o tempo que cada carro demora a dar a volta através do método tempoProximVolta() estes tempos são guardados numa estrutura treeMap<tempo,Veiculo> posteriormente é impresso o participante mais rápido e todos aqueles que não acabam a volta
+		A cada volta é calculado o tempo que cada carro demora a dar a volta através do método tempoProximVolta() estes tempos são guardados numa estrutura treeMap<tempo,Veiculo> posteriormente é impresso o participante mais rápido  da volta, e todos aqueles que não acabam a volta como "DNF". Isto é repetido tantas vezes quantas voltas o circuito tiver definido.
+		No final são guardados os 3 primeiros classificados na própria corrida, que por sua vez é armazenada num histórico de corridas.
+		
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%     CASA DE APOSTAS     %%%%%%%%%%%%%%
 \section{Casa de Apostas}
 		
-		BLA BLA BLA
+		É possível criar Jogadores, que podem fazer apostas sobre cada corrida, apostando uma quantia monetária. Quando o jogador vence a aposta é recompensado uma vez que recebe o dobro da quantia apostada de volta.
+		Esta casa guarda ainda um rank com os melhores apostadores.
 		
+				
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%     ESTRUTURAS DE DADOS     %%%%%%%%%%%%
 \section{Estruturas de Dados}
 
-		BLA BLA BLA\\ 
+		
 		\vspace{5pt}
 		\includegraphics[width=\textwidth]{Grafo de Classes.JPG}
-		A estrutura de dados escolhida para armazenar os dados processados foi um Array de Listas Ligadas. Inicialmente este array tinha 100 posições possíveis para anos, isto porque dado o contexto do problema seria suficiente(dado que a primeira publicação datava de 1936). Contudo foi redimensionado para 3000 posições, ocupando cerca de 24KB de memória, uma dimensão ainda assim razoável dado o contexto do problema, isto devido á existência, nos ficheiros de teste, de datas de publicações fictícias do ano 1300. 
-		O ano corresponde ao índice do array, que é calculado retirando o ano inicial ao ano em questão e somando 1. O índice 0 foi reservado para manter contadores totais para facilitar a pesquisa eficiente por número de artigos.
-		Cada nodo do array tem um apontador para uma lista ligada. Estas listas ligadas têm 2 inteiros um que guarda o \#Autores que publicaram, o outro o número de artigos.
-		A razão pela qual esta estrutura foi escolhida deve-se á simplicidade de implementação bem como á vantagem em performance relativamente á utilização de apenas uma lista ligada.
-		Sabendo que o acesso ao array é constante, e que os artigos se encontram relativamente bem distribuídos por ano. O acesso ás sub-listas ligadas de um determinado ano é constante. Sabendo também que a distribuição de artigos por número de autor se encontra entre as co-autorias de 1 a 20 elementos, conclui-se que esta lista nunca será muito grande, garantindo assim pouca penalização nos acessos á memória (relativamente a uma alternativa implementada apenas em listas ligadas). 
+		Utilizou-se a Classe CasaApostas para guardar todas as outras estruturas de forma a poder serializar todo o estado do programa para um único ficheiro. A casa de Apostas contém portanto, um ranking dos apostadores, a estrutura de apostadores, e um Campeonato.
+		O Campeonato tem a estrutura de Circuitos, a estrutura de Participantes (frota de carros e respetivos pilotos) bem como o histórico de corridas e um ranking de equipas e um último ranking com apenas os veiculos hibridos. 
 		
 						
 \section{Conclusão}
 		
-		A principal dificuldade que foi ultrapassada, nomeadamente na 2ª Fase, foi a implementação das estruturas de dados uma vez que a função de inserção não funcionava corretamente tendo sido re implementada numa versão recursiva correta. A dificuldade não ultrapassada devido, ao tempo despendido no processo de refactoring, resume-se á falta de tempo para implementação da estrutura de co-autoria. 
-
-
-\section{Anexos}
-		
-		BLA BLA BLA		
+		A principal dificuldade que foi ultrapassada, foi a colisão de objetos na inserção na estrutura de TreeMap<> uma vez que para facilitar a manutenção do ranking os veiculos tinham, inicialmente sido guardados pela pontuação do campeonato. Uma vez que isto não foi possível iterou-se sobre os participantes para fazer o ranking.
 		
 			
 		

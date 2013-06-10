@@ -19,6 +19,7 @@ public class Jogador implements Serializable
     private String morada;          // Morada
     private double conta;           // Balanço da Conta Corrente
     private Aposta atual;           // Apostas Atuais
+    //private double ganhos;          // Ganhos de apostas
     private HistApostas historico;  // Historico de Apostas
 
     public Jogador()
@@ -27,13 +28,15 @@ public class Jogador implements Serializable
         conta     = 0;
         atual     = null;
         historico = null;
+       // ganhos = 0;
     }
 
-    public Jogador(String nome, String morada, double conta, Aposta atual, HistApostas historico) 
+    public Jogador(String nome, String morada, double conta, Aposta atual,Double ganhos, HistApostas historico) 
     {   this.nome = nome;
         this.morada = morada;
         this.conta = conta;
         this.atual = atual;
+        //this.ganhos = ganhos;
         this.historico = historico;
     }
 
@@ -44,6 +47,7 @@ public class Jogador implements Serializable
         this.morada = morada;
         this.conta = conta;
         this.atual = a;
+        //this.ganhos = 0;
         this.historico = h;
     }
     
@@ -54,6 +58,7 @@ public class Jogador implements Serializable
         morada    = j.getMorada();
         conta     = j.getConta();
         atual     = j.getAtual();
+        //ganhos    = j.getGanhos();
         historico = j.getHistorico();
     }
 
@@ -69,6 +74,8 @@ public class Jogador implements Serializable
     public void setMorada(String morada) 
     {   this.morada = morada;  }
 
+   
+    
     public Double getConta() 
     {   return conta;  }
 
