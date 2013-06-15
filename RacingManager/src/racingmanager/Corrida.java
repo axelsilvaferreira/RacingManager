@@ -211,9 +211,9 @@ public class Corrida implements Serializable
                }
              i3++;
             }
-            if(v1.gettTotal()!=Integer.MAX_VALUE){rank.append(v1.getEquipa() + ":" + v1.gettTotal() + "Pontos:" + v1.getPontos() + "\n");
+            if(v1.gettTotal()!=Integer.MAX_VALUE){rank.append(v1.getEquipa() + ":" + v1.gettTotal() + "\n");
             v1.setPontos(v1.getPontos()+ranking.size()-(i3-1));}
-            else {rank.append("DNF" + ":" + v1.getEquipa() +  "Pontos:" + v1.getPontos() + "\n");
+            else {rank.append("DNF" + ":" + v1.getEquipa() + "\n");
              }
            }
         return rank.toString();
