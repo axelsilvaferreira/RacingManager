@@ -221,7 +221,6 @@ public class FileInput implements Serializable {
         //Piloto p,e;
         Jogador j;
         Aposta a;
-        Double ganho;
         HistApostas h;
         pL = new Players();
         Double value;
